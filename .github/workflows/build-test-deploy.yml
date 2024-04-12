@@ -1,0 +1,60 @@
+name: Build, Test and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build
+    - name: Publish
+      run: dotnet publish MyWebApp -o out
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: wwwroot
+        path: out/wwwroot
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: build-and-test
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    steps:
+      - name: Download Atrifact
+        uses: actions/download-artifact@v4.1.4
+        with:
+          name: wwwroot
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
