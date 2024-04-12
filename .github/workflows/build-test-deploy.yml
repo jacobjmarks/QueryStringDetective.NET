@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  PROJECT_NAME: MyWebApp
-  SITE_BASE_PATH: "/dotnet-qs/"
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Configure GitHub Pages
+      id: pages
+      uses: actions/configure-pages@v5.0.0
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -26,9 +25,11 @@ jobs:
     - name: Test
       run: dotnet test --no-build
     - name: Publish
-      run: dotnet publish $PROJECT_NAME -o out
+      run: dotnet publish MyWebApp -o out
     - name: Set Base Path
       run: sed -i 's@<base href="/" />@<base href="$SITE_BASE_PATH" />@g' out/wwwroot/index.html
+      env:
+        SITE_BASE_PATH: ${{ format('{0}/', steps.pages.outputs.base_path) }}
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
