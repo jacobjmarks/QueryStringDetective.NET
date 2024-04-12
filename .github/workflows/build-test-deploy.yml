@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  PROJECT_NAME: MyWebApp
+  SITE_BASE_PATH: "/dotnet-qs/"
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -22,7 +26,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build
     - name: Publish
-      run: dotnet publish MyWebApp -o out
+      run: dotnet publish $PROJECT_NAME -o out
     - name: Upload Artifact
       uses: actions/upload-artifact@v4.3.1
       with:
@@ -44,17 +48,19 @@ jobs:
       group: "pages"
       cancel-in-progress: false
     steps:
-      - name: Download Atrifact
+      - name: Download Artifact
         uses: actions/download-artifact@v4.1.4
         with:
           name: wwwroot
+          path: site
+      - name: Set Base Path
+        run: sed -i 's@<base href="/" />@<base href="$SITE_BASE_PATH" />@g' site/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
