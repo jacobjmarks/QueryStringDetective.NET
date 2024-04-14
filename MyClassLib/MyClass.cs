@@ -24,15 +24,30 @@ public static class MyClass
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/string", ([FromQuery] string q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("/string-array", ([FromQuery] string[] q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("string", ([FromQuery] string q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("string[]", ([FromQuery] string[] q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("int", ([FromQuery] int q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("int[]", ([FromQuery] int[] q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("bool", ([FromQuery] bool q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("double", ([FromQuery] double q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("float", ([FromQuery] float q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("byte", ([FromQuery] byte q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("byte[]", ([FromQuery] byte[] q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("sbyte", ([FromQuery] sbyte q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("char", ([FromQuery] char q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("decimal", ([FromQuery] decimal q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("uint", ([FromQuery] uint q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("long", ([FromQuery] long q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("ulong", ([FromQuery] ulong q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("short", ([FromQuery] short q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("ushort", ([FromQuery] ushort q) => JsonSerializer.Serialize(q));
             });
         });
 
         return new TestServer(builder);
     }
 
-    public static async Task<object> TestQueryStringBindingAsync(string queryString)
+    public static async Task<JsonObject> TestQueryStringBindingAsync(string queryString)
     {
         ArgumentNullException.ThrowIfNull(queryString);
         if (!queryString.StartsWith("?q="))
@@ -53,7 +68,22 @@ public static class MyClass
 
         var result = new JsonObject();
         await TryAddResult(result, "string", CheckBindingAsync);
-        await TryAddResult(result, "string-array", CheckBindingAsync);
+        await TryAddResult(result, "string[]", CheckBindingAsync);
+        await TryAddResult(result, "int", CheckBindingAsync);
+        await TryAddResult(result, "int[]", CheckBindingAsync);
+        await TryAddResult(result, "bool", CheckBindingAsync);
+        await TryAddResult(result, "double", CheckBindingAsync);
+        await TryAddResult(result, "float", CheckBindingAsync);
+        await TryAddResult(result, "byte", CheckBindingAsync);
+        await TryAddResult(result, "byte[]", CheckBindingAsync);
+        await TryAddResult(result, "sbyte", CheckBindingAsync);
+        await TryAddResult(result, "char", CheckBindingAsync);
+        await TryAddResult(result, "decimal", CheckBindingAsync);
+        await TryAddResult(result, "uint", CheckBindingAsync);
+        await TryAddResult(result, "long", CheckBindingAsync);
+        await TryAddResult(result, "ulong", CheckBindingAsync);
+        await TryAddResult(result, "short", CheckBindingAsync);
+        await TryAddResult(result, "ushort", CheckBindingAsync);
 
         return result;
     }
