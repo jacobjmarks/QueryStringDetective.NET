@@ -11,13 +11,12 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>.NET QS</h1>
+<MudTextField T="string" Label="Query string" Class="my-6" Variant="Variant.Outlined" Adornment="Adornment.Start"
+    AdornmentText="?q=" @bind-Value="CurrentInputValue" Immediate="true" TextChanged="InputOnChange"></MudTextField>
 
-<code>?q=</code>
-
-<input @bind="CurrentInputValue" @bind:event="oninput" @bind:after="InputOnChange" />
-
-<pre>@bindingResults</pre>
+<MudText Typo="Typo.body1">
+    <pre>@bindingResults</pre>
+</MudText>
 
 @code {
     private string? CurrentInputValue { get; set; }
