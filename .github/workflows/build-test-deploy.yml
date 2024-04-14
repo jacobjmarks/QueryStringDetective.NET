@@ -38,7 +38,7 @@ jobs:
       with:
         path: out/wwwroot
 
-  deploy:
+  deploy-github-pages:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: build-and-test
     environment:
@@ -71,9 +71,9 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Build
-        run: dotnet build MyFunctionApp -o out
+        run: dotnet build MyFunctionApp -c Release -o out
       - name: Deploy to Azure Functions
-        uses: Azure/functions-action@v1
+        uses: Azure/functions-action@v1.5.1
         with:
           app-name: jacobjmarks-dotnet-qs
           package: out
