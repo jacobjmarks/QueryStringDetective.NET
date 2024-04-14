@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  DOTNET_VERSION: 8.0.x
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -17,7 +20,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Restore
       run: dotnet restore
     - name: Build
@@ -47,9 +50,31 @@ jobs:
       pages: write
       id-token: write
     concurrency:
-      group: "pages"
+      group: "github-pages"
       cancel-in-progress: false
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-function-app:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: build-and-test
+    environment: azure-functions
+    runs-on: ubuntu-latest
+    concurrency:
+      group: "azure-functions"
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Build
+        run: dotnet build MyFunctionApp -o out
+      - name: Deploy to Azure Functions
+        uses: Azure/functions-action@v1
+        with:
+          app-name: jacobjmarks-dotnet-qs
+          package: out
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
