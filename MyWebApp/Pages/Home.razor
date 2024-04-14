@@ -1,29 +1,63 @@
 ﻿@page "/"
 
+@using Microsoft.AspNetCore.Http
+@using Microsoft.Extensions.Options
+@using Microsoft.Extensions.Primitives
+
+@implements IDisposable
+
+@inject AppConfig appConfig
+
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>.NET QS</h1>
 
-Welcome to your new app.
+<input @bind="CurrentInputValue" @bind:event="oninput" @bind:after="InputOnChange" />
 
-<h1>Counter</h1>
-
-<p>Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-
-<h1>Generate a Guid</h1>
-
-<p>Guid Value: @guid</p>
-<button class="btn btn-primary" @onclick="GenerateGuid">Click me</button>
+<pre>@bindingResults</pre>
 
 @code {
-    private int currentCount = 0;
-    private void IncrementCount()
+    private string? CurrentInputValue { get; set; }
+
+    private readonly HttpClient httpClient = new();
+    private readonly TimeSpan minRequestInterval = TimeSpan.FromSeconds(1);
+    private DateTime lastRequestAt = DateTime.MinValue;
+    private string? lastRequestedInputValue;
+
+    private string? bindingResults;
+
+    private async Task InputOnChange()
     {
-        currentCount++;
+        if (CurrentInputValue == null)
+            return;
+
+        if (DateTime.Now - lastRequestAt < minRequestInterval)
+        {
+            if (CurrentInputValue != lastRequestedInputValue)
+            {
+                await Task.Delay(50);
+                await InputOnChange();
+            }
+
+            return;
+        }
+
+        lastRequestAt = DateTime.Now;
+        await GetBindingResultsAsync(CurrentInputValue);
     }
 
-    private Guid? guid = null;
-    private void GenerateGuid() => guid = Guid.NewGuid();
+    private async Task GetBindingResultsAsync(string inputValue)
+    {
+        lastRequestedInputValue = inputValue;
+        var qs = QueryString.Create("q", "?q=" + inputValue);
+        using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
+        response.EnsureSuccessStatusCode();
+        var responseContent = await response.Content.ReadAsStringAsync();
+        bindingResults = responseContent;
+    }
+
+    public void Dispose()
+    {
+        httpClient.Dispose();
+    }
 }
