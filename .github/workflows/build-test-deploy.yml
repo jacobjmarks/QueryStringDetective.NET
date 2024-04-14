@@ -72,6 +72,11 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Build
         run: dotnet build MyFunctionApp -c Release -o out
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: azure-function-app
+          path: out
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1.5.1
         with:
