@@ -41,3 +41,6 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# Azure Functions localsettings file
+local.settings.json

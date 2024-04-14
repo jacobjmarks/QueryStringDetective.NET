@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApp", "MyWebApp\MyWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClassLib", "MyClassLib\MyClassLib.csproj", "{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFunctionApp", "MyFunctionApp\MyFunctionApp.csproj", "{1612512C-7574-4267-BECE-93FEAEF5A78F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1612512C-7574-4267-BECE-93FEAEF5A78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1612512C-7574-4267-BECE-93FEAEF5A78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1612512C-7574-4267-BECE-93FEAEF5A78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1612512C-7574-4267-BECE-93FEAEF5A78F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
