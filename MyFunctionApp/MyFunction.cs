@@ -10,12 +10,12 @@ public class MyFunction
     [Function("MyFunction")]
     public async Task<HttpResponseData> RunAsync(
         [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req,
-        [FromQuery(Name = "q")] string queryString)
+        string q)
     {
-        if (string.IsNullOrWhiteSpace(queryString) || !queryString.StartsWith("?q="))
+        if (string.IsNullOrWhiteSpace(q) || !q.StartsWith("?q="))
             return req.CreateResponse(HttpStatusCode.BadRequest);
 
-        var bindingResults = await MyClassLib.MyClass.TestQueryStringBindingAsync(queryString);
+        var bindingResults = await MyClassLib.MyClass.TestQueryStringBindingAsync(q);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(bindingResults);

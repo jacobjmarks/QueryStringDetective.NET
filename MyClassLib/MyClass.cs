@@ -41,23 +41,29 @@ public static class MyClass
         using var minimalApiTestServer = CreateMinimalApiTestServer();
         using var minimalApiClient = minimalApiTestServer.CreateClient();
 
+        async Task<JsonNode?> CheckBindingAsync(string endpoint)
+        {
+            using var response = await minimalApiClient.GetAsync(endpoint + queryString);
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return JsonNode.Parse(responseContent);
+        }
+
         var result = new JsonObject();
-
-        var bindingChecks = new string[]
-            { "string", "string-array", }
-            .Select(endpoint => Task.Run(async () =>
-            {
-                using var response = await minimalApiClient.GetAsync(endpoint);
-                if (!response.IsSuccessStatusCode)
-                    return;
-
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var bindingResult = JsonNode.Parse(responseContent);
-                result.Add(endpoint, bindingResult);
-            }));
-
-        await Task.WhenAll(bindingChecks);
+        await TryAddResult(result, "string", CheckBindingAsync);
+        await TryAddResult(result, "string-array", CheckBindingAsync);
 
         return result;
+    }
+
+    private static async Task TryAddResult(JsonObject jsonObject, string key, Func<string, Task<JsonNode?>> action)
+    {
+        var result = await action(key);
+        if (result != null)
+        {
+            jsonObject.Add(key, result);
+        }
     }
 }
