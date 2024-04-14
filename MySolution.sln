@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApp", "MyWebApp\MyWebApp.csproj", "{C22773FB-10FF-403B-ACF5-C7675B3CDA98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClassLib", "MyClassLib\MyClassLib.csproj", "{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C22773FB-10FF-403B-ACF5-C7675B3CDA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C22773FB-10FF-403B-ACF5-C7675B3CDA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C22773FB-10FF-403B-ACF5-C7675B3CDA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E6FE07-ECA1-48D2-BA83-3F75C4D65748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
