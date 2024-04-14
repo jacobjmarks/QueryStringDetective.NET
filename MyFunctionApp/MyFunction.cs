@@ -9,7 +9,7 @@ public class MyFunction
 {
     [Function("MyFunction")]
     public async Task<HttpResponseData> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
         string q)
     {
         if (string.IsNullOrWhiteSpace(q) || !q.StartsWith("?q="))
