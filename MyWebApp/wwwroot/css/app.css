@@ -64,6 +64,7 @@
 .loading-progress-text {
     position: absolute;
     text-align: center;
+    font-family: sans-serif;
     font-weight: bold;
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
