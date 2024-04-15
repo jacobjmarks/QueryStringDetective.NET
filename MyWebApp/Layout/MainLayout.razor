@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -10,8 +10,13 @@
             .NET Query String Binding Tester
         </MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End"
-            Href="https://github.com/jacobjmarks/dotnet-qs" Target="_blank" />
+        <MudTooltip Delay="250" Text="@(_darkLightModeText)">
+            <MudIconButton Icon="@(_darkLightModeIcon)" Color="Color.Inherit" OnClick="@ToggleDarkLightMode" />
+        </MudTooltip>
+        <MudTooltip Delay="250" Text="See GitHub Repository">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End"
+                Href="https://github.com/jacobjmarks/dotnet-qs" Target="_blank" />
+        </MudTooltip>
     </MudAppBar>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Medium">
@@ -19,3 +24,41 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
+
+@code {
+    private string _darkLightModeText = null!;
+    private string _darkLightModeIcon = null!;
+    private bool _isDarkMode;
+
+    private MudThemeProvider _mudThemeProvider = null!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
+            UpdateDarkLightModeIcon();
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleDarkLightMode()
+    {
+        _isDarkMode = !_isDarkMode;
+        UpdateDarkLightModeIcon();
+    }
+
+    private void UpdateDarkLightModeIcon()
+    {
+        if (_isDarkMode)
+        {
+            _darkLightModeText = "Switch to Light Mode";
+            _darkLightModeIcon = Icons.Material.Filled.LightMode;
+        }
+        else
+        {
+            _darkLightModeText = "Switch to Dark Mode";
+            _darkLightModeIcon = Icons.Material.Filled.DarkMode;
+        }
+    }
+}
