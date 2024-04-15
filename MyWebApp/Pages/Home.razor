@@ -25,6 +25,17 @@
     </RowTemplate>
 </MudTable>
 
+@if (lastRequestedInputValue == null)
+{
+    <MudText Align="Align.Center" Class="pt-4">
+        Get started by entering a query string above...
+    </MudText>
+}
+else
+{
+
+}
+
 @code {
     private string? CurrentInputValue { get; set; }
 
