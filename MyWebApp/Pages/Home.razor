@@ -9,14 +9,21 @@
 
 @inject AppConfig appConfig
 
-<PageTitle>Home</PageTitle>
+<PageTitle>.NET QS</PageTitle>
 
 <MudTextField T="string" Label="Query string" Class="my-6" Variant="Variant.Outlined" Adornment="Adornment.Start"
     AdornmentText="?q=" @bind-Value="CurrentInputValue" Immediate="true" TextChanged="InputOnChange"></MudTextField>
 
-<MudText Typo="Typo.body1">
-    <pre>@bindingResults</pre>
-</MudText>
+<MudTable Items="@bindingResults" Breakpoint="Breakpoint.None" Loading="@isLoading">
+    <HeaderContent>
+        <MudTh>Parameter Type</MudTh>
+        <MudTh>Binding Result</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Parameter Type" Class="mono">@context.Key</MudTd>
+        <MudTd DataLabel="Binding Result" Class="mono">@context.Value?.ToJsonString()</MudTd>
+    </RowTemplate>
+</MudTable>
 
 @code {
     private string? CurrentInputValue { get; set; }
@@ -26,26 +33,37 @@
     private DateTime lastRequestAt = DateTime.MinValue;
     private string? lastRequestedInputValue;
 
-    private string? bindingResults;
+    private bool isLoading = false;
+
+    private JsonObject bindingResults = new();
 
     private async Task InputOnChange()
     {
         if (CurrentInputValue == null)
             return;
 
-        if (DateTime.Now - lastRequestAt < minRequestInterval)
+        isLoading = true;
+
+        try
         {
-            if (CurrentInputValue != lastRequestedInputValue)
+            if (DateTime.Now - lastRequestAt < minRequestInterval)
             {
-                await Task.Delay(50);
-                await InputOnChange();
+                if (CurrentInputValue != lastRequestedInputValue)
+                {
+                    await Task.Delay(50);
+                    await InputOnChange();
+                }
+
+                return;
             }
 
-            return;
+            lastRequestAt = DateTime.Now;
+            await GetBindingResultsAsync(CurrentInputValue);
         }
-
-        lastRequestAt = DateTime.Now;
-        await GetBindingResultsAsync(CurrentInputValue);
+        finally
+        {
+            isLoading = false;
+        }
     }
 
     private async Task GetBindingResultsAsync(string inputValue)
@@ -55,7 +73,7 @@
         using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
         var responseContent = await response.Content.ReadAsStringAsync();
-        bindingResults = JsonNode.Parse(responseContent)?.ToJsonString(new() { WriteIndented = true });
+        bindingResults = JsonNode.Parse(responseContent)?.AsObject() ?? new();
     }
 
     public void Dispose()
