@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
+using MySharedClassLib;
 
 namespace MyClassLib;
 
@@ -47,7 +48,7 @@ public static class MyClass
         return new TestServer(builder);
     }
 
-    public static async Task<JsonObject> TestQueryStringBindingAsync(string queryString)
+    public static async Task<IEnumerable<BindingResult>> TestQueryStringBindingAsync(string queryString)
     {
         ArgumentNullException.ThrowIfNull(queryString);
         if (!queryString.StartsWith("?q="))
@@ -56,44 +57,42 @@ public static class MyClass
         using var minimalApiTestServer = CreateMinimalApiTestServer();
         using var minimalApiClient = minimalApiTestServer.CreateClient();
 
-        async Task<JsonNode?> CheckBindingAsync(string endpoint)
+        async Task<BindingResult> CheckBindingAsync(string type, string? endpoint = null)
         {
-            using var response = await minimalApiClient.GetAsync(endpoint + queryString);
-            if (!response.IsSuccessStatusCode)
-                return null;
+            endpoint ??= type;
 
-            var responseContent = await response.Content.ReadAsStringAsync();
-            return JsonNode.Parse(responseContent);
+            try
+            {
+                using var response = await minimalApiClient.GetAsync(endpoint + queryString);
+                response.EnsureSuccessStatusCode();
+                var responseContent = await response.Content.ReadAsStringAsync();
+                return new(type, Result: JsonNode.Parse(responseContent));
+            }
+            catch (Exception e)
+            {
+                return new(type, Error: e.Message);
+            }
         }
 
-        var result = new JsonObject();
-        await TryAddResult(result, "string", CheckBindingAsync);
-        await TryAddResult(result, "string[]", CheckBindingAsync);
-        await TryAddResult(result, "int", CheckBindingAsync);
-        await TryAddResult(result, "int[]", CheckBindingAsync);
-        await TryAddResult(result, "bool", CheckBindingAsync);
-        await TryAddResult(result, "double", CheckBindingAsync);
-        await TryAddResult(result, "float", CheckBindingAsync);
-        await TryAddResult(result, "byte", CheckBindingAsync);
-        await TryAddResult(result, "byte[]", CheckBindingAsync);
-        await TryAddResult(result, "sbyte", CheckBindingAsync);
-        await TryAddResult(result, "char", CheckBindingAsync);
-        await TryAddResult(result, "decimal", CheckBindingAsync);
-        await TryAddResult(result, "uint", CheckBindingAsync);
-        await TryAddResult(result, "long", CheckBindingAsync);
-        await TryAddResult(result, "ulong", CheckBindingAsync);
-        await TryAddResult(result, "short", CheckBindingAsync);
-        await TryAddResult(result, "ushort", CheckBindingAsync);
-
-        return result;
-    }
-
-    private static async Task TryAddResult(JsonObject jsonObject, string key, Func<string, Task<JsonNode?>> action)
-    {
-        var result = await action(key);
-        if (result != null)
-        {
-            jsonObject.Add(key, result);
-        }
+        return
+        [
+            await CheckBindingAsync("string"),
+            await CheckBindingAsync("string[]"),
+            await CheckBindingAsync("int"),
+            await CheckBindingAsync("int[]"),
+            await CheckBindingAsync("bool"),
+            await CheckBindingAsync("double"),
+            await CheckBindingAsync("float"),
+            await CheckBindingAsync("byte"),
+            await CheckBindingAsync("byte[]"),
+            await CheckBindingAsync("sbyte"),
+            await CheckBindingAsync("char"),
+            await CheckBindingAsync("decimal"),
+            await CheckBindingAsync("uint"),
+            await CheckBindingAsync("long"),
+            await CheckBindingAsync("ulong"),
+            await CheckBindingAsync("short"),
+            await CheckBindingAsync("ushort"),
+        ];
     }
 }

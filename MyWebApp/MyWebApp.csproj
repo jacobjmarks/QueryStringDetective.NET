@@ -13,4 +13,8 @@
     <PackageReference Include="MudBlazor" Version="6.19.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MySharedClassLib\MySharedClassLib.csproj" />
+  </ItemGroup>
+
 </Project>

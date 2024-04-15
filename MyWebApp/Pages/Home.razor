@@ -4,6 +4,7 @@
 @using Microsoft.Extensions.Options
 @using Microsoft.Extensions.Primitives
 @using System.Text.Json.Nodes
+@using MySharedClassLib
 
 @implements IDisposable
 
@@ -20,8 +21,17 @@
         <MudTh>Binding Result</MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Parameter Type" Class="mono">@context.Key</MudTd>
-        <MudTd DataLabel="Binding Result" Class="mono">@context.Value?.ToJsonString()</MudTd>
+        <MudTd DataLabel="Parameter Type" Class="mono">@context.Type</MudTd>
+        <MudTd DataLabel="Binding Result" Class="mono">
+            @if (context.Error != null)
+            {
+                <MudText Color="Color.Error">@context.Error</MudText>
+            }
+            else
+            {
+                @context.Result
+            }
+        </MudTd>
     </RowTemplate>
 </MudTable>
 
@@ -46,7 +56,7 @@ else
 
     private bool isLoading = false;
 
-    private JsonObject bindingResults = new();
+    private IEnumerable<BindingResult> bindingResults = [];
 
     private async Task InputOnChange()
     {
@@ -83,8 +93,7 @@ else
         var qs = QueryString.Create("q", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
-        var responseContent = await response.Content.ReadAsStringAsync();
-        bindingResults = JsonNode.Parse(responseContent)?.AsObject() ?? new();
+        bindingResults = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [];
     }
 
     public void Dispose()
