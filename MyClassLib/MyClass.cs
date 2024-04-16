@@ -1,5 +1,6 @@
-﻿using System.Text.Json;
-using System.Text.Json.Nodes;
+﻿using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +22,10 @@ public static class MyClass
         {
             services.AddRouting();
             services.Configure<RouteHandlerOptions>(o => o.ThrowOnBadRequest = true);
+            services.ConfigureHttpJsonOptions(json =>
+            {
+                json.SerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
+            });
         });
 
         builder.Configure(app =>
@@ -28,23 +33,23 @@ public static class MyClass
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("string", ([FromQuery] string q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("string[]", ([FromQuery] string[] q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("int", ([FromQuery] int q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("int[]", ([FromQuery] int[] q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("bool", ([FromQuery] bool q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("double", ([FromQuery] double q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("float", ([FromQuery] float q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("byte", ([FromQuery] byte q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("byte[]", ([FromQuery] byte[] q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("sbyte", ([FromQuery] sbyte q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("char", ([FromQuery] char q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("decimal", ([FromQuery] decimal q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("uint", ([FromQuery] uint q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("long", ([FromQuery] long q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("ulong", ([FromQuery] ulong q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("short", ([FromQuery] short q) => JsonSerializer.Serialize(q));
-                endpoints.MapGet("ushort", ([FromQuery] ushort q) => JsonSerializer.Serialize(q));
+                endpoints.MapGet("string", ([FromQuery] string q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("string[]", ([FromQuery] string[] q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("int", ([FromQuery] int q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("int[]", ([FromQuery] int[] q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("bool", ([FromQuery] bool q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("double", ([FromQuery] double q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("float", ([FromQuery] float q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("byte", ([FromQuery] byte q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("byte[]", ([FromQuery] byte[] q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("sbyte", ([FromQuery] sbyte q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("char", ([FromQuery] char q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("decimal", ([FromQuery] decimal q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("uint", ([FromQuery] uint q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("long", ([FromQuery] long q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("ulong", ([FromQuery] ulong q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("short", ([FromQuery] short q, HttpResponse r) => r.WriteAsJsonAsync(q));
+                endpoints.MapGet("ushort", ([FromQuery] ushort q, HttpResponse r) => r.WriteAsJsonAsync(q));
             });
         });
 
@@ -68,8 +73,7 @@ public static class MyClass
             {
                 using var response = await minimalApiClient.GetAsync(endpoint + queryString);
                 response.EnsureSuccessStatusCode();
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return new(type, Result: JsonNode.Parse(responseContent));
+                return new(type, Result: await response.Content.ReadFromJsonAsync<JsonElement>());
             }
             catch (BadHttpRequestException e)
             {
@@ -77,25 +81,25 @@ public static class MyClass
             }
         }
 
-        return
+        return await Task.WhenAll(
         [
-            await CheckBindingAsync("string"),
-            await CheckBindingAsync("string[]"),
-            await CheckBindingAsync("int"),
-            await CheckBindingAsync("int[]"),
-            await CheckBindingAsync("bool"),
-            await CheckBindingAsync("double"),
-            await CheckBindingAsync("float"),
-            await CheckBindingAsync("byte"),
-            await CheckBindingAsync("byte[]"),
-            await CheckBindingAsync("sbyte"),
-            await CheckBindingAsync("char"),
-            await CheckBindingAsync("decimal"),
-            await CheckBindingAsync("uint"),
-            await CheckBindingAsync("long"),
-            await CheckBindingAsync("ulong"),
-            await CheckBindingAsync("short"),
-            await CheckBindingAsync("ushort"),
-        ];
+            CheckBindingAsync("string"),
+            CheckBindingAsync("string[]"),
+            CheckBindingAsync("int"),
+            CheckBindingAsync("int[]"),
+            CheckBindingAsync("bool"),
+            CheckBindingAsync("double"),
+            CheckBindingAsync("float"),
+            CheckBindingAsync("byte"),
+            CheckBindingAsync("byte[]"),
+            CheckBindingAsync("sbyte"),
+            CheckBindingAsync("char"),
+            CheckBindingAsync("decimal"),
+            CheckBindingAsync("uint"),
+            CheckBindingAsync("long"),
+            CheckBindingAsync("ulong"),
+            CheckBindingAsync("short"),
+            CheckBindingAsync("ushort"),
+        ]);
     }
 }

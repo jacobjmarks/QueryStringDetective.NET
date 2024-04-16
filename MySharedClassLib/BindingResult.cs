@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace MySharedClassLib;
 
@@ -18,4 +19,9 @@ public record BindingResult(
 
         [property: JsonPropertyName("d"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         string? Detail);
+
+    [JsonIgnore]
+    [MemberNotNullWhen(true, nameof(Error))]
+    [MemberNotNullWhen(false, nameof(Result))]
+    public bool IsErroneous { get => Error != null; }
 }

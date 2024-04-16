@@ -1,9 +1,6 @@
-﻿@page "/"
+@page "/"
 
 @using Microsoft.AspNetCore.Http
-@using Microsoft.Extensions.Options
-@using Microsoft.Extensions.Primitives
-@using System.Text.Json.Nodes
 @using MySharedClassLib
 
 @implements IDisposable
@@ -17,7 +14,8 @@
     Immediate="true" TextChanged="InputOnChange">
 </MudTextField>
 
-<MudTable Items="@bindingResults" Breakpoint="Breakpoint.None" Loading="@isLoading">
+<MudTable Items="@bindingResults" Dense="false" Breakpoint="Breakpoint.None" Loading="@isLoading"
+    RowStyleFunc="@((ctx, _) => ctx.IsErroneous ? "opacity: 0.65" : "")">
     <HeaderContent>
         <MudTh>Parameter Type</MudTh>
         <MudTh>Binding Result</MudTh>
@@ -25,7 +23,7 @@
     <RowTemplate>
         <MudTd DataLabel="Parameter Type" Class="mono">@context.Type</MudTd>
         <MudTd DataLabel="Binding Result" Class="mono">
-            @if (context.Error != null)
+            @if (context.IsErroneous)
             {
                 <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
                     @context.Error.Message
@@ -36,7 +34,7 @@
             }
             else
             {
-                @context.Result
+                <MudText>@context.Result</MudText>
             }
         </MudTd>
     </RowTemplate>
@@ -101,7 +99,7 @@ else
         using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
         bindingResults = (await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [])
-            .OrderBy(r => r.Error != null);
+            .OrderByDescending(r => !r.IsErroneous);
     }
 
     public void Dispose()
