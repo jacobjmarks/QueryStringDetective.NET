@@ -1,4 +1,4 @@
-@page "/"
+﻿@page "/"
 
 @using Microsoft.AspNetCore.Http
 @using Microsoft.Extensions.Options
@@ -12,8 +12,10 @@
 
 <PageTitle>.NET Query String Detective</PageTitle>
 
-<MudTextField T="string" Label="Query string" Class="my-6" Variant="Variant.Outlined" Adornment="Adornment.Start"
-    AdornmentText="?q=" @bind-Value="CurrentInputValue" Immediate="true" TextChanged="InputOnChange"></MudTextField>
+<MudTextField T="string" spellcheck="false" Class="my-6 qs-input" Label="Query string" Placeholder="hello&q=world"
+    Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" @bind-Value="CurrentInputValue"
+    Immediate="true" TextChanged="InputOnChange">
+</MudTextField>
 
 <MudTable Items="@bindingResults" Breakpoint="Breakpoint.None" Loading="@isLoading">
     <HeaderContent>
