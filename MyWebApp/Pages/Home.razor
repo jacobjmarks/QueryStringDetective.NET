@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 
 @using Microsoft.AspNetCore.Http
 @using Microsoft.Extensions.Options
@@ -25,7 +25,12 @@
         <MudTd DataLabel="Binding Result" Class="mono">
             @if (context.Error != null)
             {
-                <MudText Color="Color.Error">@context.Error</MudText>
+                <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
+                    @context.Error.Message
+                </MudText>
+                <MudText Color="Color.Error" Typo="Typo.caption">
+                    @context.Error.Detail
+                </MudText>
             }
             else
             {
@@ -93,7 +98,8 @@ else
         var qs = QueryString.Create("q", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
-        bindingResults = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [];
+        bindingResults = (await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [])
+            .OrderBy(r => r.Error != null);
     }
 
     public void Dispose()

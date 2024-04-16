@@ -10,4 +10,12 @@ public record BindingResult(
     object? Result = null,
 
     [property: JsonPropertyName("e"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    string? Error = null);
+    BindingResult.ProblemDetails? Error = null)
+{
+    public record ProblemDetails(
+        [property: JsonPropertyName("m")]
+        string Message,
+
+        [property: JsonPropertyName("d"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        string? Detail);
+}

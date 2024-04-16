@@ -78,7 +78,7 @@ code {
 }
 
 .mono {
-    font-family: "Roboto Mono", monospace;
+    font-family: "Roboto Mono", monospace !important;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;

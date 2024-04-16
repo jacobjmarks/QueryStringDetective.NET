@@ -2,7 +2,9 @@
 using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using MySharedClassLib;
@@ -18,6 +20,7 @@ public static class MyClass
         builder.ConfigureServices(services =>
         {
             services.AddRouting();
+            services.Configure<RouteHandlerOptions>(o => o.ThrowOnBadRequest = true);
         });
 
         builder.Configure(app =>
@@ -68,9 +71,9 @@ public static class MyClass
                 var responseContent = await response.Content.ReadAsStringAsync();
                 return new(type, Result: JsonNode.Parse(responseContent));
             }
-            catch (Exception e)
+            catch (BadHttpRequestException e)
             {
-                return new(type, Error: e.Message);
+                return new(type, Error: new("400 Bad Request", e.Message));
             }
         }
 
