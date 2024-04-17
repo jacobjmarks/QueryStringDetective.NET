@@ -1,4 +1,4 @@
-@page "/"
+﻿@page "/"
 
 @using Microsoft.AspNetCore.Http
 @using MySharedClassLib
@@ -9,47 +9,50 @@
 
 <PageTitle>.NET Query String Detective</PageTitle>
 
-<MudTextField T="string" spellcheck="false" Class="my-6 qs-input" Label="Query string" Placeholder="hello&q=world"
-    Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" @bind-Value="CurrentInputValue"
-    Immediate="true" TextChanged="InputOnChange">
-</MudTextField>
+<MudStack Class="pt-5">
+    <MudTextField T="string" spellcheck="false" Class="qs-input" Label="Query string" Placeholder="hello&q=world"
+        Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" @bind-Value="CurrentInputValue"
+        Immediate="true" TextChanged="InputOnChange">
+    </MudTextField>
 
-<MudTable Items="@bindingResults" Dense="false" Breakpoint="Breakpoint.None" Loading="@isLoading"
-    RowStyleFunc="@((ctx, _) => ctx.IsErroneous ? "opacity: 0.65" : "")">
-    <HeaderContent>
-        <MudTh>Parameter Type</MudTh>
-        <MudTh>Binding Result</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Parameter Type" Class="mono">@context.Type</MudTd>
-        <MudTd DataLabel="Binding Result" Class="mono">
-            @if (context.IsErroneous)
-            {
-                <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
-                    @context.Error.Message
-                </MudText>
-                <MudText Color="Color.Error" Typo="Typo.caption">
-                    @context.Error.Detail
-                </MudText>
-            }
-            else
-            {
-                <MudText>@context.Result</MudText>
-            }
-        </MudTd>
-    </RowTemplate>
-</MudTable>
+    <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
+        <MudText Typo="Typo.body2">
+            Enter a query string above and see how its value is bound to various .NET types
+        </MudText>
+        <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
+            Show Erroneous
+        </MudSwitch>
+    </MudStack>
 
-@if (lastRequestedInputValue == null)
-{
-    <MudText Align="Align.Center" Class="pt-4">
-        Get started by entering a query string above...
-    </MudText>
-}
-else
-{
+    <MudTable Items="@bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@isLoading"
+        Filter="@(r => showErroneous ? true : !r.IsErroneous)">
+        <HeaderContent>
+            <MudTh>Parameter Type</MudTh>
+            <MudTh>Binding Result</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Parameter Type">
+                <MudText Class="mono">@context.Type</MudText>
+            </MudTd>
+            <MudTd DataLabel="Binding Result" Class="mono">
+                @if (context.IsErroneous)
+                {
+                    <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
+                        @context.Error.Message
+                    </MudText>
+                    <MudText Color="Color.Error" Typo="Typo.caption">
+                        @context.Error.Detail
+                    </MudText>
+                }
+                else
+                {
+                    <MudText Class="mono">@context.Result</MudText>
+                }
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudStack>
 
-}
 
 @code {
     private string? CurrentInputValue { get; set; }
@@ -62,6 +65,7 @@ else
     private bool isLoading = false;
 
     private IEnumerable<BindingResult> bindingResults = [];
+    private bool showErroneous = true;
 
     private async Task InputOnChange()
     {
@@ -98,8 +102,8 @@ else
         var qs = QueryString.Create("q", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(appConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
-        bindingResults = (await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [])
-            .OrderByDescending(r => !r.IsErroneous);
+        var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [];
+        bindingResults = results.OrderByDescending(r => !r.IsErroneous);
     }
 
     public void Dispose()
