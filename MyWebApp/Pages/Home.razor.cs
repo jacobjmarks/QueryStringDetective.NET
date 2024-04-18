@@ -20,7 +20,7 @@ public partial class Home : IDisposable
     private bool isLoading = false;
 
     private IEnumerable<BindingResult> bindingResults = [];
-    private bool showErroneous = true;
+    private bool showErroneous = false;
 
     private async Task InputOnChange()
     {
