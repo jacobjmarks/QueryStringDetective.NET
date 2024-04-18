@@ -41,6 +41,9 @@ public static class MyClass
         .GetMethod(nameof(CreateEndpointDelegate), 1, BindingFlags.NonPublic | BindingFlags.Static, null, [], null)
             ?? throw new InvalidOperationException($"Could not find {nameof(CreateEndpointDelegate)} method.");
 
+    private static readonly TestServer _minimalApiTestServer = CreateMinimalApiTestServer();
+    private static readonly HttpClient _minimalApiTestServerClient = _minimalApiTestServer.CreateClient();
+
     private static TestServer CreateMinimalApiTestServer()
     {
         var builder = new WebHostBuilder();
@@ -68,11 +71,11 @@ public static class MyClass
         return new TestServer(builder);
     }
 
-    private static async Task<BindingResult> GetBindingResultAsync(HttpClient client, (string Route, Type _) endpoint, string queryString)
+    private static async Task<BindingResult> GetBindingResultAsync((string Route, Type _) endpoint, string queryString)
     {
         try
         {
-            using var response = await client.GetAsync(endpoint.Route + queryString);
+            using var response = await _minimalApiTestServerClient.GetAsync(endpoint.Route + queryString);
             response.EnsureSuccessStatusCode();
             return new BindingResult(endpoint.Route, Result: await response.Content.ReadFromJsonAsync<JsonElement>());
         }
@@ -88,9 +91,13 @@ public static class MyClass
         if (!queryString.StartsWith("?q="))
             throw new ArgumentException("Unexpected value.", nameof(queryString));
 
-        using var minimalApiTestServer = CreateMinimalApiTestServer();
-        using var minimalApiClient = minimalApiTestServer.CreateClient();
-        var bindingResults = _endpoints.Select(endpoint => GetBindingResultAsync(minimalApiClient, endpoint, queryString));
+        var bindingResults = _endpoints.Select(endpoint => GetBindingResultAsync(endpoint, queryString));
         return await Task.WhenAll(bindingResults);
+    }
+
+    public static void Dispose()
+    {
+        _minimalApiTestServerClient.Dispose();
+        _minimalApiTestServer.Dispose();
     }
 }

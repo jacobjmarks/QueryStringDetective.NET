@@ -5,7 +5,7 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace MyFunctionApp;
 
-public class MyFunction
+public class MyFunction : IDisposable
 {
     [Function("MyFunction")]
     public async Task<HttpResponseData> RunAsync(
@@ -20,5 +20,11 @@ public class MyFunction
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(bindingResults);
         return response;
+    }
+
+    public void Dispose()
+    {
+        MyClassLib.MyClass.Dispose();
+        GC.SuppressFinalize(this);
     }
 }
