@@ -1,18 +1,33 @@
-﻿[
-  "BindingResult { Type = string, Result = \"2147483647\", Error = , IsErroneous = False }",
-  "BindingResult { Type = string[], Result = [\"2147483647\"], Error = , IsErroneous = False }",
-  "BindingResult { Type = int, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = int[], Result = [2147483647], Error = , IsErroneous = False }",
-  "BindingResult { Type = double, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = double[], Result = [2147483647], Error = , IsErroneous = False }",
-  "BindingResult { Type = float, Result = 2.1474836E+09, Error = , IsErroneous = False }",
-  "BindingResult { Type = float[], Result = [2.1474836E+09], Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal[], Result = [2147483647], Error = , IsErroneous = False }",
-  "BindingResult { Type = uint, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = uint[], Result = [2147483647], Error = , IsErroneous = False }",
-  "BindingResult { Type = long, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = long[], Result = [2147483647], Error = , IsErroneous = False }",
-  "BindingResult { Type = ulong, Result = 2147483647, Error = , IsErroneous = False }",
-  "BindingResult { Type = ulong[], Result = [2147483647], Error = , IsErroneous = False }"
-]
+﻿Input: 2147483647
+
+Bindings:
+string     "2147483647"
+string[]   ["2147483647"]
+int        2147483647
+int[]      [2147483647]
+double     2147483647
+double[]   [2147483647]
+float      2.1474836E+09
+float[]    [2.1474836E+09]
+decimal    2147483647
+decimal[]  [2147483647]
+uint       2147483647
+uint[]     [2147483647]
+long       2147483647
+long[]     [2147483647]
+ulong      2147483647
+ulong[]    [2147483647]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

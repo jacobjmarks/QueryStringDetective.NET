@@ -1,19 +1,33 @@
-﻿[
-  "BindingResult { Type = string, Result = \"1,2,3\", Error = , IsErroneous = False }",
-  "BindingResult { Type = string[], Result = [\"1\",\"2\",\"3\"], Error = , IsErroneous = False }",
-  "BindingResult { Type = char[], Result = [\"1\",\"2\",\"3\"], Error = , IsErroneous = False }",
-  "BindingResult { Type = int[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = double, Result = 123, Error = , IsErroneous = False }",
-  "BindingResult { Type = double[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = float, Result = 123, Error = , IsErroneous = False }",
-  "BindingResult { Type = float[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal, Result = 123, Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = uint[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = long[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = ulong[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = sbyte[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = short[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = ushort[], Result = [1,2,3], Error = , IsErroneous = False }",
-  "BindingResult { Type = byte[], Result = \"AQID\", Error = , IsErroneous = False }"
-]
+﻿Input: 1&q=2&q=3
+
+Bindings:
+string     "1,2,3"
+string[]   ["1","2","3"]
+char[]     ["1","2","3"]
+int[]      [1,2,3]
+double     123
+double[]   [1,2,3]
+float      123
+float[]    [1,2,3]
+decimal    123
+decimal[]  [1,2,3]
+uint[]     [1,2,3]
+long[]     [1,2,3]
+ulong[]    [1,2,3]
+sbyte[]    [1,2,3]
+short[]    [1,2,3]
+ushort[]   [1,2,3]
+byte[]     "AQID"
+
+Erroneous:
+char       400 Bad Request
+int        400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+long       400 Bad Request
+ulong      400 Bad Request
+sbyte      400 Bad Request
+short      400 Bad Request
+ushort     400 Bad Request
+byte       400 Bad Request

@@ -1,14 +1,33 @@
-﻿[
-  "BindingResult { Type = string, Result = \"-1,0,1\", Error = , IsErroneous = False }",
-  "BindingResult { Type = string[], Result = [\"-1\",\"0\",\"1\"], Error = , IsErroneous = False }",
-  "BindingResult { Type = int[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = double, Result = -101, Error = , IsErroneous = False }",
-  "BindingResult { Type = double[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = float, Result = -101, Error = , IsErroneous = False }",
-  "BindingResult { Type = float[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal, Result = -101, Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = long[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = sbyte[], Result = [-1,0,1], Error = , IsErroneous = False }",
-  "BindingResult { Type = short[], Result = [-1,0,1], Error = , IsErroneous = False }"
-]
+﻿Input: -1&q=0&q=1
+
+Bindings:
+string     "-1,0,1"
+string[]   ["-1","0","1"]
+int[]      [-1,0,1]
+double     -101
+double[]   [-1,0,1]
+float      -101
+float[]    [-1,0,1]
+decimal    -101
+decimal[]  [-1,0,1]
+long[]     [-1,0,1]
+sbyte[]    [-1,0,1]
+short[]    [-1,0,1]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+int        400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+long       400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+sbyte      400 Bad Request
+short      400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

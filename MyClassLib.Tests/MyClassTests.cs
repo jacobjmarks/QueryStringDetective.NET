@@ -23,8 +23,14 @@ public class MyClassTests
     public async Task AssertBinding(string queryString)
     {
         var results = await MyClass.TestQueryStringBindingAsync("?q=" + queryString);
-        var assertions = results.Where(r => !r.IsErroneous).Select(r => r.ToString());
-        assertions.Should().MatchSnapshot(SnapshotNameExtension.Create(ToValidFileName(queryString)));
+
+        var content = "Input: " + queryString
+            + "\n\nBindings:\n" + string.Join("\n", results.Where(r => !r.IsErroneous)
+                    .Select(r => $"{r.Type,-10} {r.Result}"))
+            + "\n\nErroneous:\n" + string.Join("\n", results.Where(r => r.IsErroneous)
+                    .Select(r => $"{r.Type,-10} {r.Error!.Message}"));
+
+        content.Should().MatchSnapshot(SnapshotNameExtension.Create(ToValidFileName(queryString)));
     }
 
     private static string ToValidFileName(string value)

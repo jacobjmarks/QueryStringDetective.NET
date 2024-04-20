@@ -1,14 +1,33 @@
-﻿[
-  "BindingResult { Type = string, Result = \"-2147483648\", Error = , IsErroneous = False }",
-  "BindingResult { Type = string[], Result = [\"-2147483648\"], Error = , IsErroneous = False }",
-  "BindingResult { Type = int, Result = -2147483648, Error = , IsErroneous = False }",
-  "BindingResult { Type = int[], Result = [-2147483648], Error = , IsErroneous = False }",
-  "BindingResult { Type = double, Result = -2147483648, Error = , IsErroneous = False }",
-  "BindingResult { Type = double[], Result = [-2147483648], Error = , IsErroneous = False }",
-  "BindingResult { Type = float, Result = -2.1474836E+09, Error = , IsErroneous = False }",
-  "BindingResult { Type = float[], Result = [-2.1474836E+09], Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal, Result = -2147483648, Error = , IsErroneous = False }",
-  "BindingResult { Type = decimal[], Result = [-2147483648], Error = , IsErroneous = False }",
-  "BindingResult { Type = long, Result = -2147483648, Error = , IsErroneous = False }",
-  "BindingResult { Type = long[], Result = [-2147483648], Error = , IsErroneous = False }"
-]
+﻿Input: -2147483648
+
+Bindings:
+string     "-2147483648"
+string[]   ["-2147483648"]
+int        -2147483648
+int[]      [-2147483648]
+double     -2147483648
+double[]   [-2147483648]
+float      -2.1474836E+09
+float[]    [-2.1474836E+09]
+decimal    -2147483648
+decimal[]  [-2147483648]
+long       -2147483648
+long[]     [-2147483648]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request
