@@ -1,0 +1,33 @@
+﻿Input: -128
+
+Bindings:
+string     "-128"
+string[]   ["-128"]
+int        -128
+int[]      [-128]
+double     -128
+double[]   [-128]
+float      -128
+float[]    [-128]
+decimal    -128
+decimal[]  [-128]
+long       -128
+long[]     [-128]
+sbyte      -128
+sbyte[]    [-128]
+short      -128
+short[]    [-128]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

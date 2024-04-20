@@ -1,0 +1,33 @@
+﻿Input: 65535
+
+Bindings:
+string     "65535"
+string[]   ["65535"]
+int        65535
+int[]      [65535]
+double     65535
+double[]   [65535]
+float      65535
+float[]    [65535]
+decimal    65535
+decimal[]  [65535]
+uint       65535
+uint[]     [65535]
+long       65535
+long[]     [65535]
+ulong      65535
+ulong[]    [65535]
+ushort     65535
+ushort[]   [65535]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

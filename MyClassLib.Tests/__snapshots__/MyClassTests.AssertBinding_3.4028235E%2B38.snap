@@ -1,0 +1,33 @@
+﻿Input: 3.4028235E%2B38
+
+Bindings:
+string     "3.4028235E+38"
+string[]   ["3.4028235E+38"]
+double     3.4028235E+38
+double[]   [3.4028235E+38]
+float      3.4028235E+38
+float[]    [3.4028235E+38]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+int        400 Bad Request
+int[]      400 Bad Request
+decimal    400 Bad Request
+decimal[]  400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+long       400 Bad Request
+long[]     400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

@@ -1,0 +1,33 @@
+﻿Input: 127
+
+Bindings:
+string     "127"
+string[]   ["127"]
+int        127
+int[]      [127]
+double     127
+double[]   [127]
+float      127
+float[]    [127]
+decimal    127
+decimal[]  [127]
+uint       127
+uint[]     [127]
+long       127
+long[]     [127]
+ulong      127
+ulong[]    [127]
+sbyte      127
+sbyte[]    [127]
+short      127
+short[]    [127]
+ushort     127
+ushort[]   [127]
+byte       127
+byte[]     "fw=="
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request

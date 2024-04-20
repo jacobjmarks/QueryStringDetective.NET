@@ -1,0 +1,33 @@
+﻿Input: 255
+
+Bindings:
+string     "255"
+string[]   ["255"]
+int        255
+int[]      [255]
+double     255
+double[]   [255]
+float      255
+float[]    [255]
+decimal    255
+decimal[]  [255]
+uint       255
+uint[]     [255]
+long       255
+long[]     [255]
+ulong      255
+ulong[]    [255]
+short      255
+short[]    [255]
+ushort     255
+ushort[]   [255]
+byte       255
+byte[]     "/w=="
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request

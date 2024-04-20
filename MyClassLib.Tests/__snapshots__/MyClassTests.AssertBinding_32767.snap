@@ -1,0 +1,33 @@
+﻿Input: 32767
+
+Bindings:
+string     "32767"
+string[]   ["32767"]
+int        32767
+int[]      [32767]
+double     32767
+double[]   [32767]
+float      32767
+float[]    [32767]
+decimal    32767
+decimal[]  [32767]
+uint       32767
+uint[]     [32767]
+long       32767
+long[]     [32767]
+ulong      32767
+ulong[]    [32767]
+short      32767
+short[]    [32767]
+ushort     32767
+ushort[]   [32767]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

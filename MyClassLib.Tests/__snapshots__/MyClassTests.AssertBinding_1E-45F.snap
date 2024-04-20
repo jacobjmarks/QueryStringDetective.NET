@@ -1,0 +1,33 @@
+﻿Input: 1E-45F
+
+Bindings:
+string     "1E-45F"
+string[]   ["1E-45F"]
+
+Erroneous:
+char       400 Bad Request
+char[]     400 Bad Request
+int        400 Bad Request
+int[]      400 Bad Request
+double     400 Bad Request
+double[]   400 Bad Request
+float      400 Bad Request
+float[]    400 Bad Request
+decimal    400 Bad Request
+decimal[]  400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+long       400 Bad Request
+long[]     400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

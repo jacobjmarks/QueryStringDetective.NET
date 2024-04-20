@@ -1,0 +1,33 @@
+﻿Input: c
+
+Bindings:
+string     "c"
+string[]   ["c"]
+char       "c"
+char[]     ["c"]
+
+Erroneous:
+int        400 Bad Request
+int[]      400 Bad Request
+double     400 Bad Request
+double[]   400 Bad Request
+float      400 Bad Request
+float[]    400 Bad Request
+decimal    400 Bad Request
+decimal[]  400 Bad Request
+bool       400 Bad Request
+bool[]     400 Bad Request
+uint       400 Bad Request
+uint[]     400 Bad Request
+long       400 Bad Request
+long[]     400 Bad Request
+ulong      400 Bad Request
+ulong[]    400 Bad Request
+sbyte      400 Bad Request
+sbyte[]    400 Bad Request
+short      400 Bad Request
+short[]    400 Bad Request
+ushort     400 Bad Request
+ushort[]   400 Bad Request
+byte       400 Bad Request
+byte[]     400 Bad Request

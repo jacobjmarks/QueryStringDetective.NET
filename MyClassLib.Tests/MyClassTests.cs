@@ -5,21 +5,39 @@ namespace MyClassLib.Tests;
 
 public class MyClassTests
 {
+    public static readonly TheoryData<string> TestCases = new()
+    {
+        "c",
+        "foo",
+        "a&q=b&q=c",
+        "null",
+        "0",
+        "1",
+        "-1",
+        "1&q=2&q=3",
+        "1&q=2&q=.3",
+        "-1&q=0&q=1",
+        $"{sbyte.MinValue}",
+        $"{sbyte.MaxValue}",
+        $"{byte.MaxValue}",
+        $"{short.MinValue}",
+        $"{short.MaxValue}",
+        $"{ushort.MaxValue}",
+        $"{int.MinValue}",
+        $"{int.MaxValue}",
+        $"{long.MinValue}",
+        $"{long.MaxValue}",
+        $"{ulong.MaxValue}",
+        Uri.EscapeDataString($"{double.MinValue}"),
+        Uri.EscapeDataString($"{double.MaxValue}"),
+        $"{decimal.MinValue}",
+        $"{decimal.MaxValue}",
+        Uri.EscapeDataString($"{float.MinValue}"),
+        Uri.EscapeDataString($"{float.MaxValue}"),
+    };
+
     [Theory]
-    [InlineData("foo")]
-    [InlineData("a&q=b&q=c")]
-    [InlineData("null")]
-    [InlineData("0")]
-    [InlineData("1")]
-    [InlineData("-1")]
-    [InlineData("1&q=2&q=3")]
-    [InlineData("1&q=2&q=.3")]
-    [InlineData("-1&q=0&q=1")]
-    [InlineData("2147483647")]
-    [InlineData("-2147483648")]
-    [InlineData("9223372036854775807")]
-    [InlineData("-9223372036854775808")]
-    [InlineData("18446744073709551615")]
+    [MemberData(nameof(TestCases))]
     public async Task AssertBinding(string queryString)
     {
         var results = await MyClass.TestQueryStringBindingAsync("?q=" + queryString);
