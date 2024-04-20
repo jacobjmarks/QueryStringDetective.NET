@@ -10,12 +10,12 @@ public class MyFunction : IDisposable
     [Function("MyFunction")]
     public async Task<HttpResponseData> RunAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
-        string q)
+        string qs)
     {
-        if (string.IsNullOrWhiteSpace(q) || !q.StartsWith("?q="))
+        if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith("?q="))
             return req.CreateResponse(HttpStatusCode.BadRequest);
 
-        var bindingResults = await MyClassLib.MyClass.TestQueryStringBindingAsync(q);
+        var bindingResults = await MyClassLib.MyClass.TestQueryStringBindingAsync(qs);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(bindingResults);
