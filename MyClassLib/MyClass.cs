@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -88,7 +88,7 @@ public static class MyClass
         {
             using var response = await _minimalApiTestServerClient.GetAsync(endpoint.Route + queryString);
             response.EnsureSuccessStatusCode();
-            return new BindingResult(endpoint.Route, Result: await response.Content.ReadFromJsonAsync<JsonElement>());
+            return new BindingResult(endpoint.Route, Result: await response.Content.ReadAsStringAsync());
         }
         catch (BadHttpRequestException e)
         {

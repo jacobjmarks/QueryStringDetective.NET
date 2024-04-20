@@ -8,7 +8,7 @@ public record BindingResult(
     string Type,
 
     [property: JsonPropertyName("r"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    object? Result = null,
+    string? Result = null,
 
     [property: JsonPropertyName("e"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     BindingResult.ProblemDetails? Error = null)
