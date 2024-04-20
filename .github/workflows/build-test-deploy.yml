@@ -27,6 +27,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build
+      env:
+        SNAPSHOOTER_STRICT_MODE: true
     - name: Publish
       run: dotnet publish MyWebApp -o out
     - name: Set Base Path

@@ -1,0 +1,14 @@
+﻿[
+  "BindingResult { Type = string, Result = \"-1,0,1\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"-1\",\"0\",\"1\"], Error = , IsErroneous = False }",
+  "BindingResult { Type = int[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = double, Result = -101, Error = , IsErroneous = False }",
+  "BindingResult { Type = double[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = float, Result = -101, Error = , IsErroneous = False }",
+  "BindingResult { Type = float[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal, Result = -101, Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = long[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = sbyte[], Result = [-1,0,1], Error = , IsErroneous = False }",
+  "BindingResult { Type = short[], Result = [-1,0,1], Error = , IsErroneous = False }"
+]

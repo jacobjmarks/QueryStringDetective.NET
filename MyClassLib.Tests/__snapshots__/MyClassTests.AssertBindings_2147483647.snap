@@ -1,0 +1,18 @@
+﻿[
+  "BindingResult { Type = string, Result = \"2147483647\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"2147483647\"], Error = , IsErroneous = False }",
+  "BindingResult { Type = int, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = int[], Result = [2147483647], Error = , IsErroneous = False }",
+  "BindingResult { Type = double, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = double[], Result = [2147483647], Error = , IsErroneous = False }",
+  "BindingResult { Type = float, Result = 2.1474836E+09, Error = , IsErroneous = False }",
+  "BindingResult { Type = float[], Result = [2.1474836E+09], Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal[], Result = [2147483647], Error = , IsErroneous = False }",
+  "BindingResult { Type = uint, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = uint[], Result = [2147483647], Error = , IsErroneous = False }",
+  "BindingResult { Type = long, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = long[], Result = [2147483647], Error = , IsErroneous = False }",
+  "BindingResult { Type = ulong, Result = 2147483647, Error = , IsErroneous = False }",
+  "BindingResult { Type = ulong[], Result = [2147483647], Error = , IsErroneous = False }"
+]

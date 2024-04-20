@@ -1,0 +1,5 @@
+﻿[
+  "BindingResult { Type = string, Result = \"a,b,c\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"a\",\"b\",\"c\"], Error = , IsErroneous = False }",
+  "BindingResult { Type = char[], Result = [\"a\",\"b\",\"c\"], Error = , IsErroneous = False }"
+]

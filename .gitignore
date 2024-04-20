@@ -44,3 +44,6 @@ msbuild.wrn
 
 # Azure Functions localsettings file
 local.settings.json
+
+# Snapshooter
+__mismatch__

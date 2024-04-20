@@ -1,0 +1,4 @@
+﻿[
+  "BindingResult { Type = string, Result = \"foo\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"foo\"], Error = , IsErroneous = False }"
+]

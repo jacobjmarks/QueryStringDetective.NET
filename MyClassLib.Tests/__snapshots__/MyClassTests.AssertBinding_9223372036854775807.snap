@@ -1,0 +1,14 @@
+﻿[
+  "BindingResult { Type = string, Result = \"9223372036854775807\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"9223372036854775807\"], Error = , IsErroneous = False }",
+  "BindingResult { Type = double, Result = 9.223372036854776E+18, Error = , IsErroneous = False }",
+  "BindingResult { Type = double[], Result = [9.223372036854776E+18], Error = , IsErroneous = False }",
+  "BindingResult { Type = float, Result = 9.223372E+18, Error = , IsErroneous = False }",
+  "BindingResult { Type = float[], Result = [9.223372E+18], Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal, Result = 9223372036854775807, Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal[], Result = [9223372036854775807], Error = , IsErroneous = False }",
+  "BindingResult { Type = long, Result = 9223372036854775807, Error = , IsErroneous = False }",
+  "BindingResult { Type = long[], Result = [9223372036854775807], Error = , IsErroneous = False }",
+  "BindingResult { Type = ulong, Result = 9223372036854775807, Error = , IsErroneous = False }",
+  "BindingResult { Type = ulong[], Result = [9223372036854775807], Error = , IsErroneous = False }"
+]

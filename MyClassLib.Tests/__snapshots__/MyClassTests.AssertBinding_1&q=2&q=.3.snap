@@ -1,0 +1,10 @@
+﻿[
+  "BindingResult { Type = string, Result = \"1,2,.3\", Error = , IsErroneous = False }",
+  "BindingResult { Type = string[], Result = [\"1\",\"2\",\".3\"], Error = , IsErroneous = False }",
+  "BindingResult { Type = double, Result = 12.3, Error = , IsErroneous = False }",
+  "BindingResult { Type = double[], Result = [1,2,0.3], Error = , IsErroneous = False }",
+  "BindingResult { Type = float, Result = 12.3, Error = , IsErroneous = False }",
+  "BindingResult { Type = float[], Result = [1,2,0.3], Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal, Result = 12.3, Error = , IsErroneous = False }",
+  "BindingResult { Type = decimal[], Result = [1,2,0.3], Error = , IsErroneous = False }"
+]
