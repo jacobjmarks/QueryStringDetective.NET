@@ -30,7 +30,7 @@ jobs:
       env:
         SNAPSHOOTER_STRICT_MODE: true
     - name: Publish
-      run: dotnet publish MyWebApp -o out
+      run: dotnet publish Client -o out
     - name: Set Base Path
       run: sed -i 's@<base href="/" />@<base href="$SITE_BASE_PATH" />@g' out/wwwroot/index.html
       env:
@@ -73,7 +73,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Build
-        run: dotnet build MyFunctionApp -c Release -o out
+        run: dotnet build Server.Functions -c Release -o out
       - name: Upload build artifact
         uses: actions/upload-artifact@v4.3.1
         with:

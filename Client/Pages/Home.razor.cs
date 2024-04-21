@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Net.Http.Json;
-using MySharedClassLib;
+using Shared;
 using Microsoft.AspNetCore.Components;
 
-namespace MyWebApp.Pages;
+namespace Client.Pages;
 
 public partial class Home : IDisposable
 {

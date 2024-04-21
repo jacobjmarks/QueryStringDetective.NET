@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using MySharedClassLib;
+using Shared;
 
-namespace MyClassLib;
+namespace Server.Core;
 
 public static class MyClass
 {

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 
-namespace MyFunctionApp;
+namespace Server.Functions;
 
 public class MyFunction : IDisposable
 {
@@ -15,7 +15,7 @@ public class MyFunction : IDisposable
         if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith("?q="))
             return req.CreateResponse(HttpStatusCode.BadRequest);
 
-        var bindingResults = await MyClassLib.MyClass.TestQueryStringBindingAsync(qs);
+        var bindingResults = await Server.Core.MyClass.TestQueryStringBindingAsync(qs);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(bindingResults);
@@ -24,7 +24,7 @@ public class MyFunction : IDisposable
 
     public void Dispose()
     {
-        MyClassLib.MyClass.Dispose();
+        Server.Core.MyClass.Dispose();
         GC.SuppressFinalize(this);
     }
 }

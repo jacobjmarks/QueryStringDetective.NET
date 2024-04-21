@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Snapshooter;
 
-namespace MyClassLib.Tests;
+namespace Server.Core.Tests;
 
 public class MyClassTests
 {

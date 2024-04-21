@@ -1,6 +1,6 @@
 ﻿using MudBlazor;
 
-namespace MyWebApp.Layout;
+namespace Client.Layout;
 
 public partial class MainLayout
 {

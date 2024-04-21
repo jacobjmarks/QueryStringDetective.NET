@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace MySharedClassLib;
+namespace Shared;
 
 public record BindingResult(
     [property: JsonPropertyName("t")]

@@ -1,4 +1,4 @@
-namespace MyWebApp;
+namespace Client;
 
 public class AppConfig
 {
