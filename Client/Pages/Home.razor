@@ -30,11 +30,8 @@
             <MudTd DataLabel="Binding Result" Class="mono">
                 @if (context.IsErroneous)
                 {
-                    <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
-                        @context.Error.Message
-                    </MudText>
                     <MudText Color="Color.Error" Typo="Typo.caption">
-                        @context.Error.Detail
+                        @context.Error.Message: @context.Error.Detail
                     </MudText>
                 }
                 else
