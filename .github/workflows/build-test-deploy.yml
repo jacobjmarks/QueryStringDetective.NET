@@ -32,7 +32,7 @@ jobs:
     - name: Publish
       run: dotnet publish Client -o out
     - name: Set Base Path
-      run: sed -i 's@<base href="/" />@<base href="$SITE_BASE_PATH" />@g' out/wwwroot/index.html
+      run: sed -i 's|<base href="/" />|<base href='"$SITE_BASE_PATH"' />|g' out/wwwroot/index.html
       env:
         SITE_BASE_PATH: ${{ format('{0}/', steps.pages.outputs.base_path) }}
     - name: Upload Pages Artifact
