@@ -1,6 +1,4 @@
-using System.Net.Http.Json;
 using System.Reflection;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +11,7 @@ using Shared;
 
 namespace Server.Core;
 
-public static class QueryBindingEvaluator
+public class QueryBindingEvaluator : IDisposable
 {
     private static readonly (string Route, Type ParamType)[] _endpoints =
     [
@@ -52,8 +50,14 @@ public static class QueryBindingEvaluator
         .GetMethod(nameof(CreateEndpointDelegate), 1, BindingFlags.NonPublic | BindingFlags.Static, null, [], null)
             ?? throw new InvalidOperationException($"Could not find {nameof(CreateEndpointDelegate)} method.");
 
-    private static readonly TestServer _minimalApiTestServer = CreateMinimalApiTestServer();
-    private static readonly HttpClient _minimalApiTestServerClient = _minimalApiTestServer.CreateClient();
+    private readonly TestServer _minimalApiTestServer;
+    private readonly HttpClient _minimalApiTestServerClient;
+
+    public QueryBindingEvaluator()
+    {
+        _minimalApiTestServer = CreateMinimalApiTestServer();
+        _minimalApiTestServerClient = _minimalApiTestServer.CreateClient();
+    }
 
     private static TestServer CreateMinimalApiTestServer()
     {
@@ -82,7 +86,7 @@ public static class QueryBindingEvaluator
         return new TestServer(builder);
     }
 
-    private static async Task<BindingResult> GetBindingResultAsync((string Route, Type _) endpoint, string queryString)
+    private async Task<BindingResult> GetBindingResultAsync((string Route, Type _) endpoint, string queryString)
     {
         try
         {
@@ -96,7 +100,7 @@ public static class QueryBindingEvaluator
         }
     }
 
-    public static async Task<IEnumerable<BindingResult>> EvaluateAsync(string queryString)
+    public async Task<IEnumerable<BindingResult>> EvaluateAsync(string queryString)
     {
         ArgumentNullException.ThrowIfNull(queryString);
         if (!queryString.StartsWith("?q="))
@@ -106,9 +110,10 @@ public static class QueryBindingEvaluator
         return await Task.WhenAll(bindingResults);
     }
 
-    public static void Dispose()
+    public void Dispose()
     {
         _minimalApiTestServerClient.Dispose();
         _minimalApiTestServer.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

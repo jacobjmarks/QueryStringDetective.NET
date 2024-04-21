@@ -1,6 +1,3 @@
-using System.Text.Json;
-using Snapshooter;
-
 namespace Server.Core.Tests;
 
 public class QueryBindingEvaluatorTests
@@ -40,7 +37,8 @@ public class QueryBindingEvaluatorTests
     [MemberData(nameof(TestCases))]
     public async Task AssertBinding(string queryString)
     {
-        var results = await QueryBindingEvaluator.EvaluateAsync("?q=" + queryString);
+        using var bindingEvaluator = new QueryBindingEvaluator();
+        var results = await bindingEvaluator.EvaluateAsync("?q=" + queryString);
 
         var content = "Input: " + queryString
             + "\n\nBindings:\n" + string.Join("\n", results.Where(r => !r.IsErroneous)
