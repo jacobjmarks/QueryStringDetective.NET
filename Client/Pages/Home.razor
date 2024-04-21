@@ -44,4 +44,19 @@
             </MudTd>
         </RowTemplate>
     </MudTable>
+    @{
+        int? erroneousCount = null;
+        if (!showErroneous && (erroneousCount = bindingResults.Count(r => r.IsErroneous)) > 0)
+        {
+            <MudStack Row="true" AlignItems="AlignItems.Center" Class="pl-2">
+                <MudText Typo="Typo.body2">
+                    @(erroneousCount) other types could not be bound.
+                    <MudText Class="d-inline cursor-pointer" Typo="Typo.inherit" Color="Color.Primary"
+                        @onclick="() => showErroneous = true">
+                        Show them
+                    </MudText>
+                </MudText>
+            </MudStack>
+        }
+    }
 </MudStack>
