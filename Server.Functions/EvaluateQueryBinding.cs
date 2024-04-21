@@ -5,9 +5,9 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Server.Functions;
 
-public class MyFunction : IDisposable
+public class EvaluateQueryBinding : IDisposable
 {
-    [Function("MyFunction")]
+    [Function("EvaluateQueryBinding")]
     public async Task<HttpResponseData> RunAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
         string qs)
@@ -15,7 +15,7 @@ public class MyFunction : IDisposable
         if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith("?q="))
             return req.CreateResponse(HttpStatusCode.BadRequest);
 
-        var bindingResults = await Server.Core.MyClass.TestQueryStringBindingAsync(qs);
+        var bindingResults = await Server.Core.QueryBindingEvaluator.EvaluateAsync(qs);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(bindingResults);
@@ -24,7 +24,7 @@ public class MyFunction : IDisposable
 
     public void Dispose()
     {
-        Server.Core.MyClass.Dispose();
+        Server.Core.QueryBindingEvaluator.Dispose();
         GC.SuppressFinalize(this);
     }
 }

@@ -3,7 +3,7 @@ using Snapshooter;
 
 namespace Server.Core.Tests;
 
-public class MyClassTests
+public class QueryBindingEvaluatorTests
 {
     public static readonly TheoryData<string> TestCases = new()
     {
@@ -40,7 +40,7 @@ public class MyClassTests
     [MemberData(nameof(TestCases))]
     public async Task AssertBinding(string queryString)
     {
-        var results = await MyClass.TestQueryStringBindingAsync("?q=" + queryString);
+        var results = await QueryBindingEvaluator.EvaluateAsync("?q=" + queryString);
 
         var content = "Input: " + queryString
             + "\n\nBindings:\n" + string.Join("\n", results.Where(r => !r.IsErroneous)
