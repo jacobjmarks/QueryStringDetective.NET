@@ -13,11 +13,6 @@ namespace Server.Core;
 
 public class QueryBindingEvaluator : IDisposable
 {
-    private static Delegate CreateEndpointDelegate<T>() => ([FromQuery] T q, HttpResponse r) => r.WriteAsJsonAsync(q);
-    private static readonly MethodInfo createEndpointDelegateMethod = typeof(QueryBindingEvaluator)
-        .GetMethod(nameof(CreateEndpointDelegate), 1, BindingFlags.NonPublic | BindingFlags.Static, null, [], null)
-            ?? throw new InvalidOperationException($"Could not find {nameof(CreateEndpointDelegate)} method.");
-
     private readonly TestServer _minimalApiTestServer;
     private readonly HttpClient _minimalApiTestServerClient;
 
@@ -46,8 +41,8 @@ public class QueryBindingEvaluator : IDisposable
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                foreach (var endpoint in Constants.Endpoints)
-                    endpoints.MapGet(endpoint.Route, (Delegate)createEndpointDelegateMethod.MakeGenericMethod(endpoint.ParamType).Invoke(null, null)!);
+                foreach (var (route, @delegate) in Generated.RequestDelegates)
+                    endpoints.MapGet(route, @delegate);
             });
         });
 
