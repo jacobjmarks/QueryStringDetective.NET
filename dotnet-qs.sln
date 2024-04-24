@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Core.Tests", "Server.Core.Tests\Server.Core.Tests.csproj", "{5A856409-9FA3-4C23-B65B-3BCA7275EBC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Core.SourceGenerators", "Server.Core.SourceGenerators\Server.Core.SourceGenerators.csproj", "{2B7D08BF-781C-421B-9C9A-E5B03F606A1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{5A856409-9FA3-4C23-B65B-3BCA7275EBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A856409-9FA3-4C23-B65B-3BCA7275EBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A856409-9FA3-4C23-B65B-3BCA7275EBC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B7D08BF-781C-421B-9C9A-E5B03F606A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B7D08BF-781C-421B-9C9A-E5B03F606A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B7D08BF-781C-421B-9C9A-E5B03F606A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B7D08BF-781C-421B-9C9A-E5B03F606A1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
