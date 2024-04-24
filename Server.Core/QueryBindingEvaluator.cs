@@ -13,36 +13,36 @@ namespace Server.Core;
 
 public class QueryBindingEvaluator : IDisposable
 {
-    private static readonly (string Route, Type ParamType)[] _endpoints =
+    private static readonly EndpointDescriptor[] _endpoints =
     [
-        ("string", typeof(string)),
-        ("string[]", typeof(string[])),
-        ("char", typeof(char)),
-        ("char[]", typeof(char[])),
-        ("int", typeof(int)),
-        ("int[]", typeof(int[])),
-        ("double", typeof(double)),
-        ("double[]", typeof(double[])),
-        ("float", typeof(float)),
-        ("float[]", typeof(float[])),
-        ("decimal", typeof(decimal)),
-        ("decimal[]", typeof(decimal[])),
-        ("bool", typeof(bool)),
-        ("bool[]", typeof(bool[])),
-        ("uint", typeof(uint)),
-        ("uint[]", typeof(uint[])),
-        ("long", typeof(long)),
-        ("long[]", typeof(long[])),
-        ("ulong", typeof(ulong)),
-        ("ulong[]", typeof(ulong[])),
-        ("sbyte", typeof(sbyte)),
-        ("sbyte[]", typeof(sbyte[])),
-        ("short", typeof(short)),
-        ("short[]", typeof(short[])),
-        ("ushort", typeof(ushort)),
-        ("ushort[]", typeof(ushort[])),
-        ("byte", typeof(byte)),
-        ("byte[]", typeof(byte[])),
+        new("string", typeof(string)),
+        new("string[]", typeof(string[])),
+        new("char", typeof(char)),
+        new("char[]", typeof(char[])),
+        new("int", typeof(int)),
+        new("int[]", typeof(int[])),
+        new("double", typeof(double)),
+        new("double[]", typeof(double[])),
+        new("float", typeof(float)),
+        new("float[]", typeof(float[])),
+        new("decimal", typeof(decimal)),
+        new("decimal[]", typeof(decimal[])),
+        new("bool", typeof(bool)),
+        new("bool[]", typeof(bool[])),
+        new("uint", typeof(uint)),
+        new("uint[]", typeof(uint[])),
+        new("long", typeof(long)),
+        new("long[]", typeof(long[])),
+        new("ulong", typeof(ulong)),
+        new("ulong[]", typeof(ulong[])),
+        new("sbyte", typeof(sbyte)),
+        new("sbyte[]", typeof(sbyte[])),
+        new("short", typeof(short)),
+        new("short[]", typeof(short[])),
+        new("ushort", typeof(ushort)),
+        new("ushort[]", typeof(ushort[])),
+        new("byte", typeof(byte)),
+        new("byte[]", typeof(byte[])),
     ];
 
     private static Delegate CreateEndpointDelegate<T>() => ([FromQuery] T q, HttpResponse r) => r.WriteAsJsonAsync(q);
@@ -86,7 +86,7 @@ public class QueryBindingEvaluator : IDisposable
         return new TestServer(builder);
     }
 
-    private async Task<BindingResult> GetBindingResultAsync((string Route, Type _) endpoint, string queryString)
+    private async Task<BindingResult> GetBindingResultAsync(EndpointDescriptor endpoint, string queryString)
     {
         try
         {
