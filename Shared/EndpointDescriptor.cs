@@ -1,3 +1,3 @@
 ﻿namespace Shared;
 
-public record EndpointDescriptor(string Route, Type Type);
+public record EndpointDescriptor(string Type, string Route, Type ParamType);

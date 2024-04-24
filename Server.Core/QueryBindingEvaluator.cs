@@ -46,8 +46,8 @@ public class QueryBindingEvaluator : IDisposable
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                foreach (var (route, paramType) in Constants.Endpoints)
-                    endpoints.MapGet(route, (Delegate)createEndpointDelegateMethod.MakeGenericMethod(paramType).Invoke(null, null)!);
+                foreach (var endpoint in Constants.Endpoints)
+                    endpoints.MapGet(endpoint.Route, (Delegate)createEndpointDelegateMethod.MakeGenericMethod(endpoint.ParamType).Invoke(null, null)!);
             });
         });
 
@@ -60,11 +60,11 @@ public class QueryBindingEvaluator : IDisposable
         {
             using var response = await _minimalApiTestServerClient.GetAsync(endpoint.Route + queryString);
             response.EnsureSuccessStatusCode();
-            return new BindingResult(endpoint.Route, Result: await response.Content.ReadAsStringAsync());
+            return new BindingResult(endpoint.Type, Result: await response.Content.ReadAsStringAsync());
         }
         catch (BadHttpRequestException e)
         {
-            return new BindingResult(endpoint.Route, Error: new("400 Bad Request", e.Message));
+            return new BindingResult(endpoint.Type, Error: new("400 Bad Request", e.Message));
         }
     }
 
