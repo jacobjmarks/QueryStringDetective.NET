@@ -13,38 +13,6 @@ namespace Server.Core;
 
 public class QueryBindingEvaluator : IDisposable
 {
-    private static readonly EndpointDescriptor[] _endpoints =
-    [
-        new("string", typeof(string)),
-        new("string[]", typeof(string[])),
-        new("char", typeof(char)),
-        new("char[]", typeof(char[])),
-        new("int", typeof(int)),
-        new("int[]", typeof(int[])),
-        new("double", typeof(double)),
-        new("double[]", typeof(double[])),
-        new("float", typeof(float)),
-        new("float[]", typeof(float[])),
-        new("decimal", typeof(decimal)),
-        new("decimal[]", typeof(decimal[])),
-        new("bool", typeof(bool)),
-        new("bool[]", typeof(bool[])),
-        new("uint", typeof(uint)),
-        new("uint[]", typeof(uint[])),
-        new("long", typeof(long)),
-        new("long[]", typeof(long[])),
-        new("ulong", typeof(ulong)),
-        new("ulong[]", typeof(ulong[])),
-        new("sbyte", typeof(sbyte)),
-        new("sbyte[]", typeof(sbyte[])),
-        new("short", typeof(short)),
-        new("short[]", typeof(short[])),
-        new("ushort", typeof(ushort)),
-        new("ushort[]", typeof(ushort[])),
-        new("byte", typeof(byte)),
-        new("byte[]", typeof(byte[])),
-    ];
-
     private static Delegate CreateEndpointDelegate<T>() => ([FromQuery] T q, HttpResponse r) => r.WriteAsJsonAsync(q);
     private static readonly MethodInfo createEndpointDelegateMethod = typeof(QueryBindingEvaluator)
         .GetMethod(nameof(CreateEndpointDelegate), 1, BindingFlags.NonPublic | BindingFlags.Static, null, [], null)
@@ -78,7 +46,7 @@ public class QueryBindingEvaluator : IDisposable
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                foreach (var (route, paramType) in _endpoints)
+                foreach (var (route, paramType) in Constants.Endpoints)
                     endpoints.MapGet(route, (Delegate)createEndpointDelegateMethod.MakeGenericMethod(paramType).Invoke(null, null)!);
             });
         });
@@ -106,7 +74,7 @@ public class QueryBindingEvaluator : IDisposable
         if (!queryString.StartsWith("?q="))
             throw new ArgumentException("Unexpected value.", nameof(queryString));
 
-        var bindingResults = _endpoints.Select(endpoint => GetBindingResultAsync(endpoint, queryString));
+        var bindingResults = Constants.Endpoints.Select(endpoint => GetBindingResultAsync(endpoint, queryString));
         return await Task.WhenAll(bindingResults);
     }
 
