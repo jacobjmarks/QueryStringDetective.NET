@@ -39,7 +39,7 @@ public class QueryBindingEvaluator : IDisposable
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                foreach (var (route, @delegate) in Generated.RequestDelegates)
+                foreach (var (route, @delegate) in Generated.MinimalApiRequestDelegates)
                     endpoints.MapGet(route, @delegate);
             });
         });
