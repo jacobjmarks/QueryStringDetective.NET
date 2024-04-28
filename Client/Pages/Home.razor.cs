@@ -2,6 +2,8 @@
 using System.Net.Http.Json;
 using Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using MudBlazor;
 
 namespace Client.Pages;
 
@@ -10,39 +12,31 @@ public partial class Home : IDisposable
     [Inject]
     private AppConfig AppConfig { get; set; } = null!;
 
-    private string? CurrentInputValue { get; set; }
+    private string CurrentInputValue { get; set; } = string.Empty;
 
+    private MudTextField<string> _input = null!;
     private readonly HttpClient httpClient = new();
-    private readonly TimeSpan minRequestInterval = TimeSpan.FromSeconds(1);
-    private DateTime lastRequestAt = DateTime.MinValue;
-    private string? lastRequestedInputValue;
 
     private bool isLoading = false;
 
     private IEnumerable<BindingResults> bindingResults = [];
     private bool showErroneous = false;
 
-    private async Task InputOnChange()
+    private Task InputOnChange(string value)
     {
-        if (CurrentInputValue == null)
-            return;
+        CurrentInputValue = value ?? string.Empty;
+        isLoading = true;
 
+        return Task.CompletedTask;
+    }
+
+    private async Task InputOnDebounce(string value)
+    {
+        CurrentInputValue = value ?? string.Empty;
         isLoading = true;
 
         try
         {
-            if (DateTime.Now - lastRequestAt < minRequestInterval)
-            {
-                if (CurrentInputValue != lastRequestedInputValue)
-                {
-                    await Task.Delay(50);
-                    await InputOnChange();
-                }
-
-                return;
-            }
-
-            lastRequestAt = DateTime.Now;
             await GetBindingResultsAsync(CurrentInputValue);
         }
         finally
@@ -53,7 +47,6 @@ public partial class Home : IDisposable
 
     private async Task GetBindingResultsAsync(string inputValue)
     {
-        lastRequestedInputValue = inputValue;
         var qs = QueryString.Create("qs", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();

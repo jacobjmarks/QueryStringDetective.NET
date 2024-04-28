@@ -5,9 +5,9 @@
 <PageTitle>.NET Query String Detective</PageTitle>
 
 <MudStack>
-    <MudTextField T="string" spellcheck="false" Class="qs-input" Label="Query string" Placeholder="hello&q=world"
-        Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" @bind-Value="CurrentInputValue"
-        Immediate="true" TextChanged="InputOnChange" MaxLength="1000">
+    <MudTextField @ref="_input" T="string" spellcheck="false" Class="qs-input" Label="Query string"
+        Placeholder="hello&q=world" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q="
+        MaxLength="1000" TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
     </MudTextField>
 
     <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
