@@ -1,0 +1,115 @@
+﻿Input: true
+
+Bindings:
+
+string
+  MinimalApis
+    r = "true"
+
+string[]
+  MinimalApis
+    r = ["true"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "true".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "true".)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "true".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "true".)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "true".)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "true".)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "true".)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "true".)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "true".)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "true".)
+
+bool
+  MinimalApis
+    r = true
+
+bool[]
+  MinimalApis
+    r = [true]
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "true".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "true".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "true".)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "true".)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "true".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "true".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "true".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "true".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "true".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "true".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "true".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "true".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "true".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "true".)

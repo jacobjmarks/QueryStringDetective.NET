@@ -1,33 +1,115 @@
 ﻿Input: 9223372036854775807
 
 Bindings:
-string     "9223372036854775807"
-string[]   ["9223372036854775807"]
-double     9.223372036854776E+18
-double[]   [9.223372036854776E+18]
-float      9.223372E+18
-float[]    [9.223372E+18]
-decimal    9223372036854775807
-decimal[]  [9223372036854775807]
-long       9223372036854775807
-long[]     [9223372036854775807]
-ulong      9223372036854775807
-ulong[]    [9223372036854775807]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-int        400 Bad Request
-int[]      400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-short      400 Bad Request
-short[]    400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "9223372036854775807"
+
+string[]
+  MinimalApis
+    r = ["9223372036854775807"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "9223372036854775807".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "9223372036854775807".)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "9223372036854775807".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "9223372036854775807".)
+
+double
+  MinimalApis
+    r = 9.223372036854776E+18
+
+double[]
+  MinimalApis
+    r = [9.223372036854776E+18]
+
+float
+  MinimalApis
+    r = 9.223372E+18
+
+float[]
+  MinimalApis
+    r = [9.223372E+18]
+
+decimal
+  MinimalApis
+    r = 9223372036854775807
+
+decimal[]
+  MinimalApis
+    r = [9223372036854775807]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "9223372036854775807".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "9223372036854775807".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "9223372036854775807".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "9223372036854775807".)
+
+long
+  MinimalApis
+    r = 9223372036854775807
+
+long[]
+  MinimalApis
+    r = [9223372036854775807]
+
+ulong
+  MinimalApis
+    r = 9223372036854775807
+
+ulong[]
+  MinimalApis
+    r = [9223372036854775807]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "9223372036854775807".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "9223372036854775807".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "9223372036854775807".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "9223372036854775807".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "9223372036854775807".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "9223372036854775807".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "9223372036854775807".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "9223372036854775807".)

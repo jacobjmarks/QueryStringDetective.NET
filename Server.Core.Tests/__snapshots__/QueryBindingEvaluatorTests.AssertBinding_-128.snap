@@ -1,33 +1,115 @@
 ﻿Input: -128
 
 Bindings:
-string     "-128"
-string[]   ["-128"]
-int        -128
-int[]      [-128]
-double     -128
-double[]   [-128]
-float      -128
-float[]    [-128]
-decimal    -128
-decimal[]  [-128]
-long       -128
-long[]     [-128]
-sbyte      -128
-sbyte[]    [-128]
-short      -128
-short[]    [-128]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-ulong      400 Bad Request
-ulong[]    400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "-128"
+
+string[]
+  MinimalApis
+    r = ["-128"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "-128".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "-128".)
+
+int
+  MinimalApis
+    r = -128
+
+int[]
+  MinimalApis
+    r = [-128]
+
+double
+  MinimalApis
+    r = -128
+
+double[]
+  MinimalApis
+    r = [-128]
+
+float
+  MinimalApis
+    r = -128
+
+float[]
+  MinimalApis
+    r = [-128]
+
+decimal
+  MinimalApis
+    r = -128
+
+decimal[]
+  MinimalApis
+    r = [-128]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "-128".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "-128".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "-128".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "-128".)
+
+long
+  MinimalApis
+    r = -128
+
+long[]
+  MinimalApis
+    r = [-128]
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "-128".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "-128".)
+
+sbyte
+  MinimalApis
+    r = -128
+
+sbyte[]
+  MinimalApis
+    r = [-128]
+
+short
+  MinimalApis
+    r = -128
+
+short[]
+  MinimalApis
+    r = [-128]
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "-128".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "-128".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "-128".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "-128".)

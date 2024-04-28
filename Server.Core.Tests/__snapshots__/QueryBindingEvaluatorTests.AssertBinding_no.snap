@@ -1,0 +1,115 @@
+﻿Input: no
+
+Bindings:
+
+string
+  MinimalApis
+    r = "no"
+
+string[]
+  MinimalApis
+    r = ["no"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "no".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "no".)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "no".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "no".)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "no".)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "no".)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "no".)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "no".)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "no".)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "no".)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "no".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "no".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "no".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "no".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "no".)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "no".)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "no".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "no".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "no".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "no".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "no".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "no".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "no".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "no".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "no".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "no".)

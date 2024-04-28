@@ -1,33 +1,115 @@
 ﻿Input: -1&q=0&q=1
 
 Bindings:
-string     "-1,0,1"
-string[]   ["-1","0","1"]
-int[]      [-1,0,1]
-double     -101
-double[]   [-1,0,1]
-float      -101
-float[]    [-1,0,1]
-decimal    -101
-decimal[]  [-1,0,1]
-long[]     [-1,0,1]
-sbyte[]    [-1,0,1]
-short[]    [-1,0,1]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-int        400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-long       400 Bad Request
-ulong      400 Bad Request
-ulong[]    400 Bad Request
-sbyte      400 Bad Request
-short      400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "-1,0,1"
+
+string[]
+  MinimalApis
+    r = ["-1","0","1"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "-1,0,1".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "-1".)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "-1,0,1".)
+
+int[]
+  MinimalApis
+    r = [-1,0,1]
+
+double
+  MinimalApis
+    r = -101
+
+double[]
+  MinimalApis
+    r = [-1,0,1]
+
+float
+  MinimalApis
+    r = -101
+
+float[]
+  MinimalApis
+    r = [-1,0,1]
+
+decimal
+  MinimalApis
+    r = -101
+
+decimal[]
+  MinimalApis
+    r = [-1,0,1]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "-1,0,1".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "-1".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "-1,0,1".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "-1".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "-1,0,1".)
+
+long[]
+  MinimalApis
+    r = [-1,0,1]
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "-1,0,1".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "-1".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "-1,0,1".)
+
+sbyte[]
+  MinimalApis
+    r = [-1,0,1]
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "-1,0,1".)
+
+short[]
+  MinimalApis
+    r = [-1,0,1]
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "-1,0,1".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "-1".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "-1,0,1".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "-1".)

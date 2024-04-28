@@ -1,33 +1,115 @@
 ﻿Input: 32767
 
 Bindings:
-string     "32767"
-string[]   ["32767"]
-int        32767
-int[]      [32767]
-double     32767
-double[]   [32767]
-float      32767
-float[]    [32767]
-decimal    32767
-decimal[]  [32767]
-uint       32767
-uint[]     [32767]
-long       32767
-long[]     [32767]
-ulong      32767
-ulong[]    [32767]
-short      32767
-short[]    [32767]
-ushort     32767
-ushort[]   [32767]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "32767"
+
+string[]
+  MinimalApis
+    r = ["32767"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "32767".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "32767".)
+
+int
+  MinimalApis
+    r = 32767
+
+int[]
+  MinimalApis
+    r = [32767]
+
+double
+  MinimalApis
+    r = 32767
+
+double[]
+  MinimalApis
+    r = [32767]
+
+float
+  MinimalApis
+    r = 32767
+
+float[]
+  MinimalApis
+    r = [32767]
+
+decimal
+  MinimalApis
+    r = 32767
+
+decimal[]
+  MinimalApis
+    r = [32767]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "32767".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "32767".)
+
+uint
+  MinimalApis
+    r = 32767
+
+uint[]
+  MinimalApis
+    r = [32767]
+
+long
+  MinimalApis
+    r = 32767
+
+long[]
+  MinimalApis
+    r = [32767]
+
+ulong
+  MinimalApis
+    r = 32767
+
+ulong[]
+  MinimalApis
+    r = [32767]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "32767".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "32767".)
+
+short
+  MinimalApis
+    r = 32767
+
+short[]
+  MinimalApis
+    r = [32767]
+
+ushort
+  MinimalApis
+    r = 32767
+
+ushort[]
+  MinimalApis
+    r = [32767]
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "32767".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "32767".)

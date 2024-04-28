@@ -1,33 +1,115 @@
 ﻿Input: 3.4028235E%2B38
 
 Bindings:
-string     "3.4028235E+38"
-string[]   ["3.4028235E+38"]
-double     3.4028235E+38
-double[]   [3.4028235E+38]
-float      3.4028235E+38
-float[]    [3.4028235E+38]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-int        400 Bad Request
-int[]      400 Bad Request
-decimal    400 Bad Request
-decimal[]  400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-long       400 Bad Request
-long[]     400 Bad Request
-ulong      400 Bad Request
-ulong[]    400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-short      400 Bad Request
-short[]    400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "3.4028235E+38"
+
+string[]
+  MinimalApis
+    r = ["3.4028235E+38"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "3.4028235E+38".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "3.4028235E+38".)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "3.4028235E+38".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "3.4028235E+38".)
+
+double
+  MinimalApis
+    r = 3.4028235E+38
+
+double[]
+  MinimalApis
+    r = [3.4028235E+38]
+
+float
+  MinimalApis
+    r = 3.4028235E+38
+
+float[]
+  MinimalApis
+    r = [3.4028235E+38]
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "3.4028235E+38".)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "3.4028235E+38".)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "3.4028235E+38".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "3.4028235E+38".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "3.4028235E+38".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "3.4028235E+38".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "3.4028235E+38".)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "3.4028235E+38".)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "3.4028235E+38".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "3.4028235E+38".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "3.4028235E+38".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "3.4028235E+38".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "3.4028235E+38".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "3.4028235E+38".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "3.4028235E+38".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "3.4028235E+38".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "3.4028235E+38".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "3.4028235E+38".)

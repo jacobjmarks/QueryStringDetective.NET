@@ -1,33 +1,115 @@
 ﻿Input: 1&q=2&q=3
 
 Bindings:
-string     "1,2,3"
-string[]   ["1","2","3"]
-char[]     ["1","2","3"]
-int[]      [1,2,3]
-double     123
-double[]   [1,2,3]
-float      123
-float[]    [1,2,3]
-decimal    123
-decimal[]  [1,2,3]
-uint[]     [1,2,3]
-long[]     [1,2,3]
-ulong[]    [1,2,3]
-sbyte[]    [1,2,3]
-short[]    [1,2,3]
-ushort[]   [1,2,3]
-byte[]     "AQID"
 
-Erroneous:
-char       400 Bad Request
-int        400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-long       400 Bad Request
-ulong      400 Bad Request
-sbyte      400 Bad Request
-short      400 Bad Request
-ushort     400 Bad Request
-byte       400 Bad Request
+string
+  MinimalApis
+    r = "1,2,3"
+
+string[]
+  MinimalApis
+    r = ["1","2","3"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "1,2,3".)
+
+char[]
+  MinimalApis
+    r = ["1","2","3"]
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "1,2,3".)
+
+int[]
+  MinimalApis
+    r = [1,2,3]
+
+double
+  MinimalApis
+    r = 123
+
+double[]
+  MinimalApis
+    r = [1,2,3]
+
+float
+  MinimalApis
+    r = 123
+
+float[]
+  MinimalApis
+    r = [1,2,3]
+
+decimal
+  MinimalApis
+    r = 123
+
+decimal[]
+  MinimalApis
+    r = [1,2,3]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "1,2,3".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "1".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "1,2,3".)
+
+uint[]
+  MinimalApis
+    r = [1,2,3]
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "1,2,3".)
+
+long[]
+  MinimalApis
+    r = [1,2,3]
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "1,2,3".)
+
+ulong[]
+  MinimalApis
+    r = [1,2,3]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "1,2,3".)
+
+sbyte[]
+  MinimalApis
+    r = [1,2,3]
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "1,2,3".)
+
+short[]
+  MinimalApis
+    r = [1,2,3]
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "1,2,3".)
+
+ushort[]
+  MinimalApis
+    r = [1,2,3]
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "1,2,3".)
+
+byte[]
+  MinimalApis
+    r = "AQID"

@@ -1,33 +1,115 @@
 ﻿Input: c
 
 Bindings:
-string     "c"
-string[]   ["c"]
-char       "c"
-char[]     ["c"]
 
-Erroneous:
-int        400 Bad Request
-int[]      400 Bad Request
-double     400 Bad Request
-double[]   400 Bad Request
-float      400 Bad Request
-float[]    400 Bad Request
-decimal    400 Bad Request
-decimal[]  400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-long       400 Bad Request
-long[]     400 Bad Request
-ulong      400 Bad Request
-ulong[]    400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-short      400 Bad Request
-short[]    400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "c"
+
+string[]
+  MinimalApis
+    r = ["c"]
+
+char
+  MinimalApis
+    r = "c"
+
+char[]
+  MinimalApis
+    r = ["c"]
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "c".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "c".)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "c".)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "c".)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "c".)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "c".)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "c".)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "c".)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "c".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "c".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "c".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "c".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "c".)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "c".)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "c".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "c".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "c".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "c".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "c".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "c".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "c".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "c".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "c".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "c".)

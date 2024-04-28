@@ -1,33 +1,115 @@
 ﻿Input: a&q=b&q=c
 
 Bindings:
-string     "a,b,c"
-string[]   ["a","b","c"]
-char[]     ["a","b","c"]
 
-Erroneous:
-char       400 Bad Request
-int        400 Bad Request
-int[]      400 Bad Request
-double     400 Bad Request
-double[]   400 Bad Request
-float      400 Bad Request
-float[]    400 Bad Request
-decimal    400 Bad Request
-decimal[]  400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-uint       400 Bad Request
-uint[]     400 Bad Request
-long       400 Bad Request
-long[]     400 Bad Request
-ulong      400 Bad Request
-ulong[]    400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-short      400 Bad Request
-short[]    400 Bad Request
-ushort     400 Bad Request
-ushort[]   400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "a,b,c"
+
+string[]
+  MinimalApis
+    r = ["a","b","c"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "a,b,c".)
+
+char[]
+  MinimalApis
+    r = ["a","b","c"]
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "a,b,c".)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "a".)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "a,b,c".)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "a".)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "a,b,c".)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "a".)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "a,b,c".)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "a".)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "a,b,c".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "a".)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "a,b,c".)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "a".)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "a,b,c".)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "a".)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "a,b,c".)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "a".)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "a,b,c".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "a".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "a,b,c".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "a".)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "a,b,c".)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "a".)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "a,b,c".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "a".)

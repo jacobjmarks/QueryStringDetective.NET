@@ -11,6 +11,10 @@ public class QueryBindingEvaluatorTests
         "0",
         "1",
         "-1",
+        "true",
+        "false",
+        "yes",
+        "no",
         "1&q=2&q=3",
         "1&q=2&q=.3",
         "-1&q=0&q=1",
@@ -40,11 +44,20 @@ public class QueryBindingEvaluatorTests
         using var bindingEvaluator = new QueryBindingEvaluator();
         var results = await bindingEvaluator.EvaluateAsync("?q=" + queryString);
 
-        var content = "Input: " + queryString
-            + "\n\nBindings:\n" + string.Join("\n", results.Where(r => !r.IsErroneous)
-                    .Select(r => $"{r.Type,-10} {r.Result}"))
-            + "\n\nErroneous:\n" + string.Join("\n", results.Where(r => r.IsErroneous)
-                    .Select(r => $"{r.Type,-10} {r.Error!.Message}"));
+        var content = $"Input: {queryString}"
+            + "\n\nBindings:\n";
+
+        foreach (var result in results)
+        {
+            content += "\n" + result.Type;
+            content += "\n  " + string.Join("\n  ", result.Results
+                .Select(r => $"{r.Key}\n    {(
+                    r.Value.IsErroneous
+                    ? $"e = {r.Value.Error.Message} ({r.Value.Error.Detail})"
+                    : $"r = {r.Value.Result}")}"));
+
+            content += "\n";
+        }
 
         content.Should().MatchSnapshot(SnapshotNameExtension.Create(ToValidFileName(queryString)));
     }

@@ -1,33 +1,115 @@
 ﻿Input: 65535
 
 Bindings:
-string     "65535"
-string[]   ["65535"]
-int        65535
-int[]      [65535]
-double     65535
-double[]   [65535]
-float      65535
-float[]    [65535]
-decimal    65535
-decimal[]  [65535]
-uint       65535
-uint[]     [65535]
-long       65535
-long[]     [65535]
-ulong      65535
-ulong[]    [65535]
-ushort     65535
-ushort[]   [65535]
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
-short      400 Bad Request
-short[]    400 Bad Request
-byte       400 Bad Request
-byte[]     400 Bad Request
+string
+  MinimalApis
+    r = "65535"
+
+string[]
+  MinimalApis
+    r = ["65535"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "65535".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "65535".)
+
+int
+  MinimalApis
+    r = 65535
+
+int[]
+  MinimalApis
+    r = [65535]
+
+double
+  MinimalApis
+    r = 65535
+
+double[]
+  MinimalApis
+    r = [65535]
+
+float
+  MinimalApis
+    r = 65535
+
+float[]
+  MinimalApis
+    r = [65535]
+
+decimal
+  MinimalApis
+    r = 65535
+
+decimal[]
+  MinimalApis
+    r = [65535]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "65535".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "65535".)
+
+uint
+  MinimalApis
+    r = 65535
+
+uint[]
+  MinimalApis
+    r = [65535]
+
+long
+  MinimalApis
+    r = 65535
+
+long[]
+  MinimalApis
+    r = [65535]
+
+ulong
+  MinimalApis
+    r = 65535
+
+ulong[]
+  MinimalApis
+    r = [65535]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "65535".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "65535".)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "65535".)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "65535".)
+
+ushort
+  MinimalApis
+    r = 65535
+
+ushort[]
+  MinimalApis
+    r = [65535]
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "65535".)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "65535".)

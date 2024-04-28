@@ -1,33 +1,115 @@
 ﻿Input: 255
 
 Bindings:
-string     "255"
-string[]   ["255"]
-int        255
-int[]      [255]
-double     255
-double[]   [255]
-float      255
-float[]    [255]
-decimal    255
-decimal[]  [255]
-uint       255
-uint[]     [255]
-long       255
-long[]     [255]
-ulong      255
-ulong[]    [255]
-short      255
-short[]    [255]
-ushort     255
-ushort[]   [255]
-byte       255
-byte[]     "/w=="
 
-Erroneous:
-char       400 Bad Request
-char[]     400 Bad Request
-bool       400 Bad Request
-bool[]     400 Bad Request
-sbyte      400 Bad Request
-sbyte[]    400 Bad Request
+string
+  MinimalApis
+    r = "255"
+
+string[]
+  MinimalApis
+    r = ["255"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "255".)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "255".)
+
+int
+  MinimalApis
+    r = 255
+
+int[]
+  MinimalApis
+    r = [255]
+
+double
+  MinimalApis
+    r = 255
+
+double[]
+  MinimalApis
+    r = [255]
+
+float
+  MinimalApis
+    r = 255
+
+float[]
+  MinimalApis
+    r = [255]
+
+decimal
+  MinimalApis
+    r = 255
+
+decimal[]
+  MinimalApis
+    r = [255]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "255".)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "255".)
+
+uint
+  MinimalApis
+    r = 255
+
+uint[]
+  MinimalApis
+    r = [255]
+
+long
+  MinimalApis
+    r = 255
+
+long[]
+  MinimalApis
+    r = [255]
+
+ulong
+  MinimalApis
+    r = 255
+
+ulong[]
+  MinimalApis
+    r = [255]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "255".)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "255".)
+
+short
+  MinimalApis
+    r = 255
+
+short[]
+  MinimalApis
+    r = [255]
+
+ushort
+  MinimalApis
+    r = 255
+
+ushort[]
+  MinimalApis
+    r = [255]
+
+byte
+  MinimalApis
+    r = 255
+
+byte[]
+  MinimalApis
+    r = "/w=="
