@@ -5,111 +5,167 @@ Bindings:
 string
   MinimalApis
     r = "9223372036854775807"
+  Controllers
+    r = "9223372036854775807"
 
 string[]
   MinimalApis
     r = ["9223372036854775807"]
+  Controllers
+    r = ["9223372036854775807"]
 
 char
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 char[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 double
   MinimalApis
+    r = 9.223372036854776E+18
+  Controllers
     r = 9.223372036854776E+18
 
 double[]
   MinimalApis
     r = [9.223372036854776E+18]
+  Controllers
+    r = [9.223372036854776E+18]
 
 float
   MinimalApis
+    r = 9.223372E+18
+  Controllers
     r = 9.223372E+18
 
 float[]
   MinimalApis
     r = [9.223372E+18]
+  Controllers
+    r = [9.223372E+18]
 
 decimal
   MinimalApis
+    r = 9223372036854775807
+  Controllers
     r = 9223372036854775807
 
 decimal[]
   MinimalApis
     r = [9223372036854775807]
+  Controllers
+    r = [9223372036854775807]
 
 bool
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long
   MinimalApis
+    r = 9223372036854775807
+  Controllers
     r = 9223372036854775807
 
 long[]
   MinimalApis
     r = [9223372036854775807]
+  Controllers
+    r = [9223372036854775807]
 
 ulong
   MinimalApis
+    r = 9223372036854775807
+  Controllers
     r = 9223372036854775807
 
 ulong[]
   MinimalApis
     r = [9223372036854775807]
+  Controllers
+    r = [9223372036854775807]
 
 sbyte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 sbyte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "9223372036854775807".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()

@@ -5,111 +5,167 @@ Bindings:
 string
   MinimalApis
     r = "-1,0,1"
+  Controllers
+    r = "-1"
 
 string[]
   MinimalApis
     r = ["-1","0","1"]
+  Controllers
+    r = ["-1","0","1"]
 
 char
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 char[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    r = -1
 
 int[]
   MinimalApis
+    r = [-1,0,1]
+  Controllers
     r = [-1,0,1]
 
 double
   MinimalApis
     r = -101
+  Controllers
+    r = -1
 
 double[]
   MinimalApis
+    r = [-1,0,1]
+  Controllers
     r = [-1,0,1]
 
 float
   MinimalApis
     r = -101
+  Controllers
+    r = -1
 
 float[]
   MinimalApis
+    r = [-1,0,1]
+  Controllers
     r = [-1,0,1]
 
 decimal
   MinimalApis
     r = -101
+  Controllers
+    r = -1
 
 decimal[]
   MinimalApis
     r = [-1,0,1]
+  Controllers
+    r = [-1,0,1]
 
 bool
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "long q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    r = -1
 
 long[]
   MinimalApis
     r = [-1,0,1]
+  Controllers
+    r = [-1,0,1]
 
 ulong
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ulong q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ulong[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 sbyte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    r = -1
 
 sbyte[]
   MinimalApis
     r = [-1,0,1]
+  Controllers
+    r = [-1,0,1]
 
 short
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    r = -1
 
 short[]
   MinimalApis
     r = [-1,0,1]
+  Controllers
+    r = [-1,0,1]
 
 ushort
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte q" from "-1,0,1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "-1".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()

@@ -5,111 +5,167 @@ Bindings:
 string
   MinimalApis
     r = "0"
+  Controllers
+    r = "0"
 
 string[]
   MinimalApis
+    r = ["0"]
+  Controllers
     r = ["0"]
 
 char
   MinimalApis
     r = "0"
+  Controllers
+    r = "0"
 
 char[]
   MinimalApis
+    r = ["0"]
+  Controllers
     r = ["0"]
 
 int
   MinimalApis
     r = 0
+  Controllers
+    r = 0
 
 int[]
   MinimalApis
+    r = [0]
+  Controllers
     r = [0]
 
 double
   MinimalApis
     r = 0
+  Controllers
+    r = 0
 
 double[]
   MinimalApis
+    r = [0]
+  Controllers
     r = [0]
 
 float
   MinimalApis
     r = 0
+  Controllers
+    r = 0
 
 float[]
   MinimalApis
+    r = [0]
+  Controllers
     r = [0]
 
 decimal
   MinimalApis
     r = 0
+  Controllers
+    r = 0
 
 decimal[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 bool
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool q" from "0".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "0".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 uint[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 long
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 long[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 ulong
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 ulong[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 sbyte
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 sbyte[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 short
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 short[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 ushort
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 ushort[]
   MinimalApis
     r = [0]
+  Controllers
+    r = [0]
 
 byte
   MinimalApis
+    r = 0
+  Controllers
     r = 0
 
 byte[]
   MinimalApis
     r = "AA=="
+  Controllers
+    e = 400 Bad Request ()

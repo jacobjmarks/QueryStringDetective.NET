@@ -5,111 +5,167 @@ Bindings:
 string
   MinimalApis
     r = "18446744073709551615"
+  Controllers
+    r = "18446744073709551615"
 
 string[]
   MinimalApis
     r = ["18446744073709551615"]
+  Controllers
+    r = ["18446744073709551615"]
 
 char
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 char[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 double
   MinimalApis
+    r = 1.8446744073709552E+19
+  Controllers
     r = 1.8446744073709552E+19
 
 double[]
   MinimalApis
     r = [1.8446744073709552E+19]
+  Controllers
+    r = [1.8446744073709552E+19]
 
 float
   MinimalApis
+    r = 1.8446744E+19
+  Controllers
     r = 1.8446744E+19
 
 float[]
   MinimalApis
     r = [1.8446744E+19]
+  Controllers
+    r = [1.8446744E+19]
 
 decimal
   MinimalApis
+    r = 18446744073709551615
+  Controllers
     r = 18446744073709551615
 
 decimal[]
   MinimalApis
     r = [18446744073709551615]
+  Controllers
+    r = [18446744073709551615]
 
 bool
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "long q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "long[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ulong
   MinimalApis
+    r = 18446744073709551615
+  Controllers
     r = 18446744073709551615
 
 ulong[]
   MinimalApis
     r = [18446744073709551615]
+  Controllers
+    r = [18446744073709551615]
 
 sbyte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 sbyte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "18446744073709551615".)
+    e = 400 Bad Request ()
+  Controllers
+    r = "18446744073709551615"

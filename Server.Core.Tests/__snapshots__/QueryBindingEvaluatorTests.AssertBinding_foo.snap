@@ -5,111 +5,167 @@ Bindings:
 string
   MinimalApis
     r = "foo"
+  Controllers
+    r = "foo"
 
 string[]
   MinimalApis
     r = ["foo"]
+  Controllers
+    r = ["foo"]
 
 char
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 char[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "char[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 int[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "int[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 double
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "double q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 double[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "double[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 float
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "float q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 float[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "float[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 decimal
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "decimal q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 decimal[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 bool[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 uint[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "long q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 long[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "long[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ulong
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ulong q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ulong[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 sbyte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 sbyte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 short[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "short[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
 
 byte[]
   MinimalApis
-    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "foo".)
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
