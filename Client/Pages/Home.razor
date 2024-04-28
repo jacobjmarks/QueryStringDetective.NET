@@ -1,4 +1,5 @@
 ﻿@page "/"
+
 @using Shared
 
 <PageTitle>.NET Query String Detective</PageTitle>
@@ -17,7 +18,6 @@
             Show Erroneous
         </MudSwitch>
     </MudStack>
-
     <MudTable Items="@bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@isLoading"
         Filter="@(r => showErroneous ? true : !r.AllErroneous)">
         <HeaderContent>
@@ -33,28 +33,9 @@
                 {
                     foreach (var ((apiType, result), i) in context.Results.Select((r, i) => (r, i)))
                     {
-                        <MudText Typo="Typo.caption">
-                            @switch (apiType)
-                            {
-                                case ApiType.MinimalApis:
-                                    <MudElement>Minimal APIs</MudElement>
-                                    break;
-                                case ApiType.Controllers:
-                                    <MudElement>Controllers</MudElement>
-                                    break;
-                            }
-                        </MudText>
+                        <MudText Typo="Typo.caption">@apiType.ToDisplayString()</MudText>
 
-                        if (result.IsErroneous)
-                        {
-                            <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
-                                @result.Error.Message: @result.Error.Detail
-                            </MudText>
-                        }
-                        else
-                        {
-                            <MudText Class="mono">@result.Result</MudText>
-                        }
+                        RenderBindingResult(result);
 
                         if (i != context.Results.Count - 1)
                         {
@@ -65,15 +46,28 @@
                 else
                 {
                     var result = context.Results.First().Value;
-                    if (result.IsErroneous)
+                    RenderBindingResult(result);
+                }
+
+                @{
+                    void RenderBindingResult(BindingResult result)
                     {
-                        <MudText Color="Color.Error" Typo="Typo.caption">
-                            @result.Error.Message: @result.Error.Detail
-                        </MudText>
-                    }
-                    else
-                    {
-                        <MudText Class="mono">@result.Result</MudText>
+                        if (result.IsErroneous)
+                        {
+                            var errorText = result.Error.Message;
+                            if (!string.IsNullOrEmpty(result.Error.Detail))
+                            {
+                                errorText += $": {result.Error.Detail}";
+                            }
+
+                            <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
+                                @errorText
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Class="mono">@result.Result</MudText>
+                        }
                     }
                 }
             </MudTd>

@@ -1,10 +1,11 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Shared;
 
 namespace Server.Core;
@@ -30,10 +31,11 @@ public class QueryBindingEvaluator : IDisposable
     {
         var builder = new WebHostBuilder();
 
+        builder.UseEnvironment(Environments.Production);
+
         builder.ConfigureServices(services =>
         {
             services.AddRouting();
-            services.Configure<RouteHandlerOptions>(o => o.ThrowOnBadRequest = true);
             services.ConfigureHttpJsonOptions(json =>
             {
                 json.SerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
@@ -57,6 +59,8 @@ public class QueryBindingEvaluator : IDisposable
     {
         var builder = new WebHostBuilder();
 
+        builder.UseEnvironment(Environments.Production);
+
         builder.ConfigureServices(services =>
         {
             services.AddMvcCore()
@@ -65,6 +69,8 @@ public class QueryBindingEvaluator : IDisposable
                 {
                     o.JsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
                 });
+
+            services.AddProblemDetails();
         });
 
         builder.Configure(app =>
@@ -88,19 +94,19 @@ public class QueryBindingEvaluator : IDisposable
             _ => throw new NotSupportedException(),
         };
 
+        using var response = await httpClient.GetAsync(endpoint.Route + queryString);
+
         try
         {
-            using var response = await httpClient.GetAsync(endpoint.Route + queryString);
             response.EnsureSuccessStatusCode();
             return new(Result: await response.Content.ReadAsStringAsync());
         }
-        catch (BadHttpRequestException e)
+        catch
         {
-            return new(Error: new("400 Bad Request", e.Message));
-        }
-        catch (HttpRequestException e)
-        {
-            return new(Error: new(e.StatusCode.ToString()!, e.Message));
+            var statusCode = (int)response.StatusCode;
+            var reasonPhrase = ReasonPhrases.GetReasonPhrase(statusCode);
+
+            return new(Error: new($"{statusCode} {reasonPhrase}", string.Empty));
         }
     }
 
