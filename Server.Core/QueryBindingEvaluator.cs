@@ -14,10 +14,16 @@ public class QueryBindingEvaluator : IDisposable
     private readonly TestServer _minimalApiTestServer;
     private readonly HttpClient _minimalApiTestServerClient;
 
+    private readonly TestServer _controllerTestServer;
+    private readonly HttpClient _controllerTestServerClient;
+
     public QueryBindingEvaluator()
     {
         _minimalApiTestServer = CreateMinimalApiTestServer();
         _minimalApiTestServerClient = _minimalApiTestServer.CreateClient();
+
+        _controllerTestServer = CreateControllerTestServer();
+        _controllerTestServerClient = _controllerTestServer.CreateClient();
     }
 
     private static TestServer CreateMinimalApiTestServer()
@@ -47,6 +53,50 @@ public class QueryBindingEvaluator : IDisposable
         return new TestServer(builder);
     }
 
+    private static TestServer CreateControllerTestServer()
+    {
+        var builder = new WebHostBuilder();
+
+        builder.ConfigureServices(services =>
+        {
+            services.AddMvcCore()
+                .AddApplicationPart(typeof(QueryBindingEvaluator).Assembly)
+                .AddJsonOptions(o =>
+                {
+                    o.JsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
+                });
+        });
+
+        builder.Configure(app =>
+        {
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        });
+
+        return new TestServer(builder);
+    }
+
+    private async Task<BindingResult> GetControllerBindingResult(EndpointDescriptor endpoint, string queryString)
+    {
+        try
+        {
+            using var response = await _controllerTestServerClient.GetAsync(endpoint.Route + queryString);
+            response.EnsureSuccessStatusCode();
+            return new(Result: await response.Content.ReadAsStringAsync());
+        }
+        catch (BadHttpRequestException e)
+        {
+            return new(Error: new("400 Bad Request", e.Message));
+        }
+        catch (HttpRequestException e)
+        {
+            return new(Error: new(e.StatusCode.ToString()!, e.Message));
+        }
+    }
+
     private async Task<BindingResult> GetMinimalApiBindingResult(EndpointDescriptor endpoint, string queryString)
     {
         try
@@ -59,6 +109,10 @@ public class QueryBindingEvaluator : IDisposable
         {
             return new(Error: new("400 Bad Request", e.Message));
         }
+        catch (HttpRequestException e)
+        {
+            return new(Error: new(e.StatusCode.ToString()!, e.Message));
+        }
     }
 
     private async Task<BindingResults> GetBindingResultsAsync(EndpointDescriptor endpoint, string queryString)
@@ -66,6 +120,7 @@ public class QueryBindingEvaluator : IDisposable
         return new BindingResults(endpoint.Type, new()
         {
              { ApiType.MinimalApis, await GetMinimalApiBindingResult(endpoint, queryString) },
+             { ApiType.Controllers, await GetControllerBindingResult(endpoint, queryString) },
         });
     }
 
@@ -83,6 +138,10 @@ public class QueryBindingEvaluator : IDisposable
     {
         _minimalApiTestServerClient.Dispose();
         _minimalApiTestServer.Dispose();
+
+        _controllerTestServerClient.Dispose();
+        _controllerTestServer.Dispose();
+
         GC.SuppressFinalize(this);
     }
 }
