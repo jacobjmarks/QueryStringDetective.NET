@@ -4,9 +4,6 @@ using System.Text.Json.Serialization;
 namespace Shared;
 
 public record BindingResult(
-    [property: JsonPropertyName("t")]
-    string Type,
-
     [property: JsonPropertyName("r"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     string? Result = null,
 

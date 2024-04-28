@@ -19,7 +19,7 @@ public partial class Home : IDisposable
 
     private bool isLoading = false;
 
-    private IEnumerable<BindingResult> bindingResults = [];
+    private IEnumerable<BindingResults> bindingResults = [];
     private bool showErroneous = false;
 
     private async Task InputOnChange()
@@ -57,8 +57,8 @@ public partial class Home : IDisposable
         var qs = QueryString.Create("qs", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
-        var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResult>>() ?? [];
-        bindingResults = results.OrderByDescending(r => !r.IsErroneous);
+        var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
+        bindingResults = results.OrderBy(r => r.Results.Count(r => r.Value.IsErroneous));
     }
 
     public void Dispose()

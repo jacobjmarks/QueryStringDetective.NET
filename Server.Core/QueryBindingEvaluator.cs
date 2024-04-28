@@ -1,9 +1,7 @@
-using System.Reflection;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,27 +47,35 @@ public class QueryBindingEvaluator : IDisposable
         return new TestServer(builder);
     }
 
-    private async Task<BindingResult> GetBindingResultAsync(EndpointDescriptor endpoint, string queryString)
+    private async Task<BindingResult> GetMinimalApiBindingResult(EndpointDescriptor endpoint, string queryString)
     {
         try
         {
             using var response = await _minimalApiTestServerClient.GetAsync(endpoint.Route + queryString);
             response.EnsureSuccessStatusCode();
-            return new BindingResult(endpoint.Type, Result: await response.Content.ReadAsStringAsync());
+            return new(Result: await response.Content.ReadAsStringAsync());
         }
         catch (BadHttpRequestException e)
         {
-            return new BindingResult(endpoint.Type, Error: new("400 Bad Request", e.Message));
+            return new(Error: new("400 Bad Request", e.Message));
         }
     }
 
-    public async Task<IEnumerable<BindingResult>> EvaluateAsync(string queryString)
+    private async Task<BindingResults> GetBindingResultsAsync(EndpointDescriptor endpoint, string queryString)
+    {
+        return new BindingResults(endpoint.Type, new()
+        {
+             { ApiType.MinimalApis, await GetMinimalApiBindingResult(endpoint, queryString) },
+        });
+    }
+
+    public async Task<IEnumerable<BindingResults>> EvaluateAsync(string queryString)
     {
         ArgumentNullException.ThrowIfNull(queryString);
         if (!queryString.StartsWith("?q="))
             throw new ArgumentException("Unexpected value.", nameof(queryString));
 
-        var bindingResults = Constants.Endpoints.Select(endpoint => GetBindingResultAsync(endpoint, queryString));
+        var bindingResults = Constants.Endpoints.Select(endpoint => GetBindingResultsAsync(endpoint, queryString));
         return await Task.WhenAll(bindingResults);
     }
 
