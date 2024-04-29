@@ -22,21 +22,21 @@ string[]
 
 char
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "char q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 char?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 char[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 int
   MinimalApis
@@ -112,21 +112,21 @@ decimal[]
 
 bool
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 bool?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 bool[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 uint
   MinimalApis
@@ -184,72 +184,72 @@ ulong[]
 
 sbyte
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 sbyte?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 sbyte[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 short
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "short q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 short?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 short[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 ushort
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 ushort?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 byte
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 byte?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)
 
 byte[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "2147483647".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '2147483647' is not valid.)

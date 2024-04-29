@@ -112,21 +112,21 @@ decimal[]
 
 bool
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "0".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '0' is not valid.)
 
 bool?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "0".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '0' is not valid.)
 
 bool[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "0".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '0' is not valid.)
 
 uint
   MinimalApis
@@ -252,4 +252,4 @@ byte[]
   MinimalApis
     r = "AA=="
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value '0' is not valid.)

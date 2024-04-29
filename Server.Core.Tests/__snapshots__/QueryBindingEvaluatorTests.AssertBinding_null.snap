@@ -22,234 +22,234 @@ string[]
 
 char
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "char q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 char?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 char[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 int
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "int q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 int?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 int[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 double
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "double q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 double?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<double> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 double[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 float
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "float q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 float?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<float> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 float[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 decimal
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 decimal?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<decimal> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 decimal[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 bool
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 bool?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 bool[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 uint
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 uint?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 uint[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 long
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "long q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 long?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 long[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ulong
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ulong?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ulong[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 sbyte
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 sbyte?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 sbyte[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 short
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "short q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 short?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 short[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ushort
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ushort?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 ushort[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 byte
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 byte?
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "null".)
   Controllers
-    e = 400 Bad Request ()
+    e = 400 Bad Request (The value 'null' is not valid.)
 
 byte[]
   MinimalApis
-    e = 400 Bad Request ()
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "null".)
   Controllers
     r = "null"

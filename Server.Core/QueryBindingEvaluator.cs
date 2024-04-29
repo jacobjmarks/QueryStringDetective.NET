@@ -1,6 +1,9 @@
+using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore.WebUtilities;
@@ -36,6 +39,7 @@ public sealed class QueryBindingEvaluator : IDisposable
         builder.ConfigureServices(services =>
         {
             services.AddRouting();
+            services.Configure<RouteHandlerOptions>(o => o.ThrowOnBadRequest = true);
             services.ConfigureHttpJsonOptions(json =>
             {
                 json.SerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
@@ -94,19 +98,43 @@ public sealed class QueryBindingEvaluator : IDisposable
             _ => throw new NotSupportedException(),
         };
 
-        using var response = await httpClient.GetAsync(endpoint.Route + queryString);
+        HttpResponseMessage response;
 
         try
         {
-            response.EnsureSuccessStatusCode();
+            response = await httpClient.GetAsync(endpoint.Route + queryString);
+        }
+        catch (BadHttpRequestException e)
+        {
+            return new(Error: new("400 Bad Request", e.Message));
+        }
+
+        try
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                var statusCode = (int)response.StatusCode;
+                var reasonPhrase = ReasonPhrases.GetReasonPhrase(statusCode);
+
+                string? detail;
+                try
+                {
+                    var problemDetails = await response.Content.ReadFromJsonAsync<ValidationProblemDetails>();
+                    detail = problemDetails?.Errors["q"][0];
+                }
+                catch
+                {
+                    detail = null;
+                }
+
+                return new(Error: new($"{statusCode} {reasonPhrase}", detail));
+            }
+
             return new(Result: await response.Content.ReadAsStringAsync());
         }
-        catch
+        finally
         {
-            var statusCode = (int)response.StatusCode;
-            var reasonPhrase = ReasonPhrases.GetReasonPhrase(statusCode);
-
-            return new(Error: new($"{statusCode} {reasonPhrase}", string.Empty));
+            response.Dispose();
         }
     }
 
