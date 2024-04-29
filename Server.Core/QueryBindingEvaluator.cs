@@ -10,7 +10,7 @@ using Shared;
 
 namespace Server.Core;
 
-public class QueryBindingEvaluator : IDisposable
+public sealed class QueryBindingEvaluator : IDisposable
 {
     private readonly TestServer _minimalApiTestServer;
     private readonly HttpClient _minimalApiTestServerClient;
