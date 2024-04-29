@@ -5,19 +5,39 @@
 <PageTitle>.NET Query String Detective</PageTitle>
 
 <MudStack>
-    <MudTextField @ref="_input" T="string" spellcheck="false" Class="qs-input" Label="Query string"
-        Placeholder="hello&q=world" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q="
-        MaxLength="1000" TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
+    <MudTextField T="string" spellcheck="false" Class="qs-input" Label="Query string" Placeholder="hello&q=world"
+        Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" MaxLength="1000"
+        TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
     </MudTextField>
 
     <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
         <MudText Typo="Typo.body2">
             Enter a query string above and see how its value is bound to various .NET types
         </MudText>
-        <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
-            Show Erroneous
-        </MudSwitch>
     </MudStack>
+    <MudExpansionPanels>
+        <MudExpansionPanel>
+            <TitleContent>
+                <div class="d-flex">
+                    <MudIcon Icon="@Icons.Material.Filled.Settings" Class="mr-3"></MudIcon>
+                    <MudText>Configuration</MudText>
+                </div>
+            </TitleContent>
+            <ChildContent>
+                <MudStack>
+                    <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
+                        Show erroneous bindings
+                        <MudText Typo="Typo.caption" Class="d-block mud-text-secondary">
+                            Errors will always be shown if results are discrepant between API types
+                        </MudText>
+                    </MudSwitch>
+                    <MudSwitch @bind-Value="@showDetailedErrorMessages" Color="Color.Primary">
+                        Show detailed error messages
+                    </MudSwitch>
+                </MudStack>
+            </ChildContent>
+        </MudExpansionPanel>
+    </MudExpansionPanels>
     <MudTable Items="@bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@isLoading"
         Filter="@(r => showErroneous ? true : !r.AllErroneous)">
         <HeaderContent>
@@ -55,7 +75,7 @@
                         if (result.IsErroneous)
                         {
                             var errorText = result.Error.Message;
-                            if (!string.IsNullOrEmpty(result.Error.Detail))
+                            if (showDetailedErrorMessages && !string.IsNullOrEmpty(result.Error.Detail))
                             {
                                 errorText += $": {result.Error.Detail}";
                             }

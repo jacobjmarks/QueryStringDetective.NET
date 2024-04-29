@@ -2,8 +2,6 @@
 using System.Net.Http.Json;
 using Shared;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using MudBlazor;
 
 namespace Client.Pages;
 
@@ -14,13 +12,13 @@ public partial class Home : IDisposable
 
     private string CurrentInputValue { get; set; } = string.Empty;
 
-    private MudTextField<string> _input = null!;
     private readonly HttpClient httpClient = new();
 
     private bool isLoading = false;
 
     private IEnumerable<BindingResults> bindingResults = [];
     private bool showErroneous = false;
+    private bool showDetailedErrorMessages = false;
 
     private Task InputOnChange(string value)
     {
