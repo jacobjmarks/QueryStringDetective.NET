@@ -8,6 +8,12 @@ string
   Controllers
     r = "255"
 
+string?
+  MinimalApis
+    r = "255"
+  Controllers
+    r = "255"
+
 string[]
   MinimalApis
     r = ["255"]
@@ -15,6 +21,12 @@ string[]
     r = ["255"]
 
 char
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+char?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -32,6 +44,12 @@ int
   Controllers
     r = 255
 
+int?
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
 int[]
   MinimalApis
     r = [255]
@@ -39,6 +57,12 @@ int[]
     r = [255]
 
 double
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+double?
   MinimalApis
     r = 255
   Controllers
@@ -56,6 +80,12 @@ float
   Controllers
     r = 255
 
+float?
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
 float[]
   MinimalApis
     r = [255]
@@ -63,6 +93,12 @@ float[]
     r = [255]
 
 decimal
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+decimal?
   MinimalApis
     r = 255
   Controllers
@@ -80,6 +116,12 @@ bool
   Controllers
     e = 400 Bad Request ()
 
+bool?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 bool[]
   MinimalApis
     e = 400 Bad Request ()
@@ -87,6 +129,12 @@ bool[]
     e = 400 Bad Request ()
 
 uint
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+uint?
   MinimalApis
     r = 255
   Controllers
@@ -104,6 +152,12 @@ long
   Controllers
     r = 255
 
+long?
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
 long[]
   MinimalApis
     r = [255]
@@ -111,6 +165,12 @@ long[]
     r = [255]
 
 ulong
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+ulong?
   MinimalApis
     r = 255
   Controllers
@@ -128,6 +188,12 @@ sbyte
   Controllers
     e = 400 Bad Request ()
 
+sbyte?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 sbyte[]
   MinimalApis
     e = 400 Bad Request ()
@@ -135,6 +201,12 @@ sbyte[]
     e = 400 Bad Request ()
 
 short
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+short?
   MinimalApis
     r = 255
   Controllers
@@ -152,6 +224,12 @@ ushort
   Controllers
     r = 255
 
+ushort?
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
 ushort[]
   MinimalApis
     r = [255]
@@ -159,6 +237,12 @@ ushort[]
     r = [255]
 
 byte
+  MinimalApis
+    r = 255
+  Controllers
+    r = 255
+
+byte?
   MinimalApis
     r = 255
   Controllers

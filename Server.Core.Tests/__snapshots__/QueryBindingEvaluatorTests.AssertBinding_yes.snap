@@ -8,6 +8,12 @@ string
   Controllers
     r = "yes"
 
+string?
+  MinimalApis
+    r = "yes"
+  Controllers
+    r = "yes"
+
 string[]
   MinimalApis
     r = ["yes"]
@@ -15,6 +21,12 @@ string[]
     r = ["yes"]
 
 char
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+char?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -32,6 +44,12 @@ int
   Controllers
     e = 400 Bad Request ()
 
+int?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 int[]
   MinimalApis
     e = 400 Bad Request ()
@@ -39,6 +57,12 @@ int[]
     e = 400 Bad Request ()
 
 double
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+double?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -56,6 +80,12 @@ float
   Controllers
     e = 400 Bad Request ()
 
+float?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 float[]
   MinimalApis
     e = 400 Bad Request ()
@@ -63,6 +93,12 @@ float[]
     e = 400 Bad Request ()
 
 decimal
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+decimal?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -80,6 +116,12 @@ bool
   Controllers
     e = 400 Bad Request ()
 
+bool?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 bool[]
   MinimalApis
     e = 400 Bad Request ()
@@ -87,6 +129,12 @@ bool[]
     e = 400 Bad Request ()
 
 uint
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+uint?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -104,6 +152,12 @@ long
   Controllers
     e = 400 Bad Request ()
 
+long?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 long[]
   MinimalApis
     e = 400 Bad Request ()
@@ -111,6 +165,12 @@ long[]
     e = 400 Bad Request ()
 
 ulong
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+ulong?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -128,6 +188,12 @@ sbyte
   Controllers
     e = 400 Bad Request ()
 
+sbyte?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 sbyte[]
   MinimalApis
     e = 400 Bad Request ()
@@ -135,6 +201,12 @@ sbyte[]
     e = 400 Bad Request ()
 
 short
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+short?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
@@ -152,6 +224,12 @@ ushort
   Controllers
     e = 400 Bad Request ()
 
+ushort?
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
 ushort[]
   MinimalApis
     e = 400 Bad Request ()
@@ -159,6 +237,12 @@ ushort[]
     e = 400 Bad Request ()
 
 byte
+  MinimalApis
+    e = 400 Bad Request ()
+  Controllers
+    e = 400 Bad Request ()
+
+byte?
   MinimalApis
     e = 400 Bad Request ()
   Controllers
