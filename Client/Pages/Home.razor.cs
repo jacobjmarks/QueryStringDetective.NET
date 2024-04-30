@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using System.Net.Http.Json;
 using Shared;
 using Microsoft.AspNetCore.Components;
@@ -35,6 +35,7 @@ public sealed partial class Home : IDisposable
         if (value == null)
             return;
 
+        if (!isLoading)
         isLoading = true;
     }
 
