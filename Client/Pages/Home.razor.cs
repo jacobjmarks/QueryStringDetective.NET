@@ -2,18 +2,28 @@
 using System.Net.Http.Json;
 using Shared;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace Client.Pages;
 
-public partial class Home : IDisposable
+public sealed partial class Home : IDisposable
 {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = null!;
+
     [Inject]
     private AppConfig AppConfig { get; set; } = null!;
 
-    private string CurrentInputValue { get; set; } = string.Empty;
+    [Inject]
+    private ClipboardService ClipboardService { get; set; } = null!;
+
+    [SupplyParameterFromQuery(Name = "qs")]
+    [Parameter]
+    public string? InitialInputValue { get; set; }
 
     private readonly HttpClient httpClient = new();
 
+    private MudTextField<string> _input = null!;
     private bool isLoading = false;
 
     private IEnumerable<BindingResults> bindingResults = [];
@@ -22,7 +32,6 @@ public partial class Home : IDisposable
 
     private Task InputOnChange(string value)
     {
-        CurrentInputValue = value ?? string.Empty;
         isLoading = true;
 
         return Task.CompletedTask;
@@ -30,12 +39,11 @@ public partial class Home : IDisposable
 
     private async Task InputOnDebounce(string value)
     {
-        CurrentInputValue = value ?? string.Empty;
-        isLoading = true;
+        if (!isLoading) isLoading = true;
 
         try
         {
-            await GetBindingResultsAsync(CurrentInputValue);
+            await GetBindingResultsAsync(value);
         }
         finally
         {
@@ -50,6 +58,21 @@ public partial class Home : IDisposable
         response.EnsureSuccessStatusCode();
         var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
         bindingResults = results.OrderBy(r => r.Results.Count(r => r.Value.IsErroneous));
+    }
+
+    private async Task GetSharableLink()
+    {
+        var shareLink = NavigationManager.BaseUri + "?qs=" + Uri.EscapeDataString(_input.Value);
+        await ClipboardService.CopyToClipboardAsync(shareLink);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && InitialInputValue != null)
+        {
+            await _input.SetText(InitialInputValue);
+            await _input.ForceUpdate();
+        }
     }
 
     public void Dispose()

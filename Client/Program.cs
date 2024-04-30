@@ -15,4 +15,6 @@ builder.Services.AddScoped<AppConfig>(services => services.GetRequiredService<IO
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+builder.Services.AddSingleton<ClipboardService>();
+
 await builder.Build().RunAsync();

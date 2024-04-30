@@ -5,15 +5,19 @@
 <PageTitle>.NET Query String Detective</PageTitle>
 
 <MudStack>
-    <MudTextField T="string" spellcheck="false" Class="qs-input" Label="Query string" Placeholder="hello&q=world"
-        Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q=" MaxLength="1000"
-        TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
+    <MudTextField @ref="_input" T="string" spellcheck="false" Class="qs-input" Label="Query string"
+        Placeholder="hello&q=world" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?q="
+        MaxLength="1000" TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
     </MudTextField>
 
-    <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
+    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
         <MudText Typo="Typo.body2">
             Enter a query string above and see how its value is bound to various .NET types
         </MudText>
+        <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
+            StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
+            Get link
+        </MudButton>
     </MudStack>
     <MudExpansionPanels>
         <MudExpansionPanel>
