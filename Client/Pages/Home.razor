@@ -10,14 +10,20 @@
         MaxLength="1000" TextChanged="InputOnChange" DebounceInterval="500" OnDebounceIntervalElapsed="InputOnDebounce">
     </MudTextField>
 
-    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
+    <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
         <MudText Typo="Typo.body2">
             Enter a query string above and see how its value is bound to various .NET types
         </MudText>
-        <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
-            StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
-            Get link
-        </MudButton>
+        <MudStack Row="true" Class="flex-grow-1" Justify="Justify.FlexEnd">
+            <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
+                StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
+                Copy link
+            </MudButton>
+            <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
+                StartIcon="@Icons.Material.Filled.Clear" OnClick="Clear">
+                Clear results
+            </MudButton>
+        </MudStack>
     </MudStack>
     <MudExpansionPanels>
         <MudExpansionPanel>

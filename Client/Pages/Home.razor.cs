@@ -30,16 +30,21 @@ public sealed partial class Home : IDisposable
     private bool showErroneous = false;
     private bool showDetailedErrorMessages = false;
 
-    private Task InputOnChange(string value)
+    private void InputOnChange(string? value)
     {
-        isLoading = true;
+        if (value == null)
+            return;
 
-        return Task.CompletedTask;
+        isLoading = true;
     }
 
-    private async Task InputOnDebounce(string value)
+    private async Task InputOnDebounce(string? value)
     {
-        if (!isLoading) isLoading = true;
+        if (value == null)
+            return;
+
+        if (!isLoading)
+            isLoading = true;
 
         try
         {
@@ -53,6 +58,7 @@ public sealed partial class Home : IDisposable
 
     private async Task GetBindingResultsAsync(string inputValue)
     {
+        if (inputValue == null) return;
         var qs = QueryString.Create("qs", "?q=" + inputValue);
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
@@ -64,6 +70,13 @@ public sealed partial class Home : IDisposable
     {
         var shareLink = NavigationManager.BaseUri + "?qs=" + Uri.EscapeDataString(_input.Value);
         await ClipboardService.CopyToClipboardAsync(shareLink);
+    }
+
+    private async Task Clear()
+    {
+        bindingResults = [];
+        await _input.Clear();
+        await _input.FocusAsync();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
