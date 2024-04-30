@@ -36,7 +36,7 @@ public sealed partial class Home : IDisposable
             return;
 
         if (!isLoading)
-        isLoading = true;
+            isLoading = true;
     }
 
     private async Task InputOnDebounce(string? value)
