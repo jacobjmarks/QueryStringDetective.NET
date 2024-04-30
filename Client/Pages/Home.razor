@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 
 @using Shared
 
@@ -16,11 +16,11 @@
         </MudText>
         <MudStack Row="true" Class="flex-grow-1" Justify="Justify.FlexEnd">
             <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
-                StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
+                Color="Color.Primary" StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
                 Copy link
             </MudButton>
             <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
-                StartIcon="@Icons.Material.Filled.Clear" OnClick="Clear">
+                Color="Color.Primary" StartIcon="@Icons.Material.Filled.Clear" OnClick="Clear">
                 Clear results
             </MudButton>
         </MudStack>
