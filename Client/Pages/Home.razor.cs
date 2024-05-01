@@ -27,6 +27,8 @@ public sealed partial class Home : IDisposable
     private bool isLoading = false;
 
     private IEnumerable<BindingResults> bindingResults = [];
+
+    private bool includeNullableTypes = false;
     private bool showErroneous = false;
     private bool showDetailedErrorMessages = false;
 
@@ -65,6 +67,17 @@ public sealed partial class Home : IDisposable
         response.EnsureSuccessStatusCode();
         var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
         bindingResults = results.OrderBy(r => r.Results.Count(r => r.Value.IsErroneous));
+    }
+
+    private bool ResultTableFilter(BindingResults r)
+    {
+        if (!includeNullableTypes && r.Type.EndsWith('?'))
+            return false;
+
+        if (!showErroneous && r.AllErroneous)
+            return false;
+
+        return true;
     }
 
     private async Task GetSharableLink()

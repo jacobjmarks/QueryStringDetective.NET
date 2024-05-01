@@ -36,6 +36,9 @@
             </TitleContent>
             <ChildContent>
                 <MudStack>
+                    <MudSwitch @bind-Value="@includeNullableTypes" Color="Color.Primary">
+                        Include nullable types
+                    </MudSwitch>
                     <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
                         Show erroneous bindings
                         <MudText Typo="Typo.caption" Class="d-block mud-text-secondary">
@@ -51,7 +54,7 @@
     </MudExpansionPanels>
 
     <MudTable Items="@bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@isLoading"
-        Filter="@(r => showErroneous ? true : !r.AllErroneous)">
+        Filter="ResultTableFilter">
         <HeaderContent>
             <MudTh>Parameter Type</MudTh>
             <MudTh>Binding Result</MudTh>
