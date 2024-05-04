@@ -15,7 +15,16 @@ public record BindingResult(
         string Message,
 
         [property: JsonPropertyName("d"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        string? Detail);
+        string? Detail)
+    {
+        public string ToDisplayString(bool detailed = false)
+        {
+            var displayString = Message;
+            if (detailed && !string.IsNullOrEmpty(Detail))
+                displayString += ": " + Detail;
+            return displayString;
+        }
+    };
 
     [JsonIgnore]
     [MemberNotNullWhen(true, nameof(Error))]

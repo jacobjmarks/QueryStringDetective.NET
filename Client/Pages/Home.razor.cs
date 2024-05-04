@@ -66,7 +66,7 @@ public sealed partial class Home : IDisposable
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
         var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
-        bindingResults = results.OrderBy(r => r.Results.Count(r => r.Value.IsErroneous));
+        bindingResults = results.OrderBy(r => r.AllErroneous);
     }
 
     private bool ResultTableFilter(BindingResults r)

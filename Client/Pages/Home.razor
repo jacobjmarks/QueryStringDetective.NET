@@ -69,11 +69,14 @@
                 <MudText Class="mono">@context.Type</MudText>
             </MudTd>
             <MudTd DataLabel="Binding Result" Class="mono">
-                @if (context.IsDiscrepant)
+                @if (context.IsDiscrepant
+                && (!context.AllErroneous || context.Results.Values.DistinctBy(GetErrorText).Count() > 1))
                 {
                     foreach (var ((apiType, result), i) in context.Results.Select((r, i) => (r, i)))
                     {
-                        <MudText Typo="Typo.caption">@apiType.ToDisplayString()</MudText>
+                        <MudText Typo="Typo.caption">
+                            @apiType.ToDisplayString()
+                        </MudText>
 
                         RenderBindingResult(result);
 
@@ -94,14 +97,8 @@
                     {
                         if (result.IsErroneous)
                         {
-                            var errorText = result.Error.Message;
-                            if (showDetailedErrorMessages && !string.IsNullOrEmpty(result.Error.Detail))
-                            {
-                                errorText += $": {result.Error.Detail}";
-                            }
-
                             <MudText Color="Color.Error" Class="mono" Typo="Typo.body2">
-                                @errorText
+                                @GetErrorText(result)
                             </MudText>
                         }
                         else
@@ -109,6 +106,8 @@
                             <MudText Class="mono">@result.Result</MudText>
                         }
                     }
+
+                    string? GetErrorText(BindingResult result) => result.Error?.ToDisplayString(showDetailedErrorMessages);
                 }
             </MudTd>
         </RowTemplate>
