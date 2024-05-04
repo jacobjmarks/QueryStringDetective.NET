@@ -14,7 +14,7 @@ public class EvaluateQueryBinding(QueryBindingEvaluator bindingEvaluator)
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
         string qs)
     {
-        if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith("?q="))
+        if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith('?'))
             return req.CreateResponse(HttpStatusCode.BadRequest);
 
         var bindingResults = await _bindingEvaluator.EvaluateAsync(qs);

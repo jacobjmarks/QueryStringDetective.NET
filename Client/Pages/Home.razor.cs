@@ -62,7 +62,7 @@ public sealed partial class Home : IDisposable
     private async Task GetBindingResultsAsync(string inputValue)
     {
         if (inputValue == null) return;
-        var qs = QueryString.Create("qs", "?q=" + inputValue);
+        var qs = QueryString.Create("qs", "?" + inputValue);
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
         var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];

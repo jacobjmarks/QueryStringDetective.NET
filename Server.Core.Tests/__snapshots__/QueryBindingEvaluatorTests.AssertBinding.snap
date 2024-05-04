@@ -1,0 +1,255 @@
+﻿Input: 
+
+Bindings:
+
+string
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+string?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+string[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+char
+  MinimalApis
+    e = 400 Bad Request (Required parameter "char q" was not provided from query string.)
+  Controllers
+    r = "\u0000"
+
+char?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+char[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+int
+  MinimalApis
+    e = 400 Bad Request (Required parameter "int q" was not provided from query string.)
+  Controllers
+    r = 0
+
+int?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+int[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+double
+  MinimalApis
+    e = 400 Bad Request (Required parameter "double q" was not provided from query string.)
+  Controllers
+    r = 0
+
+double?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+double[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+float
+  MinimalApis
+    e = 400 Bad Request (Required parameter "float q" was not provided from query string.)
+  Controllers
+    r = 0
+
+float?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+float[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Required parameter "decimal q" was not provided from query string.)
+  Controllers
+    r = 0
+
+decimal?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+decimal[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Required parameter "bool q" was not provided from query string.)
+  Controllers
+    r = false
+
+bool?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+bool[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Required parameter "uint q" was not provided from query string.)
+  Controllers
+    r = 0
+
+uint?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+uint[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+long
+  MinimalApis
+    e = 400 Bad Request (Required parameter "long q" was not provided from query string.)
+  Controllers
+    r = 0
+
+long?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+long[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Required parameter "ulong q" was not provided from query string.)
+  Controllers
+    r = 0
+
+ulong?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+ulong[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Required parameter "sbyte q" was not provided from query string.)
+  Controllers
+    r = 0
+
+sbyte?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+sbyte[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+short
+  MinimalApis
+    e = 400 Bad Request (Required parameter "short q" was not provided from query string.)
+  Controllers
+    r = 0
+
+short?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+short[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Required parameter "ushort q" was not provided from query string.)
+  Controllers
+    r = 0
+
+ushort?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+ushort[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Required parameter "byte q" was not provided from query string.)
+  Controllers
+    r = 0
+
+byte?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+byte[]
+  MinimalApis
+    r = ""
+  Controllers
+    r = null

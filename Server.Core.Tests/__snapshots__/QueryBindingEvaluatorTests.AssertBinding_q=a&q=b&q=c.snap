@@ -1,0 +1,255 @@
+﻿Input: q=a&q=b&q=c
+
+Bindings:
+
+string
+  MinimalApis
+    r = "a,b,c"
+  Controllers
+    r = "a"
+
+string?
+  MinimalApis
+    r = "a,b,c"
+  Controllers
+    r = "a"
+
+string[]
+  MinimalApis
+    r = ["a","b","c"]
+  Controllers
+    r = ["a","b","c"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "a,b,c".)
+  Controllers
+    r = "a"
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "a,b,c".)
+  Controllers
+    r = "a"
+
+char[]
+  MinimalApis
+    r = ["a","b","c"]
+  Controllers
+    r = ["a","b","c"]
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+double?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<double> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+float?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<float> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+decimal?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<decimal> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)

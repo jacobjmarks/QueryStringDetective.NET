@@ -1,0 +1,255 @@
+﻿Input: q=
+
+Bindings:
+
+string
+  MinimalApis
+    r = ""
+  Controllers
+    r = null
+
+string?
+  MinimalApis
+    r = ""
+  Controllers
+    r = null
+
+string[]
+  MinimalApis
+    r = [""]
+  Controllers
+    r = [null]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "".)
+  Controllers
+    r = null
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "".)
+  Controllers
+    r = null
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+double?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<double> q" from "".)
+  Controllers
+    r = null
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+float?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<float> q" from "".)
+  Controllers
+    r = null
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+decimal?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<decimal> q" from "".)
+  Controllers
+    r = null
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "".)
+  Controllers
+    r = null
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "".)
+  Controllers
+    r = null
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "".)
+  Controllers
+    r = null
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "".)
+  Controllers
+    r = null
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "".)
+  Controllers
+    r = null
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "".)
+  Controllers
+    r = null
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "".)
+  Controllers
+    r = null
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "".)
+  Controllers
+    r = null
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "".)
+  Controllers
+    e = 400 Bad Request ()

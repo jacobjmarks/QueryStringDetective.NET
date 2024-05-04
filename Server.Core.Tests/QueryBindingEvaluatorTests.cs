@@ -4,37 +4,39 @@ public class QueryBindingEvaluatorTests
 {
     public static readonly TheoryData<string> TestCases = new()
     {
-        "c",
-        "foo",
-        "a&q=b&q=c",
-        "null",
-        "0",
-        "1",
-        "-1",
-        "true",
-        "false",
-        "yes",
-        "no",
-        "1&q=2&q=3",
-        "1&q=2&q=.3",
-        "-1&q=0&q=1",
-        $"{sbyte.MinValue}",
-        $"{sbyte.MaxValue}",
-        $"{byte.MaxValue}",
-        $"{short.MinValue}",
-        $"{short.MaxValue}",
-        $"{ushort.MaxValue}",
-        $"{int.MinValue}",
-        $"{int.MaxValue}",
-        $"{long.MinValue}",
-        $"{long.MaxValue}",
-        $"{ulong.MaxValue}",
-        Uri.EscapeDataString($"{double.MinValue}"),
-        Uri.EscapeDataString($"{double.MaxValue}"),
-        $"{decimal.MinValue}",
-        $"{decimal.MaxValue}",
-        Uri.EscapeDataString($"{float.MinValue}"),
-        Uri.EscapeDataString($"{float.MaxValue}"),
+        "",
+        "q=",
+        "q=c",
+        "q=foo",
+        "q=a&q=b&q=c",
+        "q=null",
+        "q=0",
+        "q=1",
+        "q=-1",
+        "q=true",
+        "q=false",
+        "q=yes",
+        "q=no",
+        "q=1&q=2&q=3",
+        "q=1&q=2&q=.3",
+        "q=-1&q=0&q=1",
+        $"q={sbyte.MinValue}",
+        $"q={sbyte.MaxValue}",
+        $"q={byte.MaxValue}",
+        $"q={short.MinValue}",
+        $"q={short.MaxValue}",
+        $"q={ushort.MaxValue}",
+        $"q={int.MinValue}",
+        $"q={int.MaxValue}",
+        $"q={long.MinValue}",
+        $"q={long.MaxValue}",
+        $"q={ulong.MaxValue}",
+        $"q={Uri.EscapeDataString($"{double.MinValue}")}",
+        $"q={Uri.EscapeDataString($"{double.MaxValue}")}",
+        $"q={decimal.MinValue}",
+        $"q={decimal.MaxValue}",
+        $"q={Uri.EscapeDataString($"{float.MinValue}")}",
+        $"q={Uri.EscapeDataString($"{float.MaxValue}")}",
     };
 
     [Theory]
@@ -42,7 +44,7 @@ public class QueryBindingEvaluatorTests
     public async Task AssertBinding(string queryString)
     {
         using var bindingEvaluator = new QueryBindingEvaluator();
-        var results = await bindingEvaluator.EvaluateAsync("?q=" + queryString);
+        var results = await bindingEvaluator.EvaluateAsync("?" + queryString);
 
         var content = $"Input: {queryString}"
             + "\n\nBindings:\n";

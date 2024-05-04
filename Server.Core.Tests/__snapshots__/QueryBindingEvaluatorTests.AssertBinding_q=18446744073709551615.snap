@@ -1,0 +1,255 @@
+﻿Input: q=18446744073709551615
+
+Bindings:
+
+string
+  MinimalApis
+    r = "18446744073709551615"
+  Controllers
+    r = "18446744073709551615"
+
+string?
+  MinimalApis
+    r = "18446744073709551615"
+  Controllers
+    r = "18446744073709551615"
+
+string[]
+  MinimalApis
+    r = ["18446744073709551615"]
+  Controllers
+    r = ["18446744073709551615"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+double
+  MinimalApis
+    r = 1.8446744073709552E+19
+  Controllers
+    r = 1.8446744073709552E+19
+
+double?
+  MinimalApis
+    r = 1.8446744073709552E+19
+  Controllers
+    r = 1.8446744073709552E+19
+
+double[]
+  MinimalApis
+    r = [1.8446744073709552E+19]
+  Controllers
+    r = [1.8446744073709552E+19]
+
+float
+  MinimalApis
+    r = 1.8446744E+19
+  Controllers
+    r = 1.8446744E+19
+
+float?
+  MinimalApis
+    r = 1.8446744E+19
+  Controllers
+    r = 1.8446744E+19
+
+float[]
+  MinimalApis
+    r = [1.8446744E+19]
+  Controllers
+    r = [1.8446744E+19]
+
+decimal
+  MinimalApis
+    r = 18446744073709551615
+  Controllers
+    r = 18446744073709551615
+
+decimal?
+  MinimalApis
+    r = 18446744073709551615
+  Controllers
+    r = 18446744073709551615
+
+decimal[]
+  MinimalApis
+    r = [18446744073709551615]
+  Controllers
+    r = [18446744073709551615]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+ulong
+  MinimalApis
+    r = 18446744073709551615
+  Controllers
+    r = 18446744073709551615
+
+ulong?
+  MinimalApis
+    r = 18446744073709551615
+  Controllers
+    r = 18446744073709551615
+
+ulong[]
+  MinimalApis
+    r = [18446744073709551615]
+  Controllers
+    r = [18446744073709551615]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "18446744073709551615".)
+  Controllers
+    e = 400 Bad Request (The value '18446744073709551615' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "18446744073709551615".)
+  Controllers
+    r = "18446744073709551615"

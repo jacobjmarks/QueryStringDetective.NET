@@ -1,0 +1,255 @@
+﻿Input: q=true
+
+Bindings:
+
+string
+  MinimalApis
+    r = "true"
+  Controllers
+    r = "true"
+
+string?
+  MinimalApis
+    r = "true"
+  Controllers
+    r = "true"
+
+string[]
+  MinimalApis
+    r = ["true"]
+  Controllers
+    r = ["true"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+double?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<double> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+float?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<float> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+decimal?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<decimal> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+bool
+  MinimalApis
+    r = true
+  Controllers
+    r = true
+
+bool?
+  MinimalApis
+    r = true
+  Controllers
+    r = true
+
+bool[]
+  MinimalApis
+    r = [true]
+  Controllers
+    r = [true]
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "true".)
+  Controllers
+    e = 400 Bad Request (The value 'true' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "true".)
+  Controllers
+    r = "true"

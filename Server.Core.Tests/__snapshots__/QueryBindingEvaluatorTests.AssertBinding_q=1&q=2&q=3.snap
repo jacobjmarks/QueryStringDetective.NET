@@ -1,0 +1,255 @@
+﻿Input: q=1&q=2&q=3
+
+Bindings:
+
+string
+  MinimalApis
+    r = "1,2,3"
+  Controllers
+    r = "1"
+
+string?
+  MinimalApis
+    r = "1,2,3"
+  Controllers
+    r = "1"
+
+string[]
+  MinimalApis
+    r = ["1","2","3"]
+  Controllers
+    r = ["1","2","3"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "1,2,3".)
+  Controllers
+    r = "1"
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "1,2,3".)
+  Controllers
+    r = "1"
+
+char[]
+  MinimalApis
+    r = ["1","2","3"]
+  Controllers
+    r = ["1","2","3"]
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "1,2,3".)
+  Controllers
+    r = 1
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+int[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+double
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+double?
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+double[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+float
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+float?
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+float[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+decimal
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+decimal?
+  MinimalApis
+    r = 123
+  Controllers
+    r = 1
+
+decimal[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "1,2,3".)
+  Controllers
+    e = 400 Bad Request (The value '1,2,3' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "1,2,3".)
+  Controllers
+    e = 400 Bad Request (The value '1,2,3' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "1".)
+  Controllers
+    e = 400 Bad Request (The value '1' is not valid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "1,2,3".)
+  Controllers
+    r = 1
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+uint[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "1,2,3".)
+  Controllers
+    r = 1
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+long[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "1,2,3".)
+  Controllers
+    r = 1
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+ulong[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "1,2,3".)
+  Controllers
+    r = 1
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+sbyte[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "1,2,3".)
+  Controllers
+    r = 1
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+short[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "1,2,3".)
+  Controllers
+    r = 1
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+ushort[]
+  MinimalApis
+    r = [1,2,3]
+  Controllers
+    r = [1,2,3]
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "1,2,3".)
+  Controllers
+    r = 1
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "1,2,3".)
+  Controllers
+    r = 1
+
+byte[]
+  MinimalApis
+    r = "AQID"
+  Controllers
+    e = 400 Bad Request (The value '1,2,3' is not valid.)

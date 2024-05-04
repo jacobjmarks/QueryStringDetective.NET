@@ -150,8 +150,9 @@ public sealed class QueryBindingEvaluator : IDisposable
     public async Task<IEnumerable<BindingResults>> EvaluateAsync(string queryString)
     {
         ArgumentNullException.ThrowIfNull(queryString);
-        if (!queryString.StartsWith("?q="))
-            throw new ArgumentException("Unexpected value.", nameof(queryString));
+
+        if (!queryString.StartsWith('?'))
+            queryString = '?' + queryString;
 
         var bindingResults = Constants.Endpoints.Select(endpoint => GetBindingResultsAsync(endpoint, queryString));
         return await Task.WhenAll(bindingResults);

@@ -1,0 +1,255 @@
+﻿Input: q=-9223372036854775808
+
+Bindings:
+
+string
+  MinimalApis
+    r = "-9223372036854775808"
+  Controllers
+    r = "-9223372036854775808"
+
+string?
+  MinimalApis
+    r = "-9223372036854775808"
+  Controllers
+    r = "-9223372036854775808"
+
+string[]
+  MinimalApis
+    r = ["-9223372036854775808"]
+  Controllers
+    r = ["-9223372036854775808"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+double
+  MinimalApis
+    r = -9.223372036854776E+18
+  Controllers
+    r = -9.223372036854776E+18
+
+double?
+  MinimalApis
+    r = -9.223372036854776E+18
+  Controllers
+    r = -9.223372036854776E+18
+
+double[]
+  MinimalApis
+    r = [-9.223372036854776E+18]
+  Controllers
+    r = [-9.223372036854776E+18]
+
+float
+  MinimalApis
+    r = -9.223372E+18
+  Controllers
+    r = -9.223372E+18
+
+float?
+  MinimalApis
+    r = -9.223372E+18
+  Controllers
+    r = -9.223372E+18
+
+float[]
+  MinimalApis
+    r = [-9.223372E+18]
+  Controllers
+    r = [-9.223372E+18]
+
+decimal
+  MinimalApis
+    r = -9223372036854775808
+  Controllers
+    r = -9223372036854775808
+
+decimal?
+  MinimalApis
+    r = -9223372036854775808
+  Controllers
+    r = -9223372036854775808
+
+decimal[]
+  MinimalApis
+    r = [-9223372036854775808]
+  Controllers
+    r = [-9223372036854775808]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+long
+  MinimalApis
+    r = -9223372036854775808
+  Controllers
+    r = -9223372036854775808
+
+long?
+  MinimalApis
+    r = -9223372036854775808
+  Controllers
+    r = -9223372036854775808
+
+long[]
+  MinimalApis
+    r = [-9223372036854775808]
+  Controllers
+    r = [-9223372036854775808]
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "-9223372036854775808".)
+  Controllers
+    e = 400 Bad Request (The value '-9223372036854775808' is not valid.)

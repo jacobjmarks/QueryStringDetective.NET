@@ -1,0 +1,255 @@
+﻿Input: q=32767
+
+Bindings:
+
+string
+  MinimalApis
+    r = "32767"
+  Controllers
+    r = "32767"
+
+string?
+  MinimalApis
+    r = "32767"
+  Controllers
+    r = "32767"
+
+string[]
+  MinimalApis
+    r = ["32767"]
+  Controllers
+    r = ["32767"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+int
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+int?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+int[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+double
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+double?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+double[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+float
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+float?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+float[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+decimal
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+decimal?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+decimal[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+uint
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+uint?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+uint[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+long
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+long?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+long[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+ulong
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+ulong?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+ulong[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+short
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+short?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+short[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+ushort
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+ushort?
+  MinimalApis
+    r = 32767
+  Controllers
+    r = 32767
+
+ushort[]
+  MinimalApis
+    r = [32767]
+  Controllers
+    r = [32767]
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "32767".)
+  Controllers
+    e = 400 Bad Request (The value '32767' is not valid.)
