@@ -26,7 +26,7 @@ public sealed partial class Home : IDisposable
     private readonly HttpClient httpClient = new();
 
     private MudTextField<string> _input = null!;
-    private bool isLoading = false;
+    private bool loadingIndicator = false;
 
     private IEnumerable<BindingResults> bindingResults = [];
 
@@ -36,10 +36,11 @@ public sealed partial class Home : IDisposable
 
     private void InputOnChange(string? value)
     {
-        if (value == null) return;
+        if (value == null)
+            return;
 
-        if (!isLoading)
-            isLoading = true;
+        if (!loadingIndicator)
+            loadingIndicator = true;
 
         RestartDebounceTimer();
     }
@@ -50,13 +51,21 @@ public sealed partial class Home : IDisposable
         _debounceTimer.Start();
     }
 
+    private bool isFetchingResults = false;
+
     private void OnDebounceIntervalElapsed(object? sender, ElapsedEventArgs e)
     {
+        if (isFetchingResults)
+        {
+            RestartDebounceTimer();
+            return;
+        }
+
         InvokeAsync(async () =>
         {
-            if (!isLoading)
+            if (!loadingIndicator)
             {
-                isLoading = true;
+                loadingIndicator = true;
                 StateHasChanged();
             }
 
@@ -66,10 +75,10 @@ public sealed partial class Home : IDisposable
             }
             finally
             {
-                isLoading = false;
+                if (!_debounceTimer.Enabled)
+                    loadingIndicator = false;
+                StateHasChanged();
             }
-
-            StateHasChanged();
         }).AndForget();
     }
 
@@ -88,21 +97,29 @@ public sealed partial class Home : IDisposable
 
     protected override void OnInitialized()
     {
-        _debounceTimer = new();
+        _debounceTimer = new(_debounceInterval);
         _debounceTimer.Elapsed += OnDebounceIntervalElapsed;
         _debounceTimer.AutoReset = false;
-        _debounceTimer.Interval = _debounceInterval.Milliseconds;
     }
 
     private async Task GetBindingResultsAsync(string inputValue)
     {
         ArgumentNullException.ThrowIfNull(inputValue);
 
-        var qs = QueryString.Create("qs", "?" + inputValue);
-        using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
-        response.EnsureSuccessStatusCode();
-        var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
-        bindingResults = results.OrderBy(r => r.AllErroneous);
+        try
+        {
+            isFetchingResults = true;
+
+            var qs = QueryString.Create("qs", "?" + inputValue);
+            using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
+            response.EnsureSuccessStatusCode();
+            var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
+            bindingResults = results.OrderBy(r => r.AllErroneous);
+        }
+        finally
+        {
+            isFetchingResults = false;
+        }
     }
 
     private bool ResultTableFilter(BindingResults results)
@@ -135,7 +152,7 @@ public sealed partial class Home : IDisposable
     private async Task Clear()
     {
         bindingResults = [];
-        isLoading = false;
+        loadingIndicator = false;
         _debounceTimer.Stop();
         await _input.Clear();
         await _input.FocusAsync();
