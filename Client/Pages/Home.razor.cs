@@ -3,6 +3,8 @@ using System.Net.Http.Json;
 using Shared;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using Microsoft.AspNetCore.Components.Web;
+using System.Timers;
 
 namespace Client.Pages;
 
@@ -34,34 +36,56 @@ public sealed partial class Home : IDisposable
 
     private void InputOnChange(string? value)
     {
-        if (value == null)
-            return;
-
         if (!isLoading)
             isLoading = true;
+
+        RestartDebounceTimer();
     }
 
-    private async Task InputOnDebounce(string? value)
+    private void RestartDebounceTimer()
     {
-        if (value == null)
-            return;
+        _debounceTimer.Stop();
+        _debounceTimer.Start();
+    }
 
-        if (!isLoading)
-            isLoading = true;
+    private void OnDebounceIntervalElapsed(object? sender, ElapsedEventArgs e)
+    {
+        InvokeAsync(async () =>
+        {
+            if (!isLoading)
+            {
+                isLoading = true;
+                StateHasChanged();
+            }
 
-        try
-        {
-            await GetBindingResultsAsync(value);
-        }
-        finally
-        {
-            isLoading = false;
-        }
+            try
+            {
+                await GetBindingResultsAsync(_input.Value ?? "");
+            }
+            finally
+            {
+                isLoading = false;
+            }
+
+            StateHasChanged();
+        }).AndForget();
+    }
+
+    private System.Timers.Timer _debounceTimer = null!;
+    private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(500);
+
+    protected override void OnInitialized()
+    {
+        _debounceTimer = new();
+        _debounceTimer.Elapsed += OnDebounceIntervalElapsed;
+        _debounceTimer.AutoReset = false;
+        _debounceTimer.Interval = _debounceInterval.Milliseconds;
     }
 
     private async Task GetBindingResultsAsync(string inputValue)
     {
-        if (inputValue == null) return;
+        ArgumentNullException.ThrowIfNull(inputValue);
+
         var qs = QueryString.Create("qs", "?" + inputValue);
         using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
         response.EnsureSuccessStatusCode();
@@ -104,6 +128,7 @@ public sealed partial class Home : IDisposable
 
     public void Dispose()
     {
+        _debounceTimer?.Dispose();
         httpClient.Dispose();
         GC.SuppressFinalize(this);
     }
