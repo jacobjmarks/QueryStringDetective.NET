@@ -36,6 +36,8 @@ public sealed partial class Home : IDisposable
 
     private void InputOnChange(string? value)
     {
+        if (value == null) return;
+
         if (!isLoading)
             isLoading = true;
 
@@ -74,7 +76,11 @@ public sealed partial class Home : IDisposable
     private void InputOnKeyDown(KeyboardEventArgs e)
     {
         if (e.Key is "Enter")
+        {
+            if (_input.Value == null)
+                _input.SetText("");
             InputOnChange(_input.Value);
+        }
     }
 
     private System.Timers.Timer _debounceTimer = null!;
@@ -122,13 +128,15 @@ public sealed partial class Home : IDisposable
 
     private async Task GetSharableLink()
     {
-        var shareLink = NavigationManager.BaseUri + "?qs=" + Uri.EscapeDataString(_input.Value);
+        var shareLink = NavigationManager.BaseUri + "?qs=" + Uri.EscapeDataString(_input.Value ?? "");
         await ClipboardService.CopyToClipboardAsync(shareLink);
     }
 
     private async Task Clear()
     {
         bindingResults = [];
+        isLoading = false;
+        _debounceTimer.Stop();
         await _input.Clear();
         await _input.FocusAsync();
     }
