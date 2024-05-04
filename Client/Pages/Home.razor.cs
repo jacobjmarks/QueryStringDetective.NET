@@ -30,7 +30,7 @@ public sealed partial class Home : IDisposable
 
     private IEnumerable<BindingResults> bindingResults = [];
 
-    private bool includeNullableTypes = false;
+    private string showNullableTypes = "When Discrepant";
     private bool showErroneous = false;
     private bool showDetailedErrorMessages = false;
 
@@ -99,13 +99,23 @@ public sealed partial class Home : IDisposable
         bindingResults = results.OrderBy(r => r.AllErroneous);
     }
 
-    private bool ResultTableFilter(BindingResults r)
+    private bool ResultTableFilter(BindingResults results)
     {
-        if (!includeNullableTypes && r.Type.EndsWith('?'))
+        if (!showErroneous && results.AllErroneous)
             return false;
 
-        if (!showErroneous && r.AllErroneous)
-            return false;
+        if (results.Type.EndsWith('?') && showNullableTypes != "Always")
+        {
+            if (showNullableTypes == "Never")
+                return false;
+
+            if (showNullableTypes == "When Discrepant")
+            {
+                var nonNullableResults = bindingResults.First(r => r.Type == results.Type[..^1]);
+                if (nonNullableResults.AreEquivalentTo(results))
+                    return false;
+            }
+        }
 
         return true;
     }

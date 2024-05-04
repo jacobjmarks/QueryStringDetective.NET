@@ -36,9 +36,14 @@
             </TitleContent>
             <ChildContent>
                 <MudStack>
-                    <MudSwitch @bind-Value="@includeNullableTypes" Color="Color.Primary">
-                        Include nullable types
-                    </MudSwitch>
+                    <MudSelect Label="Show nullable types" @bind-Value="showNullableTypes" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("Always")" />
+                        <MudSelectItem Value="@("When Discrepant")" />
+                        <MudSelectItem Value="@("Never")" />
+                    </MudSelect>
+
+                    <MudDivider />
+
                     <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
                         Show erroneous bindings
                         <MudText Typo="Typo.caption" Class="d-block mud-text-secondary">
