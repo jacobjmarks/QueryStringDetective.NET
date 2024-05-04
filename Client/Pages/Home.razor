@@ -8,7 +8,8 @@
     <MudTextField @ref="_input" T="string" spellcheck="false" Class="qs-input" Label="Query string"
         Placeholder="q=hello&q=world" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentText="?"
         HelperText="The server will bind the `q` parameter." HelperTextOnFocus="true" MaxLength="1000"
-        OnKeyDown="InputOnKeyDown" TextChanged="InputOnChange" Immediate="true" />
+        OnKeyDown="InputOnKeyDown" TextChanged="InputOnChange" Immediate="true" autocapitalize="off"
+        autocomplete="off" />
 
     <MudStack Row="true" Wrap="Wrap.Wrap" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="pl-2">
         <MudText Typo="Typo.body2">
