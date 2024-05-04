@@ -71,6 +71,12 @@ public sealed partial class Home : IDisposable
         }).AndForget();
     }
 
+    private void InputOnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key is "Enter")
+            InputOnChange(_input.Value);
+    }
+
     private System.Timers.Timer _debounceTimer = null!;
     private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(500);
 
