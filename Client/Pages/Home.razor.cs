@@ -151,6 +151,8 @@ public sealed partial class Home : IDisposable
             response.EnsureSuccessStatusCode();
             var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
             bindingResults = results.OrderBy(r => r.AllErroneous);
+
+            NavigationManager.NavigateTo("?qs=" + Uri.EscapeDataString(_input.Value ?? ""), replace: true);
         }
         catch
         {
@@ -198,6 +200,8 @@ public sealed partial class Home : IDisposable
         _debounceTimer.Stop();
         await _input.Clear();
         await _input.FocusAsync();
+
+        NavigationManager.NavigateTo(".", replace: true);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
