@@ -27,6 +27,7 @@ public sealed partial class Home : IDisposable
 
     private MudTextField<string> _input = null!;
     private bool loadingIndicator = false;
+    private bool _showErrorAlert;
 
     private IEnumerable<BindingResults> bindingResults = [];
 
@@ -41,6 +42,9 @@ public sealed partial class Home : IDisposable
 
         if (!loadingIndicator)
             loadingIndicator = true;
+
+        if (_showErrorAlert)
+            _showErrorAlert = false;
 
         RestartDebounceTimer();
     }
@@ -115,6 +119,12 @@ public sealed partial class Home : IDisposable
             response.EnsureSuccessStatusCode();
             var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
             bindingResults = results.OrderBy(r => r.AllErroneous);
+        }
+        catch
+        {
+            bindingResults = [];
+            _showErrorAlert = true;
+            throw;
         }
         finally
         {

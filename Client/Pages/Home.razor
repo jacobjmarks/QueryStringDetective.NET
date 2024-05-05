@@ -66,9 +66,12 @@
             <MudTh>Binding Result</MudTh>
         </HeaderContent>
         <NoRecordsContent>
-            <MudText Typo="Typo.body2" Class="mud-text-secondary mx-5" Align="Align.Left">
-                No results
-            </MudText>
+            @if (!_showErrorAlert)
+            {
+                <MudText Typo="Typo.body2" Class="mud-text-secondary mx-5" Align="Align.Left">
+                    No results
+                </MudText>
+            }
         </NoRecordsContent>
         <RowTemplate>
             <MudTd DataLabel="Parameter Type">
@@ -132,5 +135,12 @@
                 </MudText>
             </MudStack>
         }
+    }
+
+    @if (_showErrorAlert)
+    {
+        <MudAlert Severity="Severity.Error" ShowCloseIcon="true" CloseIconClicked="@(() => _showErrorAlert = false)">
+            Oops! Something went wrong. Please try again.
+        </MudAlert>
     }
 </MudStack>
