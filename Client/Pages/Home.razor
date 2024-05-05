@@ -37,7 +37,7 @@
             </TitleContent>
             <ChildContent>
                 <MudStack>
-                    <MudSelect Label="Show nullable types" @bind-Value="showNullableTypes" Variant="Variant.Outlined">
+                    <MudSelect Label="Show nullable types" @bind-Value="ShowNullableTypes" Variant="Variant.Outlined">
                         <MudSelectItem Value="@("Always")" />
                         <MudSelectItem Value="@("When Discrepant")" />
                         <MudSelectItem Value="@("Never")" />
@@ -45,15 +45,20 @@
 
                     <MudDivider />
 
-                    <MudSwitch @bind-Value="@showErroneous" Color="Color.Primary">
+                    <MudSwitch @bind-Value="@ShowErroneous" Color="Color.Primary">
                         Show erroneous bindings
                         <MudText Typo="Typo.caption" Class="d-block mud-text-secondary">
                             Errors will always be shown if results are discrepant between API types
                         </MudText>
                     </MudSwitch>
-                    <MudSwitch @bind-Value="@showDetailedErrorMessages" Color="Color.Primary">
+                    <MudSwitch @bind-Value="@ShowDetailedErrorMessages" Color="Color.Primary">
                         Show detailed error messages
                     </MudSwitch>
+
+                    <MudButton Color="Color.Primary" OnClick="UseDefaultConfiguration"
+                        Disabled="@(ConfigurationIsDefault())">
+                        Use Defaults
+                    </MudButton>
                 </MudStack>
             </ChildContent>
         </MudExpansionPanel>
@@ -116,20 +121,20 @@
                         }
                     }
 
-                    string? GetErrorText(BindingResult result) => result.Error?.ToDisplayString(showDetailedErrorMessages);
+                    string? GetErrorText(BindingResult result) => result.Error?.ToDisplayString(ShowDetailedErrorMessages);
                 }
             </MudTd>
         </RowTemplate>
     </MudTable>
     @{
         int? erroneousCount = null;
-        if (!showErroneous && (erroneousCount = bindingResults.Count(r => r.AllErroneous)) > 0)
+        if (!ShowErroneous && (erroneousCount = bindingResults.Count(r => r.AllErroneous)) > 0)
         {
             <MudStack Row="true" AlignItems="AlignItems.Center" Class="pl-2">
                 <MudText Typo="Typo.body2">
                     @(erroneousCount) other types could not be bound.
                     <MudText Class="d-inline cursor-pointer" Typo="Typo.inherit" Color="Color.Primary"
-                        @onclick="() => showErroneous = true">
+                        @onclick="() => ShowErroneous = true">
                         Show them
                     </MudText>
                 </MudText>

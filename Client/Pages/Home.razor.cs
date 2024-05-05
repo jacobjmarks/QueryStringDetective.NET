@@ -19,6 +19,9 @@ public sealed partial class Home : IDisposable
     [Inject]
     private ClipboardService ClipboardService { get; set; } = null!;
 
+    [Inject]
+    private LocalStorageService LocalStorageService { get; set; } = null!;
+
     [SupplyParameterFromQuery(Name = "qs")]
     [Parameter]
     public string? InitialInputValue { get; set; }
@@ -32,8 +35,37 @@ public sealed partial class Home : IDisposable
     private IEnumerable<BindingResults> bindingResults = [];
 
     private string showNullableTypes = "When Discrepant";
+    private string ShowNullableTypes
+    {
+        get => showNullableTypes;
+        set
+        {
+            showNullableTypes = value;
+            LocalStorageService.SetItemAsync("qsd:cfg:nullable-types", value).AndForget();
+        }
+    }
+
     private bool showErroneous = false;
+    private bool ShowErroneous
+    {
+        get => showErroneous;
+        set
+        {
+            showErroneous = value;
+            LocalStorageService.SetItemAsync("qsd:cfg:show-errors", value).AndForget();
+        }
+    }
+
     private bool showDetailedErrorMessages = false;
+    private bool ShowDetailedErrorMessages
+    {
+        get => showDetailedErrorMessages;
+        set
+        {
+            showDetailedErrorMessages = value;
+            LocalStorageService.SetItemAsync("qsd:cfg:detailed-errors", value).AndForget();
+        }
+    }
 
     private void InputOnChange(string? value)
     {
@@ -170,11 +202,57 @@ public sealed partial class Home : IDisposable
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender && InitialInputValue != null)
+        if (firstRender)
         {
-            await _input.SetText(InitialInputValue);
-            await _input.ForceUpdate();
+            await InitializeConfigurationAsync();
+
+            if (InitialInputValue != null)
+            {
+                await _input.SetText(InitialInputValue);
+                await _input.ForceUpdate();
+            }
         }
+    }
+
+    private async Task InitializeConfigurationAsync()
+    {
+        try
+        {
+            var _showNullableTypes = await LocalStorageService.GetItemAsync<string?>("qsd:cfg:nullable-types");
+            if (_showNullableTypes is "Always" or "When Discrepant" or "Never")
+                showNullableTypes = _showNullableTypes;
+        }
+        catch { /* ignore */ }
+
+        try
+        {
+            var _showErroneous = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:show-errors");
+            if (_showErroneous.HasValue)
+                showErroneous = _showErroneous.Value;
+        }
+        catch { /* ignore */ }
+
+        try
+        {
+            var _showDetailedErrorMessages = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:detailed-errors");
+            if (_showDetailedErrorMessages.HasValue)
+                showDetailedErrorMessages = _showDetailedErrorMessages.Value;
+        }
+        catch { /* ignore */ }
+    }
+
+    private void UseDefaultConfiguration()
+    {
+        ShowNullableTypes = "When Discrepant";
+        ShowErroneous = false;
+        ShowDetailedErrorMessages = false;
+    }
+
+    private bool ConfigurationIsDefault()
+    {
+        return ShowNullableTypes == "When Discrepant"
+            && !ShowErroneous
+            && !ShowDetailedErrorMessages;
     }
 
     public void Dispose()
