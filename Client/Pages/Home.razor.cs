@@ -14,6 +14,9 @@ public sealed partial class Home : IDisposable
     private NavigationManager NavigationManager { get; set; } = null!;
 
     [Inject]
+    private ISnackbar Snackbar { get; set; } = null!;
+
+    [Inject]
     private AppConfig AppConfig { get; set; } = null!;
 
     [Inject]
@@ -191,6 +194,20 @@ public sealed partial class Home : IDisposable
     {
         var shareLink = NavigationManager.BaseUri + "?qs=" + Uri.EscapeDataString(_input.Value ?? "");
         await ClipboardService.CopyToClipboardAsync(shareLink);
+
+        Snackbar.Add(
+            message: "Link copied to clipboard",
+            severity: Severity.Normal,
+            configure: o =>
+            {
+                o.DuplicatesBehavior = SnackbarDuplicatesBehavior.Allow;
+                o.Icon = Icons.Material.Filled.ContentCopy;
+                o.IconSize = Size.Small;
+                o.ShowCloseIcon = false;
+                o.ShowTransitionDuration = 150;
+                o.VisibleStateDuration = 1500;
+                o.HideTransitionDuration = 150;
+            });
     }
 
     private async Task Clear()
