@@ -38,9 +38,9 @@
             <ChildContent>
                 <MudStack>
                     <MudSelect Label="Show nullable types" @bind-Value="ShowNullableTypes" Variant="Variant.Outlined">
-                        <MudSelectItem Value="@("Always")" />
-                        <MudSelectItem Value="@("When Discrepant")" />
-                        <MudSelectItem Value="@("Never")" />
+                        <MudSelectItem Value="@(NullableTypeDisplay.Always)">Always</MudSelectItem>
+                        <MudSelectItem Value="@(NullableTypeDisplay.WhenDiscrepant)">When Discrepant</MudSelectItem>
+                        <MudSelectItem Value="@(NullableTypeDisplay.Never)">Never</MudSelectItem>
                     </MudSelect>
 
                     <MudDivider />

@@ -37,8 +37,9 @@ public sealed partial class Home : IDisposable
 
     private IEnumerable<BindingResults> bindingResults = [];
 
-    private string showNullableTypes = "When Discrepant";
-    private string ShowNullableTypes
+    private enum NullableTypeDisplay { Always, WhenDiscrepant, Never }
+    private NullableTypeDisplay showNullableTypes = NullableTypeDisplay.WhenDiscrepant;
+    private NullableTypeDisplay ShowNullableTypes
     {
         get => showNullableTypes;
         set
@@ -174,12 +175,12 @@ public sealed partial class Home : IDisposable
         if (!showErroneous && results.AllErroneous)
             return false;
 
-        if (results.Type.EndsWith('?') && showNullableTypes != "Always")
+        if (results.Type.EndsWith('?') && showNullableTypes != NullableTypeDisplay.Always)
         {
-            if (showNullableTypes == "Never")
+            if (showNullableTypes == NullableTypeDisplay.Never)
                 return false;
 
-            if (showNullableTypes == "When Discrepant")
+            if (showNullableTypes == NullableTypeDisplay.WhenDiscrepant)
             {
                 var nonNullableResults = bindingResults.First(r => r.Type == results.Type[..^1]);
                 if (nonNullableResults.AreEquivalentTo(results))
@@ -239,9 +240,8 @@ public sealed partial class Home : IDisposable
     {
         try
         {
-            var _showNullableTypes = await LocalStorageService.GetItemAsync<string?>("qsd:cfg:nullable-types");
-            if (_showNullableTypes is "Always" or "When Discrepant" or "Never")
-                showNullableTypes = _showNullableTypes;
+            var _showNullableTypes = await LocalStorageService.GetItemAsync<int?>("qsd:cfg:nullable-types");
+            showNullableTypes = (NullableTypeDisplay)_showNullableTypes;
         }
         catch { /* ignore */ }
 
@@ -264,14 +264,14 @@ public sealed partial class Home : IDisposable
 
     private void UseDefaultConfiguration()
     {
-        ShowNullableTypes = "When Discrepant";
+        ShowNullableTypes = NullableTypeDisplay.WhenDiscrepant;
         ShowErroneous = false;
         ShowDetailedErrorMessages = false;
     }
 
     private bool ConfigurationIsDefault()
     {
-        return ShowNullableTypes == "When Discrepant"
+        return ShowNullableTypes == NullableTypeDisplay.WhenDiscrepant
             && !ShowErroneous
             && !ShowDetailedErrorMessages;
     }
