@@ -16,11 +16,11 @@
             Enter a query string above and see how its value is bound to various .NET types
         </MudText>
         <MudStack Row="true" Class="flex-grow-1" Justify="Justify.FlexEnd">
-            <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
+            <MudButton Variant="Variant.Text" Disabled="@(!_bindingResults.Any())" Size="Size.Small"
                 Color="Color.Primary" StartIcon="@Icons.Material.Filled.Share" OnClick="GetSharableLink">
                 Copy link
             </MudButton>
-            <MudButton Variant="Variant.Text" Disabled="@(!bindingResults.Any())" Size="Size.Small"
+            <MudButton Variant="Variant.Text" Disabled="@(!_bindingResults.Any())" Size="Size.Small"
                 Color="Color.Primary" StartIcon="@Icons.Material.Filled.Clear" OnClick="Clear">
                 Clear results
             </MudButton>
@@ -56,7 +56,7 @@
                     </MudSwitch>
 
                     <MudButton Color="Color.Primary" OnClick="UseDefaultConfiguration"
-                        Disabled="@(ConfigurationIsDefault())">
+                        Disabled="IsConfigurationDefault">
                         Use Defaults
                     </MudButton>
                 </MudStack>
@@ -64,7 +64,7 @@
         </MudExpansionPanel>
     </MudExpansionPanels>
 
-    <MudTable Items="@bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@loadingIndicator"
+    <MudTable Items="@_bindingResults" Dense="true" Breakpoint="Breakpoint.None" Loading="@_loadingIndicator"
         Filter="ResultTableFilter">
         <HeaderContent>
             <MudTh>Parameter Type</MudTh>
@@ -128,7 +128,7 @@
     </MudTable>
     @{
         int? erroneousCount = null;
-        if (!ShowErroneous && (erroneousCount = bindingResults.Count(r => r.AllErroneous)) > 0)
+        if (!ShowErroneous && (erroneousCount = _bindingResults.Count(r => r.AllErroneous)) > 0)
         {
             <MudStack Row="true" AlignItems="AlignItems.Center" Class="pl-2">
                 <MudText Typo="Typo.body2">

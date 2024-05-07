@@ -10,64 +10,128 @@ namespace Client.Pages;
 
 public sealed partial class Home : IDisposable
 {
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = null!;
+    [Inject] private NavigationManager NavigationManager { get; set; } = null!;
+    [Inject] private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private AppConfig AppConfig { get; set; } = null!;
+    [Inject] private ClipboardService ClipboardService { get; set; } = null!;
+    [Inject] private LocalStorageService LocalStorageService { get; set; } = null!;
 
-    [Inject]
-    private ISnackbar Snackbar { get; set; } = null!;
-
-    [Inject]
-    private AppConfig AppConfig { get; set; } = null!;
-
-    [Inject]
-    private ClipboardService ClipboardService { get; set; } = null!;
-
-    [Inject]
-    private LocalStorageService LocalStorageService { get; set; } = null!;
-
-    [SupplyParameterFromQuery(Name = "qs")]
     [Parameter]
+    [SupplyParameterFromQuery(Name = "qs")]
     public string? InitialInputValue { get; set; }
 
-    private readonly HttpClient httpClient = new();
-
-    private MudTextField<string> _input = null!;
-    private bool loadingIndicator = false;
-    private bool _showErrorAlert;
-
-    private IEnumerable<BindingResults> bindingResults = [];
-
     private enum NullableTypeDisplay { Always, WhenDiscrepant, Never }
-    private NullableTypeDisplay showNullableTypes = NullableTypeDisplay.WhenDiscrepant;
+    private NullableTypeDisplay _showNullableTypes = NullableTypeDisplay.WhenDiscrepant;
     private NullableTypeDisplay ShowNullableTypes
     {
-        get => showNullableTypes;
+        get => _showNullableTypes;
         set
         {
-            showNullableTypes = value;
+            _showNullableTypes = value;
             LocalStorageService.SetItemAsync("qsd:cfg:nullable-types", value).AndForget();
         }
     }
 
-    private bool showErroneous = false;
+    private bool _showErroneous = false;
     private bool ShowErroneous
     {
-        get => showErroneous;
+        get => _showErroneous;
         set
         {
-            showErroneous = value;
+            _showErroneous = value;
             LocalStorageService.SetItemAsync("qsd:cfg:show-errors", value).AndForget();
         }
     }
 
-    private bool showDetailedErrorMessages = false;
+    private bool _showDetailedErrorMessages = false;
     private bool ShowDetailedErrorMessages
     {
-        get => showDetailedErrorMessages;
+        get => _showDetailedErrorMessages;
         set
         {
-            showDetailedErrorMessages = value;
+            _showDetailedErrorMessages = value;
             LocalStorageService.SetItemAsync("qsd:cfg:detailed-errors", value).AndForget();
+        }
+    }
+
+    private bool IsConfigurationDefault
+    {
+        get => ShowNullableTypes == NullableTypeDisplay.WhenDiscrepant
+            && !ShowErroneous
+            && !ShowDetailedErrorMessages;
+    }
+
+    private readonly HttpClient _httpClient = new();
+    private MudTextField<string> _input = null!;
+    private IEnumerable<BindingResults> _bindingResults = [];
+    private bool _loadingIndicator = false;
+    private bool _showErrorAlert = false;
+    private bool _isFetchingResults = false;
+    private System.Timers.Timer _debounceTimer = null!;
+    private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(500);
+
+    protected override void OnInitialized()
+    {
+        _debounceTimer = new(_debounceInterval);
+        _debounceTimer.Elapsed += OnDebounceIntervalElapsed;
+        _debounceTimer.AutoReset = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await InitializeConfigurationAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            return OnFirstRenderAsync();
+
+        return Task.CompletedTask;
+    }
+
+    private async Task InitializeConfigurationAsync()
+    {
+        try
+        {
+            var showNullableTypes = await LocalStorageService.GetItemAsync<int?>("qsd:cfg:nullable-types");
+            _showNullableTypes = (NullableTypeDisplay)showNullableTypes;
+        }
+        catch { /* ignore */ }
+
+        try
+        {
+            var showErroneous = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:show-errors");
+            if (showErroneous.HasValue)
+                _showErroneous = showErroneous.Value;
+        }
+        catch { /* ignore */ }
+
+        try
+        {
+            var showDetailedErrorMessages = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:detailed-errors");
+            if (showDetailedErrorMessages.HasValue)
+                _showDetailedErrorMessages = showDetailedErrorMessages.Value;
+        }
+        catch { /* ignore */ }
+    }
+
+    private async Task OnFirstRenderAsync()
+    {
+        if (InitialInputValue != null)
+        {
+            await _input.SetText(InitialInputValue);
+            await _input.ForceUpdate();
+        }
+    }
+
+    private void InputOnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key is "Enter")
+        {
+            if (_input.Value == null)
+                _input.SetText("");
+            InputOnChange(_input.Value);
         }
     }
 
@@ -76,8 +140,8 @@ public sealed partial class Home : IDisposable
         if (value == null)
             return;
 
-        if (!loadingIndicator)
-            loadingIndicator = true;
+        if (!_loadingIndicator)
+            _loadingIndicator = true;
 
         if (_showErrorAlert)
             _showErrorAlert = false;
@@ -91,11 +155,9 @@ public sealed partial class Home : IDisposable
         _debounceTimer.Start();
     }
 
-    private bool isFetchingResults = false;
-
     private void OnDebounceIntervalElapsed(object? sender, ElapsedEventArgs e)
     {
-        if (isFetchingResults)
+        if (_isFetchingResults)
         {
             RestartDebounceTimer();
             return;
@@ -103,9 +165,9 @@ public sealed partial class Home : IDisposable
 
         InvokeAsync(async () =>
         {
-            if (!loadingIndicator)
+            if (!_loadingIndicator)
             {
-                loadingIndicator = true;
+                _loadingIndicator = true;
                 StateHasChanged();
             }
 
@@ -116,30 +178,10 @@ public sealed partial class Home : IDisposable
             finally
             {
                 if (!_debounceTimer.Enabled)
-                    loadingIndicator = false;
+                    _loadingIndicator = false;
                 StateHasChanged();
             }
         }).AndForget();
-    }
-
-    private void InputOnKeyDown(KeyboardEventArgs e)
-    {
-        if (e.Key is "Enter")
-        {
-            if (_input.Value == null)
-                _input.SetText("");
-            InputOnChange(_input.Value);
-        }
-    }
-
-    private System.Timers.Timer _debounceTimer = null!;
-    private readonly TimeSpan _debounceInterval = TimeSpan.FromMilliseconds(500);
-
-    protected override void OnInitialized()
-    {
-        _debounceTimer = new(_debounceInterval);
-        _debounceTimer.Elapsed += OnDebounceIntervalElapsed;
-        _debounceTimer.AutoReset = false;
     }
 
     private async Task GetBindingResultsAsync(string inputValue)
@@ -148,41 +190,41 @@ public sealed partial class Home : IDisposable
 
         try
         {
-            isFetchingResults = true;
+            _isFetchingResults = true;
 
             var qs = QueryString.Create("qs", "?" + inputValue);
-            using var response = await httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
+            using var response = await _httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
             response.EnsureSuccessStatusCode();
             var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
-            bindingResults = results.OrderBy(r => r.AllErroneous);
+            _bindingResults = results.OrderBy(r => r.AllErroneous);
 
             NavigationManager.NavigateTo("?qs=" + Uri.EscapeDataString(_input.Value ?? ""), replace: true);
         }
         catch
         {
-            bindingResults = [];
+            _bindingResults = [];
             _showErrorAlert = true;
             throw;
         }
         finally
         {
-            isFetchingResults = false;
+            _isFetchingResults = false;
         }
     }
 
     private bool ResultTableFilter(BindingResults results)
     {
-        if (!showErroneous && results.AllErroneous)
+        if (!_showErroneous && results.AllErroneous)
             return false;
 
-        if (results.Type.EndsWith('?') && showNullableTypes != NullableTypeDisplay.Always)
+        if (results.Type.EndsWith('?') && _showNullableTypes != NullableTypeDisplay.Always)
         {
-            if (showNullableTypes == NullableTypeDisplay.Never)
+            if (_showNullableTypes == NullableTypeDisplay.Never)
                 return false;
 
-            if (showNullableTypes == NullableTypeDisplay.WhenDiscrepant)
+            if (_showNullableTypes == NullableTypeDisplay.WhenDiscrepant)
             {
-                var nonNullableResults = bindingResults.First(r => r.Type == results.Type[..^1]);
+                var nonNullableResults = _bindingResults.First(r => r.Type == results.Type[..^1]);
                 if (nonNullableResults.AreEquivalentTo(results))
                     return false;
             }
@@ -213,53 +255,13 @@ public sealed partial class Home : IDisposable
 
     private async Task Clear()
     {
-        bindingResults = [];
-        loadingIndicator = false;
+        _bindingResults = [];
+        _loadingIndicator = false;
         _debounceTimer.Stop();
         await _input.Clear();
         await _input.FocusAsync();
 
         NavigationManager.NavigateTo(".", replace: true);
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await InitializeConfigurationAsync();
-
-            if (InitialInputValue != null)
-            {
-                await _input.SetText(InitialInputValue);
-                await _input.ForceUpdate();
-            }
-        }
-    }
-
-    private async Task InitializeConfigurationAsync()
-    {
-        try
-        {
-            var _showNullableTypes = await LocalStorageService.GetItemAsync<int?>("qsd:cfg:nullable-types");
-            showNullableTypes = (NullableTypeDisplay)_showNullableTypes;
-        }
-        catch { /* ignore */ }
-
-        try
-        {
-            var _showErroneous = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:show-errors");
-            if (_showErroneous.HasValue)
-                showErroneous = _showErroneous.Value;
-        }
-        catch { /* ignore */ }
-
-        try
-        {
-            var _showDetailedErrorMessages = await LocalStorageService.GetItemAsync<bool?>("qsd:cfg:detailed-errors");
-            if (_showDetailedErrorMessages.HasValue)
-                showDetailedErrorMessages = _showDetailedErrorMessages.Value;
-        }
-        catch { /* ignore */ }
     }
 
     private void UseDefaultConfiguration()
@@ -269,17 +271,10 @@ public sealed partial class Home : IDisposable
         ShowDetailedErrorMessages = false;
     }
 
-    private bool ConfigurationIsDefault()
-    {
-        return ShowNullableTypes == NullableTypeDisplay.WhenDiscrepant
-            && !ShowErroneous
-            && !ShowDetailedErrorMessages;
-    }
-
     public void Dispose()
     {
         _debounceTimer?.Dispose();
-        httpClient.Dispose();
+        _httpClient.Dispose();
         GC.SuppressFinalize(this);
     }
 }
