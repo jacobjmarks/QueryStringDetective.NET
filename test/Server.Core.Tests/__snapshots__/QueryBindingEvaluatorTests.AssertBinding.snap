@@ -4,7 +4,7 @@ Bindings:
 
 string
   MinimalApis
-    r = null
+    e = 400 Bad Request (Required parameter "string q" was not provided from query string.)
   Controllers
     r = null
 
