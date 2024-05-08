@@ -12,7 +12,7 @@ public sealed partial class Home : IDisposable
 {
     [Inject] private NavigationManager NavigationManager { get; set; } = null!;
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
-    [Inject] private AppConfig AppConfig { get; set; } = null!;
+    [Inject] private HttpClient HttpClient { get; set; } = null!;
     [Inject] private ClipboardService ClipboardService { get; set; } = null!;
     [Inject] private LocalStorageService LocalStorageService { get; set; } = null!;
 
@@ -192,8 +192,8 @@ public sealed partial class Home : IDisposable
         {
             _isFetchingResults = true;
 
-            var qs = QueryString.Create("qs", "?" + inputValue);
-            using var response = await _httpClient.GetAsync(AppConfig.AzureFunctionUrl + qs);
+            var qs = QueryString.Create("qs", "?" + inputValue).ToString();
+            using var response = await HttpClient.GetAsync(qs);
             response.EnsureSuccessStatusCode();
             var results = await response.Content.ReadFromJsonAsync<IEnumerable<BindingResults>>() ?? [];
             _bindingResults = results.OrderBy(r => r.AllErroneous);

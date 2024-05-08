@@ -16,9 +16,12 @@ builder.Services.AddMudServices(config =>
 });
 
 builder.Services.Configure<AppConfig>(builder.Configuration.Bind);
-builder.Services.AddScoped<AppConfig>(services => services.GetRequiredService<IOptions<AppConfig>>().Value);
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddSingleton<HttpClient>(sp =>
+{
+    var appConfig = sp.GetRequiredService<IOptions<AppConfig>>().Value;
+    return new() { BaseAddress = new(appConfig.AzureFunctionUrl) };
+});
 
 builder.Services.AddSingleton<ClipboardService>();
 builder.Services.AddSingleton<LocalStorageService>();
