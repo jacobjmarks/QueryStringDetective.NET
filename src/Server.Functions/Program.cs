@@ -7,6 +7,7 @@ builder.ConfigureFunctionsWorkerDefaults();
 builder.ConfigureServices(services =>
 {
     services.AddSingleton<QueryBindingEvaluator>();
+    services.AddHealthChecks();
 });
 
 using var host = builder.Build();
