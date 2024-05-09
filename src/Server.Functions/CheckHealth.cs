@@ -14,8 +14,10 @@ public class CheckHealth(HealthCheckService healthCheckService)
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "health")] HttpRequestData req)
     {
         var healthReport = await _healthCheckService.CheckHealthAsync();
-        return req.CreateResponse(healthReport.Status == HealthStatus.Healthy
-                ? HttpStatusCode.OK
-                : HttpStatusCode.ServiceUnavailable);
+        return req.CreateResponse(healthReport.Status switch
+        {
+            HealthStatus.Unhealthy => HttpStatusCode.ServiceUnavailable,
+            _ => HttpStatusCode.OK,
+        });
     }
 }
