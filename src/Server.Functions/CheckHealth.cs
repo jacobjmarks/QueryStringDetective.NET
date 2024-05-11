@@ -11,7 +11,7 @@ public class CheckHealth(HealthCheckService healthCheckService)
 
     [Function(nameof(CheckHealth))]
     public async Task<HttpResponseData> CheckHealthAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "health")] HttpRequestData req)
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "api/health")] HttpRequestData req)
     {
         var healthReport = await _healthCheckService.CheckHealthAsync();
         return req.CreateResponse(healthReport.Status switch

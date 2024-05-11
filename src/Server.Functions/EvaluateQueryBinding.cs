@@ -11,7 +11,7 @@ public class EvaluateQueryBinding(QueryBindingEvaluator bindingEvaluator)
 
     [Function(nameof(EvaluateQueryBinding))]
     public async Task<HttpResponseData> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = $"api/eval-query")] HttpRequestData req,
         string qs)
     {
         if (string.IsNullOrWhiteSpace(qs) || !qs.StartsWith('?'))
