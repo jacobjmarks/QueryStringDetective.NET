@@ -4,17 +4,10 @@ using Microsoft.Extensions.Options;
 using MudBlazor.Services;
 using Client;
 using MudBlazor;
-using BlazorApplicationInsights;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
-
-builder.Services.AddBlazorApplicationInsights(config =>
-{
-    config.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
-    config.DisableTelemetry = !builder.Configuration.GetValue<bool>("ApplicationInsights:Enabled");
-});
 
 builder.Services.AddMudServices(config =>
 {
