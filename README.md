@@ -1,7 +1,5 @@
 # .NET Query String Detective
 
-> ⚠️ Under Construction
-
 An online tool to quickly and effortlessly test and compare the behaviour of .NET's query string binding across both minimal APIs and controller-based APIs[^1].
 
 ![screenshot](preview.png)
