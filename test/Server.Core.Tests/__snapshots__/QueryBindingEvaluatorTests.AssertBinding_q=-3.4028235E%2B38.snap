@@ -253,3 +253,75 @@ byte[]
     e = 400 Bad Request (Failed to bind parameter "byte[] q" from "-3.4028235E+38".)
   Controllers
     e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTime
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTime?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTime> q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTime[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime[] q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTimeOffset
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTimeOffset?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTimeOffset> q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateTimeOffset[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset[] q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateOnly> q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+TimeOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<TimeOnly> q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)
+
+TimeOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly[] q" from "-3.4028235E+38".)
+  Controllers
+    e = 400 Bad Request (The value '-3.4028235E+38' is not valid.)

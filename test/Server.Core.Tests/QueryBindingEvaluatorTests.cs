@@ -37,6 +37,10 @@ public class QueryBindingEvaluatorTests
         $"q={decimal.MaxValue}",
         $"q={Uri.EscapeDataString($"{float.MinValue}")}",
         $"q={Uri.EscapeDataString($"{float.MaxValue}")}",
+        "q=2025-01-13T15:25:00",
+        "q=2025-01-13T05:25:00Z",
+        "q=2025-01-13",
+        "q=15:25:00",
     };
 
     [Theory]
@@ -60,6 +64,9 @@ public class QueryBindingEvaluatorTests
 
             content += "\n";
         }
+
+        // "mock" the current date
+        content = content.Replace(DateTime.Now.ToString("yyyy-MM-dd"), "2020-03-12");
 
         content.Should().MatchSnapshot(SnapshotNameExtension.Create(ToValidFileName(queryString)));
     }

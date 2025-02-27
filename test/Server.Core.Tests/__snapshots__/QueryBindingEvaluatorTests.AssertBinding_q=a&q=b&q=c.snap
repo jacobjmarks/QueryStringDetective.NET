@@ -253,3 +253,75 @@ byte[]
     e = 400 Bad Request (Failed to bind parameter "byte[] q" from "a".)
   Controllers
     e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateTime
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateTime?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTime> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateTime[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+DateTimeOffset
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateTimeOffset?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTimeOffset> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateTimeOffset[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateOnly> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+TimeOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<TimeOnly> q" from "a,b,c".)
+  Controllers
+    e = 400 Bad Request (The value 'a,b,c' is not valid.)
+
+TimeOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly[] q" from "a".)
+  Controllers
+    e = 400 Bad Request (The value 'a' is not valid.)

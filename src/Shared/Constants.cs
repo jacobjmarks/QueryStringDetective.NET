@@ -19,6 +19,10 @@ public static class Constants
             "short",
             "ushort",
             "byte",
+            "DateTime",
+            "DateTimeOffset",
+            "DateOnly",
+            "TimeOnly",
         }
         .SelectMany(t => new EndpointDescriptor[]
         {

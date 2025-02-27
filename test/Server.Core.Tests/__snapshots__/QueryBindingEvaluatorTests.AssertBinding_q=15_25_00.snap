@@ -1,0 +1,327 @@
+﻿Input: q=15:25:00
+
+Bindings:
+
+string
+  MinimalApis
+    r = "15:25:00"
+  Controllers
+    r = "15:25:00"
+
+string?
+  MinimalApis
+    r = "15:25:00"
+  Controllers
+    r = "15:25:00"
+
+string[]
+  MinimalApis
+    r = ["15:25:00"]
+  Controllers
+    r = ["15:25:00"]
+
+char
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+char?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<char> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+char[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "char[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+int
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+int?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<int> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+int[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "int[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+double
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+double?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<double> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+double[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "double[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+float
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+float?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<float> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+float[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "float[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+decimal
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+decimal?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<decimal> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+decimal[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "decimal[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+bool
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+bool?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<bool> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+bool[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "bool[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+uint
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+uint?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<uint> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+uint[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "uint[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+long
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+long?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<long> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+long[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "long[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ulong
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ulong?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ulong> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ulong[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ulong[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+sbyte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+sbyte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<sbyte> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+sbyte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "sbyte[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+short
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+short?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<short> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+short[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "short[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ushort
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ushort?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<ushort> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+ushort[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "ushort[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+byte
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+byte?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<byte> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+byte[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "byte[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+DateTime
+  MinimalApis
+    r = "2020-03-12T15:25:00"
+  Controllers
+    r = "2020-03-12T15:25:00"
+
+DateTime?
+  MinimalApis
+    r = "2020-03-12T15:25:00"
+  Controllers
+    r = "2020-03-12T15:25:00"
+
+DateTime[]
+  MinimalApis
+    r = ["2020-03-12T15:25:00"]
+  Controllers
+    r = ["2020-03-12T15:25:00"]
+
+DateTimeOffset
+  MinimalApis
+    r = "2020-03-12T15:25:00+00:00"
+  Controllers
+    r = "2020-03-12T15:25:00+10:00"
+
+DateTimeOffset?
+  MinimalApis
+    r = "2020-03-12T15:25:00+00:00"
+  Controllers
+    r = "2020-03-12T15:25:00+10:00"
+
+DateTimeOffset[]
+  MinimalApis
+    r = ["2020-03-12T15:25:00+00:00"]
+  Controllers
+    r = ["2020-03-12T15:25:00+10:00"]
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+DateOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateOnly> q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "15:25:00".)
+  Controllers
+    e = 400 Bad Request (The value '15:25:00' is not valid.)
+
+TimeOnly
+  MinimalApis
+    r = "15:25:00"
+  Controllers
+    r = "15:25:00"
+
+TimeOnly?
+  MinimalApis
+    r = "15:25:00"
+  Controllers
+    r = "15:25:00"
+
+TimeOnly[]
+  MinimalApis
+    r = ["15:25:00"]
+  Controllers
+    r = ["15:25:00"]

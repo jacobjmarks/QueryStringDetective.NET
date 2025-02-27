@@ -253,3 +253,75 @@ byte[]
     r = ""
   Controllers
     r = null
+
+DateTime
+  MinimalApis
+    e = 400 Bad Request (Required parameter "DateTime q" was not provided from query string.)
+  Controllers
+    r = "0001-01-01T00:00:00"
+
+DateTime?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+DateTime[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+DateTimeOffset
+  MinimalApis
+    e = 400 Bad Request (Required parameter "DateTimeOffset q" was not provided from query string.)
+  Controllers
+    r = "0001-01-01T00:00:00+00:00"
+
+DateTimeOffset?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+DateTimeOffset[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Required parameter "DateOnly q" was not provided from query string.)
+  Controllers
+    r = "0001-01-01"
+
+DateOnly?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+DateOnly[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Required parameter "TimeOnly q" was not provided from query string.)
+  Controllers
+    r = "00:00:00"
+
+TimeOnly?
+  MinimalApis
+    r = null
+  Controllers
+    r = null
+
+TimeOnly[]
+  MinimalApis
+    r = []
+  Controllers
+    r = []

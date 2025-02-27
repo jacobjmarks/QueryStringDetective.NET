@@ -253,3 +253,75 @@ byte[]
     e = 400 Bad Request (Failed to bind parameter "byte[] q" from "no".)
   Controllers
     e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTime
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTime?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTime> q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTime[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime[] q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTimeOffset
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTimeOffset?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTimeOffset> q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateTimeOffset[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset[] q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateOnly> q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+TimeOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<TimeOnly> q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)
+
+TimeOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly[] q" from "no".)
+  Controllers
+    e = 400 Bad Request (The value 'no' is not valid.)

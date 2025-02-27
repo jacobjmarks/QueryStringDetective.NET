@@ -253,3 +253,75 @@ byte[]
     e = 400 Bad Request (Failed to bind parameter "byte[] q" from "".)
   Controllers
     e = 400 Bad Request ()
+
+DateTime
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+DateTime?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTime> q" from "".)
+  Controllers
+    r = null
+
+DateTime[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+DateTimeOffset
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+DateTimeOffset?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateTimeOffset> q" from "".)
+  Controllers
+    r = null
+
+DateTimeOffset[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+DateOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+DateOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<DateOnly> q" from "".)
+  Controllers
+    r = null
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)
+
+TimeOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<TimeOnly> q" from "".)
+  Controllers
+    r = null
+
+TimeOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly[] q" from "".)
+  Controllers
+    e = 400 Bad Request (The value '' is invalid.)

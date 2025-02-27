@@ -253,3 +253,75 @@ byte[]
     e = 400 Bad Request (Failed to bind parameter "byte[] q" from ".3".)
   Controllers
     e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateTime
+  MinimalApis
+    r = "2003-01-02T00:00:00"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateTime?
+  MinimalApis
+    r = "2003-01-02T00:00:00"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateTime[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTime[] q" from "1".)
+  Controllers
+    e = 400 Bad Request (The value '1' is not valid.)
+
+DateTimeOffset
+  MinimalApis
+    r = "2003-01-02T00:00:00+00:00"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateTimeOffset?
+  MinimalApis
+    r = "2003-01-02T00:00:00+00:00"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateTimeOffset[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateTimeOffset[] q" from "1".)
+  Controllers
+    e = 400 Bad Request (The value '1' is not valid.)
+
+DateOnly
+  MinimalApis
+    r = "2003-01-02"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateOnly?
+  MinimalApis
+    r = "2003-01-02"
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+DateOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "DateOnly[] q" from "1".)
+  Controllers
+    e = 400 Bad Request (The value '1' is not valid.)
+
+TimeOnly
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly q" from "1,2,.3".)
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+TimeOnly?
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "Nullable<TimeOnly> q" from "1,2,.3".)
+  Controllers
+    e = 400 Bad Request (The value '1,2,.3' is not valid.)
+
+TimeOnly[]
+  MinimalApis
+    e = 400 Bad Request (Failed to bind parameter "TimeOnly[] q" from "1".)
+  Controllers
+    e = 400 Bad Request (The value '1' is not valid.)
