@@ -73,7 +73,8 @@ public class QueryBindingEvaluatorTests
 
     private static string ToValidFileName(string value)
     {
-        foreach (var invalidChar in Path.GetInvalidFileNameChars())
+        char[] invalidChars = ['?', ':'];
+        foreach (var invalidChar in invalidChars)
             value = value.Replace(invalidChar, '_');
 
         return value;
